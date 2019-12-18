@@ -14,6 +14,10 @@ const useStyles = makeStyles({
 const TableHeaderRow = ({ headerData }) => {
   const classes = useStyles();
 
+  headerData = headerData.map(header => {
+    return header.charAt(0).toUpperCase() + header.substr(1);
+  });
+
   return (
     <TableRow className={classes.tablerow}>
       {headerData.map(header => (

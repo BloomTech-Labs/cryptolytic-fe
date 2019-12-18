@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 const TradingDashboardTable = () => {
   const classes = useStyles();
 
-  const tradingData = [
+  const data = [
     {
       exchange: "binance",
       trading_pair: "btc_usd",
@@ -391,6 +391,34 @@ const TradingDashboardTable = () => {
       trade_price: 0.01697
     }
   ];
+
+  const tradingData = data.map(obj => {
+    let {
+      exchange,
+      trade_time,
+      trade_price,
+      period,
+      percentage,
+      trading_pair
+    } = obj;
+
+    let date, time;
+    trade_time = new Date(obj.trade_time * 1000);
+
+    date = trade_time.toLocaleDateString();
+    time = trade_time.toLocaleTimeString();
+
+    console.log(date);
+    return {
+      date,
+      time,
+      period,
+      exchange,
+      trading_pair,
+      trade_price,
+      percentage
+    };
+  });
 
   const headerData = Object.keys(tradingData[0]);
 
