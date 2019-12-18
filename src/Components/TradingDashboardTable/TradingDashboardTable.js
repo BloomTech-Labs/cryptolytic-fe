@@ -1,6 +1,26 @@
 import React from "react";
+import TableHeaderRow from "./TableHeaderRow";
+import TableDataRow from "./TableDataRow";
+
+import { makeStyles } from "@material-ui/core/styles";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+
+const useStyles = makeStyles({
+  table: {
+    width: "80%",
+    margin: "5rem auto",
+    background: "rgba(35, 32, 44, 0.8)",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "10px 10px 0px 0px"
+  }
+});
 
 const TradingDashboardTable = () => {
+  const classes = useStyles();
+
   const tradingData = [
     {
       exchange: "binance",
@@ -372,11 +392,21 @@ const TradingDashboardTable = () => {
     }
   ];
 
+  const headerData = Object.keys(tradingData[0]);
+
   return (
-    <div>
-      <h1>Trading Dashboard Table</h1>
-      <table style={{ width: "100%" }}></table>
-    </div>
+    <TableContainer>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableHeaderRow headerData={headerData} />
+        </TableHead>
+        <TableBody>
+          {tradingData.map(items => (
+            <TableDataRow dataRow={items} />
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
