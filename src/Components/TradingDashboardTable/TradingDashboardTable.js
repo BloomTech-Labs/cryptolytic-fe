@@ -10,11 +10,13 @@ import TableBody from "@material-ui/core/TableBody";
 
 const useStyles = makeStyles({
   table: {
-    width: "80%",
+    width: "50%",
     margin: "5rem auto",
     background: "rgba(35, 32, 44, 0.8)",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "10px 10px 0px 0px"
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+  },
+  tableContainer: {
+    maxHeight: 700
   }
 });
 
@@ -395,7 +397,7 @@ const TradingDashboardTable = () => {
   const headerData = Object.keys(tradingData[0]);
 
   return (
-    <TableContainer>
+    <TableContainer className={classes.tableContainer}>
       <Table className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
