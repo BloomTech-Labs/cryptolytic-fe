@@ -16,7 +16,15 @@ const useStyles = makeStyles({
 const TableData = ({ item }) => {
   const classes = useStyles();
 
-  return <td>{item}</td>;
+  if (item === "Binance") {
+    return <td className={classes.binanceColor}>{item}</td>;
+  } else if (item === "Coinbase Pro") {
+    return <td className={classes.coinbaseColor}>{item}</td>;
+  } else if (item === "Bitfinex") {
+    return <td className={classes.bitfinex}>{item}</td>;
+  } else {
+    return <td>{item}</td>;
+  }
 };
 
 export default TableData;

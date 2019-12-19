@@ -3,11 +3,13 @@ import TableHeader from "./TableHeader";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const useStyles = makeStyles({
   tablerow: {
     background: "rgba(35, 32, 44, 0.8)",
-    color: "rgb(112, 112, 112)"
+    color: "rgb(112, 112, 112)",
+    background: "black"
   }
 });
 
@@ -19,9 +21,9 @@ const TableHeaderRow = ({ headerData }) => {
   });
 
   return (
-    <TableRow className={classes.tablerow}>
+    <TableRow stickyHeader className={classes.tablerow}>
       {headerData.map(header => (
-        <TableHeader header={header} />
+        <TableHeader className={classes.tableHead} header={header} />
       ))}
     </TableRow>
   );
