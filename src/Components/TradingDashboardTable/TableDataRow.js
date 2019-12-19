@@ -9,6 +9,12 @@ const useStyles = makeStyles({
     background: "rgba(0, 0, 0, 0.8)",
     color: "rgb(255, 255, 255)",
     borderBottom: "0.5px solid rgba(35, 32, 44, 0.8)"
+  },
+  positive: {
+    color: "green"
+  },
+  negitive: {
+    color: "red"
   }
 });
 
@@ -20,6 +26,7 @@ const TableDataRow = ({ dataRow }) => {
   dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
   dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
 
+  console.log(typeof dataRow.trading_price);
   const data = Object.values(dataRow);
   return (
     <TableRow className={classes.tablerow}>
