@@ -13,10 +13,18 @@ const useStyles = makeStyles({
 });
 
 const TableDataRow = ({ dataRow }) => {
-  const data = Object.values(dataRow);
-
   const classes = useStyles();
 
+  dataRow.buy_exchange =
+    dataRow.buy_exchange.charAt(0).toUpperCase() +
+    dataRow.buy_exchange.substr(1);
+  dataRow.sell_exchange =
+    dataRow.sell_exchange.charAt(0).toUpperCase() +
+    dataRow.sell_exchange.substr(1);
+  dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
+  dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
+
+  const data = Object.values(dataRow);
   return (
     <TableRow className={classes.tablerow}>
       {data.map(item => (

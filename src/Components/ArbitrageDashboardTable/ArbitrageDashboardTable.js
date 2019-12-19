@@ -223,9 +223,25 @@ const ArbitrageDashboardTable = () => {
       trade_time,
       price_difference
     } = obj;
+
+    let date, time;
+    trade_time = new Date(obj.trade_time * 1000);
+
+    date = trade_time.toLocaleDateString();
+    time = trade_time.toLocaleTimeString();
+
+    return {
+      date,
+      time,
+      buy_exchange,
+      sell_exchange,
+      trading_pair,
+      price_difference,
+      arbitrage_percentage
+    };
   });
 
-  const headerData = Object.keys(data[0]);
+  const headerData = Object.keys(arbitrageData[0]);
 
   const classes = useStyles();
 
@@ -236,7 +252,7 @@ const ArbitrageDashboardTable = () => {
           <TableHeaderRow headerData={headerData} />
         </TableHead>
         <TableBody>
-          {data.map(dataRow => (
+          {arbitrageData.map(dataRow => (
             <TableDataRow dataRow={dataRow} />
           ))}
         </TableBody>

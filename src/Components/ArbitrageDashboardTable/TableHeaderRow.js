@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 
 const TableHeaderRow = ({ headerData }) => {
   headerData = headerData.map(header => {
-    return header.charAt(0).toUpperCase() + header.substr(1);
+    return header.replace(/\_/, " ");
   });
 
   const classes = useStyles();
