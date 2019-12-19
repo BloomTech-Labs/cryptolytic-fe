@@ -1,11 +1,7 @@
 import React from "react";
 
-const TableHeader = () => {
-  return (
-    <th>
-      <h1>Table header</h1>
-    </th>
-  );
+const TableHeader = ({ header }) => {
+  return <th style={{ padding: "0.5rem 0" }}>{header}</th>;
 };
 
 export default TableHeader;

@@ -198,7 +198,7 @@ const ArbitrageDashboardTable = () => {
     }
   ];
 
-  const headerData = Object.key(data[0]);
+  const headerData = Object.keys(data[0]);
 
   return (
     <div>
@@ -207,9 +207,9 @@ const ArbitrageDashboardTable = () => {
           <TableHeaderRow headerData={headerData} />
         </div>
         <div>
-          {data.map(item => {
-            <TableDataRow items={item} />;
-          })}
+          {data.map(dataRow => (
+            <TableDataRow dataRow={dataRow} />
+          ))}
         </div>
       </table>
     </div>

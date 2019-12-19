@@ -1,11 +1,7 @@
 import React from "react";
 
-const TableData = () => {
-  return (
-    <td>
-      <h1>Table Data</h1>
-    </td>
-  );
+const TableData = ({ item }) => {
+  return <td>{item}</td>;
 };
 
 export default TableData;
