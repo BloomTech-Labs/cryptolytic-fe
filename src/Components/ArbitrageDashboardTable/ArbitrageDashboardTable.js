@@ -214,6 +214,17 @@ const ArbitrageDashboardTable = () => {
     }
   ];
 
+  const arbitrageData = data.map(obj => {
+    let {
+      buy_exchange,
+      sell_exchange,
+      trading_pair,
+      arbitrage_percentage,
+      trade_time,
+      price_difference
+    } = obj;
+  });
+
   const headerData = Object.keys(data[0]);
 
   const classes = useStyles();
