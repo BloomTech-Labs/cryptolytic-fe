@@ -9,6 +9,12 @@ const useStyles = makeStyles({
     background: "rgba(0, 0, 0, 0.8)",
     color: "rgb(255, 255, 255)",
     borderBottom: "0.5px solid rgba(35, 32, 44, 0.8)"
+  },
+  positive: {
+    color: "green"
+  },
+  negative: {
+    color: "red"
   }
 });
 
@@ -27,9 +33,19 @@ const TableDataRow = ({ dataRow }) => {
   const data = Object.values(dataRow);
   return (
     <TableRow className={classes.tablerow}>
-      {data.map(item => (
-        <TableData item={item} />
-      ))}
+      {data.map((item, i) => {
+        if (i === 6) {
+          return (
+            <TableData
+              item={item}
+              positive={classes.positive}
+              negative={classes.negative}
+            />
+          );
+        } else {
+          return <TableData item={item} />;
+        }
+      })}
     </TableRow>
   );
 };
