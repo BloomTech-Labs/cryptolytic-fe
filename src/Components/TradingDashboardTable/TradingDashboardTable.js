@@ -398,7 +398,7 @@ const TradingDashboardTable = () => {
 
   return (
     <TableContainer className={classes.tableContainer}>
-      <Table className={classes.table}>
+      <Table borderRadius={16} className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
