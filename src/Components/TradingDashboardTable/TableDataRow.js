@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   positive: {
     color: "green"
   },
-  negitive: {
+  negative: {
     color: "red"
   }
 });
@@ -26,13 +26,22 @@ const TableDataRow = ({ dataRow }) => {
   dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
   dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
 
-  console.log(typeof dataRow.trading_price);
   const data = Object.values(dataRow);
+
   return (
     <TableRow className={classes.tablerow}>
-      {data.map(item => (
-        <TableData item={item} />
-      ))}
+      {data.map((item, i) => {
+        if (i === 6) {
+          return (
+            <TableData
+              item={item}
+              positive={classes.positive}
+              negative={classes.negative}
+            />
+          );
+        }
+        return <TableData item={item} />;
+      })}
     </TableRow>
   );
 };
