@@ -2,6 +2,22 @@ import React from "react";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
 
+import { makeStyles } from "@material-ui/core/styles";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+
+const useStyles = makeStyles({
+  table: {
+    width: "80%",
+    margin: "5rem auto",
+    background: "rgba(35, 32, 44, 0.8)",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "10px 10px 0px 0px"
+  }
+});
+
 const ArbitrageDashboardTable = () => {
   const data = [
     {
@@ -200,19 +216,21 @@ const ArbitrageDashboardTable = () => {
 
   const headerData = Object.keys(data[0]);
 
+  const classes = useStyles();
+
   return (
-    <div>
-      <table>
-        <div>
+    <TableContainer>
+      <Table className={classes.table}>
+        <TableHead>
           <TableHeaderRow headerData={headerData} />
-        </div>
-        <div>
+        </TableHead>
+        <TableBody>
           {data.map(dataRow => (
             <TableDataRow dataRow={dataRow} />
           ))}
-        </div>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
