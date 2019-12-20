@@ -1,8 +1,7 @@
 import React from "react";
 import TableData from "./TableData";
-import { getIcons } from "../../Utilities/tradingPairIcons";
 
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles({
@@ -22,16 +21,16 @@ const useStyles = makeStyles({
 const TableDataRow = ({ dataRow }) => {
   const classes = useStyles();
 
-  dataRow.exchange =
-    dataRow.exchange.charAt(0).toUpperCase() + dataRow.exchange.substr(1);
+  dataRow.buy_exchange =
+    dataRow.buy_exchange.charAt(0).toUpperCase() +
+    dataRow.buy_exchange.substr(1);
+  dataRow.sell_exchange =
+    dataRow.sell_exchange.charAt(0).toUpperCase() +
+    dataRow.sell_exchange.substr(1);
   dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
   dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
 
   const data = Object.values(dataRow);
-
-  const icons = getIcons(dataRow.trading_pair);
-
-  console.log("icons>>>>>>>", icons);
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {
@@ -43,12 +42,9 @@ const TableDataRow = ({ dataRow }) => {
               negative={classes.negative}
             />
           );
-        } else if (i === 4) {
-          return (
-            <TableData item={item} icon1={icons.icon1} icon2={icons.icon2} />
-          );
+        } else {
+          return <TableData item={item} />;
         }
-        return <TableData item={item} />;
       })}
     </TableRow>
   );
