@@ -1,5 +1,6 @@
 import React from "react";
 import TradingDashboard from "./Views/TradingDashboard";
+import ArbitrageDashboard from "./Views/ArbitrageDashboard";
 import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
@@ -14,6 +15,10 @@ function App() {
         <NavigationBar />
 
         <TradingDashboard />
+      </div>
+      <div>
+        {" "}
+        <ArbitrageDashboard />
       </div>
     </div>
   );

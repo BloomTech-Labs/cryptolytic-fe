@@ -42,15 +42,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: "22px",
     lineHeight: "33px",
     letterSpacing: "0.03em",
-    margin: 15,
     display: "flex"
   },
   navBarMenuTextCursor: {
     visibility: "hidden",
     backgroundColor: "#4EB9FF",
-    width: 15,
+    width: 20,
     height: "125%",
-    marginLeft: -25,
+    marginLeft: -30,
     "&:active": {
       visibility: "visible"
     }
@@ -62,6 +61,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "100%",
     position: "relative",
+    transition: "0.2s ease",
     "&:hover": {
       backgroundColor: "rgba(35, 32, 44, 0.9)",
       width: "13vw",
