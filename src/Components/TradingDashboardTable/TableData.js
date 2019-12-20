@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TableData = ({ item, positive, negative }) => {
+const TableData = ({ item, positive, negative, icon1, icon2 }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
@@ -32,6 +32,14 @@ const TableData = ({ item, positive, negative }) => {
     return <td className={classes.coinbaseColor}>{item}</td>;
   } else if (item === "Bitfinex") {
     return <td className={classes.bitfinex}>{item}</td>;
+  } else if (icon1 && icon2) {
+    return (
+      <td>
+        <img src={icon1} />
+        <img src={icon2} />
+        {item}
+      </td>
+    );
   } else {
     return <td>{item}</td>;
   }
