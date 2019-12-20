@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import logo from "../images/logo.svg";
 import home from "../images/home-logo.svg";
@@ -42,7 +43,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: "22px",
     lineHeight: "33px",
     letterSpacing: "0.03em",
-    display: "flex"
+    display: "flex",
+    textDecoration: "none",
+    color: "#fff"
   },
   navBarMenuTextCursor: {
     visibility: "hidden",
@@ -80,13 +83,13 @@ function NavigationBar() {
       </div>
       <div className={classes.NavBarMenu}>
         {[
-          { name: "Home", logo: home },
-          { name: "Arbitrage", logo: arbitrage },
-          { name: "Trading", logo: trading },
-          { name: "API", logo: api },
-          { name: "Data", logo: data }
+          { name: "Home", logo: home, link: "home" },
+          { name: "Arbitrage", logo: arbitrage, link: "arbitrage-dashboard" },
+          { name: "Trading", logo: trading, link: "trading-dashboard" },
+          { name: "API", logo: api, link: "api" },
+          { name: "Data", logo: data, link: "data" }
         ].map(e => (
-          <div className={classes.navBarMenuText}>
+          <NavLink to={e.link} className={classes.navBarMenuText}>
             <div className={classes.navBarMenuTextCursor}>
               <div className={classes.navBarMenuButton}>
                 <img
@@ -96,7 +99,7 @@ function NavigationBar() {
                 {e.name}
               </div>
             </div>
-          </div>
+          </NavLink>
         ))}
       </div>
     </div>
