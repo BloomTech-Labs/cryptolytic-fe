@@ -6,7 +6,7 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles({
   tablerow: {
-    background: "rgba(35, 32, 44, 0.8)",
+    background: "#23282D",
     color: "rgb(112, 112, 112)"
   }
 });

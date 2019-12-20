@@ -8,7 +8,18 @@ const TableHeader = ({ header }) => {
     })
     .join(" ");
 
-  return <th style={{ padding: "0.5rem 0" }}>{header}</th>;
+  return (
+    <th
+      style={{
+        padding: "0.5rem 0",
+        position: "sticky",
+        top: 0,
+        background: "#191E23"
+      }}
+    >
+      {header}
+    </th>
+  );
 };
 
 export default TableHeader;

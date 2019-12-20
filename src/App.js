@@ -19,7 +19,9 @@ function App() {
             <TradingDashboard />
           </Route>
           <Route exact path='/arbitrage-dashboard'>
-            <ArbitrageDashboard />
+            <div className='Main'>
+              <ArbitrageDashboard />
+            </div>
           </Route>
         </Switch>
       </div>
