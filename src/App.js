@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import TradingDashboard from "./Views/TradingDashboard";
 import ArbitrageDashboard from "./Views/ArbitrageDashboard";
 import "./App.css";
@@ -10,15 +11,19 @@ function App() {
     <div className='App'>
       <div className='navHeader'>
         <NavigationHeader />
+        <NavigationBar />
       </div>
       <div className='Main'>
-        <NavigationBar />
-
-        <TradingDashboard />
-      </div>
-      <div>
-        {" "}
-        <ArbitrageDashboard />
+        <Switch>
+          <Route exact path='/trading-dashboard'>
+            <TradingDashboard />
+          </Route>
+          <Route exact path='/arbitrage-dashboard'>
+            <div className='Main'>
+              <ArbitrageDashboard />
+            </div>
+          </Route>
+        </Switch>
       </div>
     </div>
   );
