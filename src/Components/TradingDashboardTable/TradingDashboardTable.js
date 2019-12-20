@@ -1,7 +1,6 @@
 import React from "react";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
-
 import { makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -10,11 +9,13 @@ import TableBody from "@material-ui/core/TableBody";
 
 const useStyles = makeStyles({
   table: {
-    width: "80%",
-    margin: "5rem auto",
+    marginLeft: "20vw",
+    width: "60%",
     background: "rgba(35, 32, 44, 0.8)",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "10px 10px 0px 0px"
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+  },
+  tableContainer: {
+    maxHeight: 850
   }
 });
 
@@ -352,6 +353,22 @@ const TradingDashboardTable = () => {
     },
     {
       exchange: "bitfinex",
+      trading_pair: "eth_usd",
+      trade_time: 1576626250,
+      period: 60,
+      percentage: -0.1,
+      trade_price: 180.06
+    },
+    {
+      exchange: "bitfinex",
+      trading_pair: "ltc_usd",
+      trade_time: 1576626250,
+      period: 60,
+      percentage: 0.13,
+      trade_price: 39.62
+    },
+    {
+      exchange: "bitfinex",
       trading_pair: "matic_usd",
       trade_time: 1576626250,
       period: 60,
@@ -423,14 +440,14 @@ const TradingDashboardTable = () => {
   const headerData = Object.keys(tradingData[0]);
 
   return (
-    <TableContainer>
+    <TableContainer className={classes.tableContainer}>
       <Table className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
-        <TableBody>
+        <TableBody className={classes.tableBody}>
           {tradingData.map(items => (
-            <TableDataRow dataRow={items} />
+            <TableDataRow className={classes.tableDataRow} dataRow={items} />
           ))}
         </TableBody>
       </Table>

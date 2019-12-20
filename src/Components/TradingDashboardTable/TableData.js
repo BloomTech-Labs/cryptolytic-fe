@@ -10,13 +10,31 @@ const useStyles = makeStyles({
   },
   bitfinex: {
     color: "rgb(98, 227, 171)"
+  },
+  positive: {
+    color: "green"
+  },
+  negitive: {
+    color: "red"
   }
 });
 
-const TableData = ({ item }) => {
+const TableData = ({ item, positive, negative }) => {
   const classes = useStyles();
 
-  return <td>{item}</td>;
+  if (positive && item >= 0) {
+    return <td className={positive}>{item}</td>;
+  } else if (negative && negative) {
+    return <td className={negative}>{item}</td>;
+  } else if (item === "Binance") {
+    return <td className={classes.binanceColor}>{item}</td>;
+  } else if (item === "Coinbase Pro") {
+    return <td className={classes.coinbaseColor}>{item}</td>;
+  } else if (item === "Bitfinex") {
+    return <td className={classes.bitfinex}>{item}</td>;
+  } else {
+    return <td>{item}</td>;
+  }
 };
 
 export default TableData;
