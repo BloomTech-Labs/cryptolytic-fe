@@ -1,5 +1,6 @@
 import React from "react";
 import TableData from "./TableData";
+import { getIcons } from "../../Utilities/tradingPairIcons";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
@@ -28,6 +29,9 @@ const TableDataRow = ({ dataRow }) => {
 
   const data = Object.values(dataRow);
 
+  const icons = getIcons(dataRow.trading_pair);
+
+  console.log("icons>>>>>>>", icons);
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {
@@ -38,6 +42,10 @@ const TableDataRow = ({ dataRow }) => {
               positive={classes.positive}
               negative={classes.negative}
             />
+          );
+        } else if (i === 4) {
+          return (
+            <TableData item={item} icon1={icons.icon1} icon2={icons.icon2} />
           );
         }
         return <TableData item={item} />;
