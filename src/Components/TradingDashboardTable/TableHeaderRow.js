@@ -7,9 +7,7 @@ import zIndex from "@material-ui/core/styles/zIndex";
 
 const useStyles = makeStyles({
   tablerow: {
-    background: "rgba(35, 32, 44, 0.8)",
-    color: "rgb(112, 112, 112)",
-    background: "black"
+    color: "rgb(112, 112, 112)"
   }
 });
 

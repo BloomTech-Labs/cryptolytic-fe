@@ -9,7 +9,7 @@ import data from "../images/data-logo.svg";
 
 const useStyles = makeStyles(theme => ({
   NavBar: {
-    width: "15vw",
+    width: "17vw",
     height: "auto",
     backgroundColor: "black",
     boxShadow: "1px 0px 0px",
@@ -39,10 +39,18 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     textAlign: "left",
     fontWeight: 600,
-    fontSize: "22px",
+    fontSize: "1.2rem",
     lineHeight: "33px",
     letterSpacing: "0.03em",
     display: "flex"
+  },
+  NavBarMenuContainer: {
+    "&:hover": {
+      backgroundColor: "rgba(35, 32, 44, 0.9)",
+      width: "100%",
+      marginLeft: 20,
+      position: "relative"
+    }
   },
   navBarMenuTextCursor: {
     visibility: "hidden",
@@ -57,17 +65,12 @@ const useStyles = makeStyles(theme => ({
   navBarMenuButton: {
     visibility: "visible",
     display: "flex",
+    marginBottom: "30px",
     alignItems: "center",
     width: "100%",
     height: "100%",
     position: "relative",
-    transition: "0.2s ease",
-    "&:hover": {
-      backgroundColor: "rgba(35, 32, 44, 0.9)",
-      width: "13vw",
-      marginLeft: 20,
-      position: "relative"
-    }
+    transition: "0.2s ease"
   }
 }));
 
@@ -75,29 +78,31 @@ function NavigationBar() {
   const classes = useStyles();
   return (
     <div className={classes.NavBar}>
-      <div className={classes.NavBarLogo}>
-        <img src={logo} className={classes.Logo} />
-      </div>
-      <div className={classes.NavBarMenu}>
-        {[
-          { name: "Home", logo: home },
-          { name: "Arbitrage", logo: arbitrage },
-          { name: "Trading", logo: trading },
-          { name: "API", logo: api },
-          { name: "Data", logo: data }
-        ].map(e => (
-          <div className={classes.navBarMenuText}>
-            <div className={classes.navBarMenuTextCursor}>
-              <div className={classes.navBarMenuButton}>
-                <img
-                  style={{ margin: "0px 10px", marginLeft: 50 }}
-                  src={e.logo}
-                />
-                {e.name}
+      <div className={classes.NavMenuContainer}>
+        <div className={classes.NavBarLogo}>
+          <img src={logo} className={classes.Logo} />
+        </div>
+        <div className={classes.NavBarMenu}>
+          {[
+            { name: "Home", logo: home },
+            { name: "Arbitrage", logo: arbitrage },
+            { name: "Trading", logo: trading },
+            { name: "API", logo: api },
+            { name: "Data", logo: data }
+          ].map(e => (
+            <div className={classes.navBarMenuText}>
+              <div className={classes.navBarMenuTextCursor}>
+                <div className={classes.navBarMenuButton}>
+                  <img
+                    style={{ margin: "0px 10px", marginLeft: 50 }}
+                    src={e.logo}
+                  />
+                  {e.name}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
