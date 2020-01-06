@@ -21,3 +21,18 @@ body {
   justify-content: flex-end;
   flex-direction: column;
 } */
+
+.footer{
+  display: flex;
+  color: aliceblue;
+  align-items: baseline;
+  justify-content: center;
+  padding: 30px;
+  margin: 0 auto;
+  padding-top: 100px;
+  border-top: 2px solid white;
+  margin-top: 14.2%;
+  
+ 
+};
+
