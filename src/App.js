@@ -5,6 +5,7 @@ import ArbitrageDashboard from "./Views/ArbitrageDashboard";
 import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -21,10 +22,14 @@ function App() {
           <Route exact path='/arbitrage-dashboard'>
             <div className='Main'>
               <ArbitrageDashboard />
+              
             </div>
           </Route>
         </Switch>
       </div>
+    
+      <Footer />
+      
     </div>
   );
 }
