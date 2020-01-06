@@ -12,12 +12,15 @@ const useStyles = makeStyles({
     marginLeft: "20vw",
     width: "70%",
     background: "rgba(35, 32, 44, 0.8)",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(255,255,255,1.0)",
+      outline: "1px solid slategrey"
+    }
   },
   tableContainer: {
-    maxHeight: 850
-  },
-  tableHeaderStyle: {}
+    maxHeight: 440
+  }
 });
 
 const TradingDashboardTable = () => {
@@ -443,7 +446,7 @@ const TradingDashboardTable = () => {
   return (
     <TableContainer className={classes.tableContainer}>
       <Table stickyHeader aria-label='sticky table' className={classes.table}>
-        <TableHead className={classes.tableHeaderStyle}>
+        <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
         <TableBody className={classes.tableBody}>

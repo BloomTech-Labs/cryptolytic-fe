@@ -11,9 +11,11 @@
 .dash {
   border-radius: 200px;
 }
+
 body {
   background: black;
 }
+
 /* .navHead {
   display: flex;
   justify-content: flex-end;
