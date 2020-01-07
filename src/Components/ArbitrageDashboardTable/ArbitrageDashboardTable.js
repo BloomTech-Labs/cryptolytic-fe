@@ -18,12 +18,17 @@ const useStyles = makeStyles({
     marginLeft: "20vw",
     width: "70%",
     background: "rgba(35, 32, 44, 0.8)",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(255,255,255,1.0)",
+      outline: "1px solid slategrey"
+    }
   },
   tableContainer: {
     // maxHeight: 440
-    maxHeight: 440,
-    width: "140%"
+    maxHeight: 800
+    // width: "100%",
+    // maxWidth: "99vw"
   }
 });
 
@@ -44,14 +49,6 @@ const ArbitrageDashboardTable = () => {
       arbitrage_percentage: 0.07,
       trade_time: 1576537496,
       price_difference: 0.00034719
-    },
-    {
-      buy_exchange: "binance",
-      sell_exchange: "coinbase_pro",
-      trading_pair: "btc_eur",
-      arbitrage_percentage: 0.04,
-      trade_time: 1576537496,
-      price_difference: 0.000136841
     },
     {
       buy_exchange: "bitfinex",
@@ -118,14 +115,6 @@ const ArbitrageDashboardTable = () => {
       price_difference: 0.00018369184
     },
     {
-      buy_exchange: "binance",
-      sell_exchange: "bitfinex",
-      trading_pair: "matic_usd",
-      arbitrage_percentage: 0.02,
-      trade_time: 1576537496,
-      price_difference: 0.00006913613
-    },
-    {
       buy_exchange: "bitfinex",
       sell_exchange: "coinbase_pro",
       trading_pair: "btc_eth",
@@ -140,14 +129,6 @@ const ArbitrageDashboardTable = () => {
       arbitrage_percentage: 0.03,
       trade_time: 1576537496,
       price_difference: 0.00006369813
-    },
-    {
-      buy_exchange: "coinbase_pro",
-      sell_exchange: "bitfinex",
-      trading_pair: "matic_xmr",
-      arbitrage_percentage: 0.02,
-      trade_time: 1576537496,
-      price_difference: 0.000236913
     },
     {
       buy_exchange: "binance",
@@ -220,6 +201,30 @@ const ArbitrageDashboardTable = () => {
       arbitrage_percentage: 0.07,
       trade_time: 1576537496,
       price_difference: 0.00085226614988
+    },
+    {
+      buy_exchange: "coinbase_pro",
+      sell_exchange: "bitfinex",
+      trading_pair: "btc_usd",
+      arbitrage_percentage: 0.04,
+      trade_time: 1576537496,
+      price_difference: 0.000813621485
+    },
+    {
+      buy_exchange: "bitfinex",
+      sell_exchange: "binance",
+      trading_pair: "eth_usd",
+      arbitrage_percentage: 0.02,
+      trade_time: 1576537496,
+      price_difference: 0.0005322146958
+    },
+    {
+      buy_exchange: "binance",
+      sell_exchange: "bitfinex",
+      trading_pair: "xrp_usd",
+      arbitrage_percentage: 0.03,
+      trade_time: 1576537496,
+      price_difference: 0.0000813662164
     }
   ];
 
@@ -256,7 +261,7 @@ const ArbitrageDashboardTable = () => {
 
   return (
     <TableContainer className={classes.tableContainer}>
-      <Table className={classes.table}>
+      <Table stickyHeader aria-label='sticky table' className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>

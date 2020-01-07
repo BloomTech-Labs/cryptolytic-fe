@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     }
   },
   tableContainer: {
-    maxHeight: 440
+    maxHeight: 800
   }
 });
 
@@ -122,14 +122,6 @@ const TradingDashboardTable = () => {
       period: 60,
       percentage: -1.2,
       trade_price: 1.2
-    },
-    {
-      exchange: "binance",
-      trading_pair: "usd_matic",
-      trade_time: 1576538494,
-      period: 60,
-      percentage: 2.2,
-      trade_price: 2.2
     },
     {
       exchange: "binance",
@@ -293,14 +285,6 @@ const TradingDashboardTable = () => {
     },
     {
       exchange: "bitfinex",
-      trading_pair: "matic_usd",
-      trade_time: 1576606173,
-      period: 60,
-      percentage: -0.02,
-      trade_price: 0.01227
-    },
-    {
-      exchange: "bitfinex",
       trading_pair: "btc_usd",
       trade_time: 1576616250,
       period: 60,
@@ -322,14 +306,6 @@ const TradingDashboardTable = () => {
       period: 60,
       percentage: -0.03,
       trade_price: 35.62
-    },
-    {
-      exchange: "bitfinex",
-      trading_pair: "matic_usd",
-      trade_time: 1576616250,
-      period: 60,
-      percentage: -0.04,
-      trade_price: 0.01207
     },
     {
       exchange: "bitfinex",
@@ -373,14 +349,6 @@ const TradingDashboardTable = () => {
     },
     {
       exchange: "bitfinex",
-      trading_pair: "matic_usd",
-      trade_time: 1576626250,
-      period: 60,
-      percentage: 0.2,
-      trade_price: 0.01807
-    },
-    {
-      exchange: "bitfinex",
       trading_pair: "btc_usd",
       trade_time: 1576636250,
       period: 60,
@@ -402,14 +370,6 @@ const TradingDashboardTable = () => {
       period: 60,
       percentage: 0.18,
       trade_price: 48.62
-    },
-    {
-      exchange: "bitfinex",
-      trading_pair: "matic_usd",
-      trade_time: 1576636250,
-      period: 60,
-      percentage: -0.13,
-      trade_price: 0.01697
     }
   ];
 
@@ -449,9 +409,9 @@ const TradingDashboardTable = () => {
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
-        <TableBody className={classes.tableBody}>
+        <TableBody>
           {tradingData.map(items => (
-            <TableDataRow className={classes.tableDataRow} dataRow={items} />
+            <TableDataRow dataRow={items} />
           ))}
         </TableBody>
       </Table>
