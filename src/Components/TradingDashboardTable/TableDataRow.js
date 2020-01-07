@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 
 const TableDataRow = ({ dataRow }) => {
   const classes = useStyles();
+  console.log(dataRow, `trading`)
 
   dataRow.exchange = dataRow.exchange
     .replace(/\_/, " ")
