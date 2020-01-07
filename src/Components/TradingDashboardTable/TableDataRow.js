@@ -18,22 +18,19 @@ const useStyles = makeStyles({
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   negative: {
-<<<<<<< HEAD
     color: "red",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
-=======
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
     color: "red"
   },
   alined: {
-   justifyContent: "flex-start"
->>>>>>> 75bba0daa57a5bf3b2eafa8df2af0182457d357f
+    justifyContent: "flex-start"
   }
 });
 
 const TableDataRow = ({ dataRow }) => {
   const classes = useStyles();
-  console.log(dataRow, `trading`)
+  console.log(dataRow, `trading`);
 
   dataRow.exchange = dataRow.exchange
     .replace(/\_/, " ")
@@ -76,7 +73,7 @@ const TableDataRow = ({ dataRow }) => {
             <TableData item={item} icon1={icons.icon1} icon2={icons.icon2} />
           );
         }
-        return <TableData item={item} alined={classes.alined}/>;
+        return <TableData item={item} alined={classes.alined} />;
       })}
     </TableRow>
   );
