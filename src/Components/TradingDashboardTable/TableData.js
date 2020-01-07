@@ -27,9 +27,9 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
-    return <td className={positive}>{item}</td>;
+    return <td className={positive}>{item + " %"}</td>;
   } else if (negative && negative) {
-    return <td className={negative}>{item}</td>;
+    return <td className={negative}>{item + " %"}</td>;
   } else if (item === "Binance") {
     return <td className={classes.binanceColor}>{item}</td>;
   } else if (item === "Coinbase Pro") {

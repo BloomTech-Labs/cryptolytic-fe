@@ -22,16 +22,31 @@ const useStyles = makeStyles({
 const TableDataRow = ({ dataRow }) => {
   const classes = useStyles();
 
-  dataRow.exchange =
-    dataRow.exchange.charAt(0).toUpperCase() + dataRow.exchange.substr(1);
+  dataRow.exchange = dataRow.exchange
+    .replace(/\_/, " ")
+    .split(" ")
+    .map(word => {
+      return word.charAt(0).toUpperCase() + word.substr(1);
+    })
+    .join(" ");
+
   dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
   dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
+
+  if (String(dataRow.trade_price).length <= 3) {
+    dataRow.trade_price = "$ " + String(dataRow.trade_price.toFixed(2));
+  } else {
+    dataRow.trade_price = "$ " + String(dataRow.trade_price);
+  }
+
+  if (String(dataRow.percentage).length <= 3) {
+    dataRow.percentage = dataRow.percentage.toFixed(2);
+  }
 
   const data = Object.values(dataRow);
 
   const icons = getIcons(dataRow.trading_pair);
 
-  console.log("icons>>>>>>>", icons);
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {
