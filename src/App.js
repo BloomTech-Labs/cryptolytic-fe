@@ -20,16 +20,12 @@ function App() {
             <TradingDashboard />
           </Route>
           <Route exact path='/arbitrage-dashboard'>
-            <div className='Main'>
-              <ArbitrageDashboard />
-              
-            </div>
+            <ArbitrageDashboard />
           </Route>
         </Switch>
       </div>
-    
+
       <Footer />
-      
     </div>
   );
 }

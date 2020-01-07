@@ -3,34 +3,29 @@
   background: black;
 }
 
-.Main {
+/* .Main {
   display: flex;
-  /* align-items: flex-end; */
-}
+
+} */
 
 .dash {
   border-radius: 200px;
 }
+
 body {
   background: black;
 }
+
 /* .navHead {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
 } */
 
-.footer{
+/* .footer {
   display: flex;
   color: aliceblue;
-  align-items: baseline;
+  height: 10vh;
   justify-content: center;
-  padding: 30px;
   margin: 0 auto;
-  padding-top: 100px;
-  border-top: 2px solid white;
-  margin-top: 14.2%;
-  
- 
-};
-
+} */

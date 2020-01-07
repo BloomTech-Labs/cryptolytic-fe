@@ -11,13 +11,14 @@ import data from "../images/data-logo.svg";
 const useStyles = makeStyles(theme => ({
   NavBar: {
     width: "17vw",
-    height: "auto",
+    height: "100vh",
     backgroundColor: "black",
     boxShadow: "1px 0px 0px",
     borderRight: "1px solid #FFFFFF",
-    position: "absolute",
+    position: "fixed",
     top: 0,
-    left: 0
+    left: 0,
+    zIndex: 100
   },
   NavBarLogo: {
     width: "100%",

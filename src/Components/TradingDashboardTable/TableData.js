@@ -16,6 +16,10 @@ const useStyles = makeStyles({
   },
   negitive: {
     color: "red"
+  },
+  tradingPair: {
+    display: "flex",
+    marginLeft: "33%"
   }
 });
 
@@ -34,9 +38,10 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
     return <td className={classes.bitfinex}>{item}</td>;
   } else if (icon1 && icon2) {
     return (
-      <td>
+      <td className={classes.tradingPair}>
         <img src={icon1} />
         <img src={icon2} />
+
         {item}
       </td>
     );

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
 import axios from "axios";
@@ -13,32 +13,31 @@ const useStyles = makeStyles({
     marginLeft: "20vw",
     width: "70%",
     background: "rgba(35, 32, 44, 0.8)",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(255,255,255,1.0)",
+      outline: "1px solid slategrey"
+    }
   },
   tableContainer: {
     // maxHeight: 440
-    maxHeight: 440,
-    width: "140%"
+    maxHeight: 800
+    // width: "100%",
+    // maxWidth: "99vw"
   }
 });
 
 const ArbitrageDashboardTable = () => {
-
   const [data, setData] = useState([]);
- 
 
-useEffect(() => {
-  
-axios.get("https://cryptolytic-starter.herokuapp.com/arbitrage")
-     .then(res => { 
-      setData(res.data);
-         
-     })
-     .catch(err => console.log(err.response));
-
-}, []);
-
-
+  useEffect(() => {
+    axios
+      .get("https://cryptolytic-starter.herokuapp.com/arbitrage")
+      .then(res => {
+        setData(res.data);
+      })
+      .catch(err => console.log(err.response));
+  }, []);
 
   const arbitrageData = data.map(obj => {
     let {
@@ -70,14 +69,14 @@ axios.get("https://cryptolytic-starter.herokuapp.com/arbitrage")
   const headerData = [];
 
   for (let key in arbitrageData[0]) {
-      headerData.push(key)
+    headerData.push(key);
   }
- 
+
   const classes = useStyles();
 
   return (
     <TableContainer className={classes.tableContainer}>
-      <Table className={classes.table}>
+      <Table stickyHeader aria-label='sticky table' className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
