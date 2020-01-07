@@ -76,7 +76,7 @@ const ArbitrageDashboardTable = () => {
 
   return (
     <TableContainer className={classes.tableContainer}>
-      <Table stickyHeader aria-label='sticky table' className={classes.table}>
+      <Table className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>

@@ -56,7 +56,6 @@ const TradingDashboardTable = () => {
     date = trade_time.toLocaleDateString();
     time = trade_time.toLocaleTimeString();
 
-    console.log(date);
     return {
       date,
       time,
@@ -76,7 +75,7 @@ const TradingDashboardTable = () => {
 
   return (
     <TableContainer className={classes.tableContainer}>
-      <Table stickyHeader aria-label='sticky table' className={classes.table}>
+      <Table className={classes.table}>
         <TableHead>
           <TableHeaderRow headerData={headerData} />
         </TableHead>
