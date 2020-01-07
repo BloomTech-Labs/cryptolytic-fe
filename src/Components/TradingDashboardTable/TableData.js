@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TableData = ({ item, positive, negative, icon1, icon2 }) => {
+const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
@@ -50,6 +50,8 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
         {item}
       </td>
     );
+  } else if (item === typeof "string" && item.includes("$")) {
+    return <td className={alined}>{item}</td>
   } else {
     return <td className={classes.data}>{item}</td>;
   }

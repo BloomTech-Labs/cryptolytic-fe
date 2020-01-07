@@ -20,16 +20,37 @@ const useStyles = makeStyles({
 });
 
 const TableDataRow = ({ dataRow }) => {
+  console.log(dataRow, `arb`)
   const classes = useStyles();
 
-  dataRow.buy_exchange =
-    dataRow.buy_exchange.charAt(0).toUpperCase() +
-    dataRow.buy_exchange.substr(1);
-  dataRow.sell_exchange =
-    dataRow.sell_exchange.charAt(0).toUpperCase() +
-    dataRow.sell_exchange.substr(1);
-  dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
-  dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
+  dataRow.buy_exchange = dataRow.buy_exchange
+  .replace(/\_/, " ")
+  .split(" ")
+  .map(word => {
+    return word.charAt(0).toUpperCase() + word.substr(1);
+  })
+  .join(" ");
+
+  dataRow.sell_exchange = dataRow.sell_exchange
+  .replace(/\_/, " ")
+  .split(" ")
+  .map(word => {
+    return word.charAt(0).toUpperCase() + word.substr(1);
+  })
+  .join(" ");
+
+dataRow.trading_pair = dataRow.trading_pair.toUpperCase();
+dataRow.trading_pair = dataRow.trading_pair.replace(/\_/, "/");
+
+if (String(dataRow.price_difference).length <= 3) {
+  dataRow.price_difference = "$ " + String(dataRow.price_difference.toFixed(2));
+} else {
+  dataRow.price_difference = "$ " + String(dataRow.price_difference);
+}
+
+if (String(dataRow.arbritage_percentage).length <= 3) {
+  dataRow.arbritage_percentage = dataRow.arbritage_percentage.toFixed(2);
+}
 
   const data = Object.values(dataRow);
 
