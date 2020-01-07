@@ -3,23 +3,28 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
-    color: "rgb(78, 185, 255)"
+    color: "rgb(78, 185, 255)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   coinbaseColor: {
-    color: "rgb(83, 207, 215)"
+    color: "rgb(83, 207, 215)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   bitfinex: {
-    color: "rgb(98, 227, 171)"
-  },
-  positive: {
-    color: "green"
-  },
-  negitive: {
-    color: "red"
+    color: "rgb(98, 227, 171)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   tradingPair: {
     display: "flex",
-    marginLeft: "33%"
+    padding: "0.5em 0 0.5em 30%",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.7)"
+  },
+  data: {
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   }
 });
 
@@ -46,7 +51,7 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
       </td>
     );
   } else {
-    return <td>{item}</td>;
+    return <td className={classes.data}>{item}</td>;
   }
 };
 
