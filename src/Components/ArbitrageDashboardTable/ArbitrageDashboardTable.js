@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
+import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -20,34 +20,33 @@ const useStyles = makeStyles({
     }
   },
   tableContainer: {
+    // maxHeight: 440
     maxHeight: 800
+    // width: "100%",
+    // maxWidth: "99vw"
   }
 });
 
-const TradingDashboardTable = () => {
-  const classes = useStyles();
-
+const ArbitrageDashboardTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://cryptolytic-starter.herokuapp.com/trading")
+      .get("https://cryptolytic-starter.herokuapp.com/arbitrage")
       .then(res => {
         setData(res.data);
       })
-      .catch(error => {
-        console.log("error", error);
-      });
+      .catch(err => console.log(err.response));
   }, []);
 
-  const tradingData = data.map(obj => {
+  const arbitrageData = data.map(obj => {
     let {
-      exchange,
+      buy_exchange,
+      sell_exchange,
+      trading_pair,
+      arbitrage_percentage,
       trade_time,
-      trade_price,
-      period,
-      percentage,
-      trading_pair
+      price_difference
     } = obj;
 
     let date, time;
@@ -56,23 +55,24 @@ const TradingDashboardTable = () => {
     date = trade_time.toLocaleDateString();
     time = trade_time.toLocaleTimeString();
 
-    console.log(date);
     return {
       date,
       time,
-      period,
-      exchange,
+      buy_exchange,
+      sell_exchange,
       trading_pair,
-      trade_price,
-      percentage
+      price_difference,
+      arbitrage_percentage
     };
   });
 
   const headerData = [];
 
-  for (let key in tradingData[0]) {
+  for (let key in arbitrageData[0]) {
     headerData.push(key);
   }
+
+  const classes = useStyles();
 
   return (
     <TableContainer className={classes.tableContainer}>
@@ -81,8 +81,8 @@ const TradingDashboardTable = () => {
           <TableHeaderRow headerData={headerData} />
         </TableHead>
         <TableBody>
-          {tradingData.map(items => (
-            <TableDataRow dataRow={items} />
+          {arbitrageData.map(dataRow => (
+            <TableDataRow dataRow={dataRow} />
           ))}
         </TableBody>
       </Table>
@@ -90,4 +90,4 @@ const TradingDashboardTable = () => {
   );
 };
 
-export default TradingDashboardTable;
+export default ArbitrageDashboardTable;

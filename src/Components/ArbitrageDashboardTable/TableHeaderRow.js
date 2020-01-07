@@ -1,9 +1,8 @@
 import React from "react";
 import TableHeader from "./TableHeader";
 
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 const useStyles = makeStyles({
   tablerow: {
@@ -13,16 +12,16 @@ const useStyles = makeStyles({
 });
 
 const TableHeaderRow = ({ headerData }) => {
-  const classes = useStyles();
-
   headerData = headerData.map(header => {
-    return header.charAt(0).toUpperCase() + header.substr(1);
+    return header.replace(/\_/, " ");
   });
 
+  const classes = useStyles();
+
   return (
-    <TableRow stickyHeader className={classes.tablerow}>
+    <TableRow className={classes.tablerow}>
       {headerData.map(header => (
-        <TableHeader className={classes.tableHead} header={header} />
+        <TableHeader header={header} />
       ))}
     </TableRow>
   );

@@ -1,3 +1,31 @@
 .App {
   text-align: center;
+  background: black;
 }
+
+/* .Main {
+  display: flex;
+
+} */
+
+.dash {
+  border-radius: 200px;
+}
+
+body {
+  background: black;
+}
+
+/* .navHead {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+} */
+
+/* .footer {
+  display: flex;
+  color: aliceblue;
+  height: 10vh;
+  justify-content: center;
+  margin: 0 auto;
+} */
