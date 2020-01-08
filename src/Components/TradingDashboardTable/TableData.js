@@ -19,6 +19,7 @@ const useStyles = makeStyles({
   },
   tradingPair: {
     display: "flex",
+    alignItems: "center",
     padding: "0.5em 0 0.5em 30%",
     borderBottom: "1px solid rgba(35, 32, 44, 0.7)"
   },
