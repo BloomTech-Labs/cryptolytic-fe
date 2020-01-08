@@ -31,7 +31,6 @@ const TableDataRow = ({ dataRow }) => {
 
   const icons = getIcons(dataRow.trading_pair);
 
-  console.log("icons>>>>>>>", icons);
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {

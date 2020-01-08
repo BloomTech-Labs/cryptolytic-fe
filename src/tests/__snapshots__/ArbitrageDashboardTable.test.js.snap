@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArbitrageDashboardTable /> matches verified SnapShot should match snapshot 1`] = `
+<div
+  className="MuiTableContainer-root makeStyles-tableContainer-15"
+>
+  <table
+    className="MuiTable-root makeStyles-table-14"
+  >
+    <thead
+      className="MuiTableHead-root"
+    >
+      <tr
+        className="MuiTableRow-root makeStyles-tablerow-20 MuiTableRow-head"
+      />
+    </thead>
+    <tbody
+      className="MuiTableBody-root"
+    />
+  </table>
+</div>
+`;

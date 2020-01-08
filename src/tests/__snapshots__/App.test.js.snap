@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="navHeader"
+  >
+    <div
+      className="makeStyles-navHeader-211"
+    >
+      <div
+        className="makeStyles-title-212"
+      >
+        Dashboard
+      </div>
+      <div
+        className="makeStyles-cogWheel-213"
+      >
+        <img
+          src="cogwheel.svg"
+        />
+        <div
+          className="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root MuiAvatar-fallback"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="makeStyles-NavBar-230"
+    >
+      <div>
+        <div
+          className="makeStyles-NavBarLogo-231"
+        >
+          <img
+            src="logo.svg"
+          />
+        </div>
+        <div
+          className="makeStyles-NavBarMenu-232"
+        >
+          <a
+            aria-current={null}
+            className="makeStyles-navBarMenuText-233"
+            href="/home"
+            onClick={[Function]}
+          >
+            <div
+              className="makeStyles-navBarMenuTextCursor-235"
+            >
+              <div
+                className="makeStyles-navBarMenuButton-236"
+              >
+                <img
+                  src="home-logo.svg"
+                  style={
+                    Object {
+                      "margin": "0px 10px",
+                      "marginLeft": 50,
+                    }
+                  }
+                />
+                Home
+              </div>
+            </div>
+          </a>
+          <a
+            aria-current={null}
+            className="makeStyles-navBarMenuText-233"
+            href="/arbitrage-dashboard"
+            onClick={[Function]}
+          >
+            <div
+              className="makeStyles-navBarMenuTextCursor-235"
+            >
+              <div
+                className="makeStyles-navBarMenuButton-236"
+              >
+                <img
+                  src="arbitrage-logo.svg"
+                  style={
+                    Object {
+                      "margin": "0px 10px",
+                      "marginLeft": 50,
+                    }
+                  }
+                />
+                Arbitrage
+              </div>
+            </div>
+          </a>
+          <a
+            aria-current={null}
+            className="makeStyles-navBarMenuText-233"
+            href="/trading-dashboard"
+            onClick={[Function]}
+          >
+            <div
+              className="makeStyles-navBarMenuTextCursor-235"
+            >
+              <div
+                className="makeStyles-navBarMenuButton-236"
+              >
+                <img
+                  src="line-chart-logo.svg"
+                  style={
+                    Object {
+                      "margin": "0px 10px",
+                      "marginLeft": 50,
+                    }
+                  }
+                />
+                Trading
+              </div>
+            </div>
+          </a>
+          <a
+            aria-current={null}
+            className="makeStyles-navBarMenuText-233"
+            href="/api"
+            onClick={[Function]}
+          >
+            <div
+              className="makeStyles-navBarMenuTextCursor-235"
+            >
+              <div
+                className="makeStyles-navBarMenuButton-236"
+              >
+                <img
+                  src="cloud-upload-logo.svg"
+                  style={
+                    Object {
+                      "margin": "0px 10px",
+                      "marginLeft": 50,
+                    }
+                  }
+                />
+                API
+              </div>
+            </div>
+          </a>
+          <a
+            aria-current={null}
+            className="makeStyles-navBarMenuText-233"
+            href="/data"
+            onClick={[Function]}
+          >
+            <div
+              className="makeStyles-navBarMenuTextCursor-235"
+            >
+              <div
+                className="makeStyles-navBarMenuButton-236"
+              >
+                <img
+                  src="data-logo.svg"
+                  style={
+                    Object {
+                      "margin": "0px 10px",
+                      "marginLeft": 50,
+                    }
+                  }
+                />
+                Data
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

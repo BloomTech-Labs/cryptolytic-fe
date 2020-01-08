@@ -8,24 +8,36 @@ import NavigationBar from "../Components/NavigationBar";
 import Footer from "../Components/Footer";
 ///
 import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import renderer from "react-test-renderer";
 
-test("Dashboard components initialized without crashing", () => {
-  // Invariant failed: You should not use <NavLink> outside a <Router>
-  // render(<App />);
+test("Dashboard components initialized without crashing!", () => {
   render(<TradingDashboard />);
   render(<ArbitrageDashboard />);
   render(<NavigationHeader />);
-
-  // Invariant failed: You should not use <NavLink> outside a <Router>
-  // render(<NavigationBar />);
-
+  render(
+    <MemoryRouter>
+      <NavigationBar />
+    </MemoryRouter>
+  );
   render(<Footer />);
+
+});
+test("<App /> should render", () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
 });
 
-describe("<App />", () => {
-  it("should match snapshot", () => {
-    const tree = renderer.create(<App />).toJSON();
+describe('<App /> matches verified SnapShot', () => {
+  it('should match snapshot', () => {
+    const tree = renderer.create(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

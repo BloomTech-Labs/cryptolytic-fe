@@ -34,7 +34,7 @@ const TableDataRow = ({ dataRow }) => {
   const data = Object.values(dataRow);
 
   const icons = getIcons(dataRow.trading_pair);
-
+  console.log(dataRow.trading_pair, "HEY LOOK OUT FOR ME");
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {
