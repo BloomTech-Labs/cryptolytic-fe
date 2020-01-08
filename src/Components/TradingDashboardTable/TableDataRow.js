@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     color: "red"
   },
   alined: {
-    justifyContent: "flex-start"
+    textAlign: "left"
   }
 });
 

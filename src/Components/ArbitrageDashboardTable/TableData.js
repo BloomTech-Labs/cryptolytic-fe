@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
@@ -26,7 +26,7 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
     return <td className={negative}>{item + " %"}</td>;
   } else if (item === "Binance") {
     return <td className={classes.binanceColor}>{item}</td>;
-  } else if (item === "Coinbase_pro") {
+  } else if (item === "Coinbase Pro") {
     return <td className={classes.coinbaseColor}>{item}</td>;
   } else if (item === "Bitfinex") {
     return <td className={classes.bitfinex}>{item}</td>;

@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
@@ -50,8 +50,8 @@ const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
         {item}
       </td>
     );
-  } else if (item === typeof "string" && item.includes("$")) {
-    return <td className={alined}>{item}</td>
+  } else if (item === typeof "string" && item.includes("$ ")) {
+    return <td className={alined}>{item}</td>;
   } else {
     return <td className={classes.data}>{item}</td>;
   }
