@@ -20,10 +20,11 @@ const useStyles = makeStyles({
     }
   },
   tableContainer: {
-    // maxHeight: 440
-    maxHeight: 800
-    // width: "100%",
-    // maxWidth: "99vw"
+    maxHeight: 800,
+
+    "&::-webkit-scrollbar": {
+      display: "none"
+    }
   }
 });
 

@@ -12,6 +12,10 @@ import VET from "../../node_modules/cryptocurrency-icons/svg/color/vet.svg";
 import TRX from "../../node_modules/cryptocurrency-icons/svg/color/trx.svg";
 import LINK from "../../node_modules/cryptocurrency-icons/svg/color/link.svg";
 import TOMO from "../../node_modules/cryptocurrency-icons/svg/color/tomo.svg";
+import ETC from "../../node_modules/cryptocurrency-icons/svg/color/etc.svg";
+import ZIL from "../../node_modules/cryptocurrency-icons/svg/color/zil.svg";
+import XLM from "../../node_modules/cryptocurrency-icons/svg/color/xlm.svg";
+
 
 export const getIcons = tradingPair => {
   const iconPair = tradingPair.split("/").reduce((acc, curr) => {
@@ -74,10 +78,22 @@ export const getIcons = tradingPair => {
         icon = TOMO;
         acc.push(icon);
         break;
-      default:
-        icon = null;
-        acc.push(icon);
-        break;
+        case "ETC":
+          icon = ETC;
+          acc.push(icon);
+          break;
+          case "ZIL":
+            icon = ZIL;
+            acc.push(icon);
+            break;
+            case "XLM":
+              icon = XLM;
+              acc.push(icon);
+              break;
+        default:
+          icon = null;
+          acc.push(icon);
+          break;
     }
 
     return acc;
