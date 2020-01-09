@@ -5,28 +5,48 @@ const useStyles = makeStyles({
   binanceColor: {
     color: "rgb(78, 185, 255)",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1200px)": {
+      padding: "0.7em"
+    }
   },
   coinbaseColor: {
     color: "rgb(83, 207, 215)",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1200px)": {
+      padding: "0.7em"
+    }
   },
   bitfinex: {
     color: "rgb(98, 227, 171)",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1200px)": {
+      padding: "0.7em"
+    }
   },
   tradingPair: {
     display: "flex",
     alignItems: "center",
     paddingLeft: "23%",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1600px)": {
+      padding: "1.2em"
+    }
   },
   data: {
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1600px)": {
+      padding: "0.7em"
+    }
   }
 });
 
