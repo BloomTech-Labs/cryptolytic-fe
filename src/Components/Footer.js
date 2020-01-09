@@ -25,6 +25,7 @@ const useStyles = makeStyles(t => ({
     marginTop: 150
   },
   footerLinks: {
+    fontFamily: 'Titillium Web, sans-serif',
     fontStyle: 'normal',
     fontWeight: 600,
     fontSize: '1.6rem',
@@ -39,6 +40,7 @@ const useStyles = makeStyles(t => ({
     }
   },
   footerTitle: {
+    fontFamily: 'Titillium Web, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: '3rem',
@@ -49,6 +51,7 @@ const useStyles = makeStyles(t => ({
     letterSpacing: '0.03em'
   },
   footerBody: {
+    fontFamily: 'Titillium Web, sans-serif',
     fontStyle: 'normal',
     fontWeight: 600,
     fontSize: '1.6rem',
@@ -58,6 +61,7 @@ const useStyles = makeStyles(t => ({
     textAlign: 'center'
   },
   footerCopyright: {
+    fontFamily: 'Titillium Web, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: '1.4rem',
