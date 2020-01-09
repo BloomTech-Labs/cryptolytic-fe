@@ -15,16 +15,15 @@ test("NavigationBar component initialized without crashing", () => {
 });
 
 it("NavigationBar menu items rendered!", () => {
+  const menuItems = ['home', 'arbitrage', 'trading', 'api', 'data']
   const { getByText } = render(
     <MemoryRouter>
       <NavigationBar />
     </MemoryRouter>
   );
-  getByText(/home/i);
-  getByText(/arbitrage/i);
-  getByText(/trading/i);
-  getByText(/api/i);
-  getByText(/data/i);
+  menuItems.forEach(e => {
+    expect(`/${e}/i`)
+  })
 });
 
 describe("<NavigationBar /> matches verified SnapShot", () => {
