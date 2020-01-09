@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, Grid } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(t => ({
   footer: {
@@ -10,8 +11,7 @@ const useStyles = makeStyles(t => ({
     alignItems: "center",
     height: "10vh",
     width: "90%",
-    bottom: 0,
-    left: 0
+    padding: '60px 0px 225px 0px',
   },
   footerNavigation: {
     zIndex: 1,
@@ -25,7 +25,47 @@ const useStyles = makeStyles(t => ({
     marginTop: 150
   },
   footerLinks: {
-    margin: "8px 0px"
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '1.6rem',
+    lineHeight: '49px',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    margin: '5px',
+    '&:hover': {
+        textDecoration: 'none',
+        color: 'gray'
+    }
+  },
+  footerTitle: {
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: '3rem',
+    lineHeight: '76px',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    letterSpacing: '0.03em'
+  },
+  footerBody: {
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '1.6rem',
+    lineHeight: '49px',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center'
+  },
+  footerCopyright: {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: '1.4rem',
+    lineHeight: '37px',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginLeft: '1vw'
   }
 }));
 
@@ -37,41 +77,28 @@ const Footer = () => {
         <Grid container spacing={0}>
           <Grid
             item
-            xs={6}
-            sm={3}
+            sm={4}
             direction='column'
             container
             alignItems='flex-start'
           >
-            <p>Cryptolytic</p>
-            <p>Contact Us</p>
-            <p>cryptolyticapp@gmail.com</p>
-            <p>Cryptolytic © 2020</p>
+            <Typography className={classes.footerTitle}>Cryptolytic</Typography>
+            <div style={{ margin: '30px 0px' }}>
+                {['Contact Us', 'cryptolyticapp@gmail.com'].map(e => 
+                    <Typography className={classes.footerBody}>{e}</Typography>
+                )}
+            </div>
+            <Typography className={classes.footerCopyright}>Copyright 2020 Cryptolytic</Typography>
           </Grid>
-          <Grid item xs={7} sm={4} container direction='column'>
-            <Link color='inherit' className={classes.footerLinks}>
-              Home
-            </Link>
-            <Link color='inherit' className={classes.footerLinks}>
-              About
-            </Link>
-            <Link color='inherit' className={classes.footerLinks}>
-              Services
-            </Link>
+          <Grid item sm={4} container direction='column' alignItems='center'>
+              {['Home', 'About', 'Services'].map(e => 
+                <Link color='inherit' className={classes.footerLinks}>{e}</Link>
+              )}
           </Grid>
-          <Grid item xs={7} sm={4} container direction='column'>
-            <Link color='inherit' className={classes.footerLinks}>
-              Legal
-            </Link>
-            <Link color='inherit' className={classes.footerLinks}>
-              Privacy Policy
-            </Link>
-            <Link color='inherit' className={classes.footerLinks}>
-              User Agreement
-            </Link>
-            <Link color='inherit' className={classes.footerLinks}>
-              FAQ
-            </Link>
+          <Grid item sm={3} container direction='column' alignItems='center'>
+            {['Legal', 'Privacy Policy', 'User Agreement', 'FAQ'].map(e => 
+                <Link color='inherit' className={classes.footerLinks}>{e}</Link>                    
+            )}
           </Grid>
         </Grid>
       </nav>
