@@ -22,6 +22,7 @@ function App() {
           component={ArbitrageDashboard}
         />
       </Switch>
+      <Footer />
     </div>
   );
 }
