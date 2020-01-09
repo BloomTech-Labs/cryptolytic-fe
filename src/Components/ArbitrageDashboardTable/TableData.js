@@ -1,19 +1,32 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
-    color: "rgb(78, 185, 255)"
+    color: "rgb(78, 185, 255)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   coinbaseColor: {
-    color: "rgb(83, 207, 215)"
+    color: "rgb(83, 207, 215)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   bitfinex: {
-    color: "rgb(98, 227, 171)"
+    color: "rgb(98, 227, 171)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   tradingPair: {
     display: "flex",
-    marginLeft: "23%"
+    alignItems: "center",
+    paddingLeft: "23%",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+  },
+  data: {
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   }
 });
 
@@ -21,12 +34,12 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
-    return <td className={positive}>{item}</td>;
+    return <td className={positive}>{item + " %"}</td>;
   } else if (negative && negative) {
-    return <td className={negative}>{item}</td>;
+    return <td className={negative}>{item + " %"}</td>;
   } else if (item === "Binance") {
     return <td className={classes.binanceColor}>{item}</td>;
-  } else if (item === "Coinbase_pro") {
+  } else if (item === "Coinbase Pro") {
     return <td className={classes.coinbaseColor}>{item}</td>;
   } else if (item === "Bitfinex") {
     return <td className={classes.bitfinex}>{item}</td>;
@@ -40,7 +53,7 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
       </td>
     );
   } else {
-    return <td>{item}</td>;
+    return <td className={classes.data}>{item}</td>;
   }
 };
 
