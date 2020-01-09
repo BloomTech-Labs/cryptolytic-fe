@@ -11,7 +11,8 @@ const useStyles = makeStyles(t => ({
     height: "10vh",
     width: "90%",
     bottom: 0,
-    left: 0
+    left: 0,
+    marginTop: "2em"
   },
   footerNavigation: {
     zIndex: 1,
