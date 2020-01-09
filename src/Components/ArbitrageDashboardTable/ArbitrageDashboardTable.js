@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
+import { css } from "@emotion/core";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
@@ -28,14 +30,26 @@ const useStyles = makeStyles({
   }
 });
 
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 30vh 0 50vh 10vw;
+`;
+
 const ArbitrageDashboardTable = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://cryptolytic-starter.herokuapp.com/arbitrage")
       .then(res => {
         setData(res.data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       })
       .catch(err => console.log(err.response));
   }, []);
@@ -75,6 +89,20 @@ const ArbitrageDashboardTable = () => {
 
   const classes = useStyles();
 
+  
+  if (loading) {
+    return (
+      <PropagateLoader
+        css={override}
+        size={25}
+        color={
+          "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+        }
+        loading={loading}
+      />
+    );
+  } else {
+
   return (
     <TableContainer className={classes.tableContainer}>
       <Table stickyHeader aria-label='sticky table' className={classes.table}>
@@ -89,6 +117,7 @@ const ArbitrageDashboardTable = () => {
       </Table>
     </TableContainer>
   );
+          };
 };
 
 export default ArbitrageDashboardTable;
