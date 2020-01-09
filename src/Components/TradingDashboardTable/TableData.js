@@ -4,27 +4,31 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   binanceColor: {
     color: "rgb(78, 185, 255)",
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   coinbaseColor: {
     color: "rgb(83, 207, 215)",
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   bitfinex: {
     color: "rgb(98, 227, 171)",
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   tradingPair: {
     display: "flex",
     alignItems: "center",
     padding: "0.5em 0 0.5em 30%",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.7)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.7)",
+
+    "@media(max-width: 1600px)": {
+      padding: "1.2em"
+    }
   },
   data: {
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   }
 });

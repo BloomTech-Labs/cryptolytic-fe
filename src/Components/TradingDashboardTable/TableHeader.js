@@ -15,7 +15,7 @@ const TableHeader = ({ header }) => {
   return (
     <th
       style={{
-        padding: "0.5rem 0",
+        padding: "0.5em 0 0.5em 2em",
         position: "sticky",
         top: 0,
         background: "#191E23"

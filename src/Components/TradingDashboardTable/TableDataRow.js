@@ -14,12 +14,12 @@ const useStyles = makeStyles({
   },
   positive: {
     color: "green",
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   negative: {
     color: "red",
-    padding: "0.5em 0",
+    padding: "0.5em 0 0.5em 2em",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
     color: "red"
   },
