@@ -56,15 +56,10 @@ const useStyles = makeStyles(theme => ({
       position: "relative"
     }
   },
-  navBarMenuTextCursor: {
-    visibility: "hidden",
+  navBarMenuTextCursorActive: {
     backgroundColor: "#4EB9FF",
     width: 20,
-    height: "125%",
-    marginLeft: -30,
-    "&:active": {
-      visibility: "visible"
-    }
+    marginLeft: '-18vw',
   },
   navBarMenuButton: {
     visibility: "visible",
@@ -94,15 +89,13 @@ function NavigationBar() {
             { name: "API", logo: api, link: "api" },
             { name: "Data", logo: data, link: "data" }
           ].map(e => (
-            <NavLink to={e.link} className={classes.navBarMenuText}>
-              <div className={classes.navBarMenuTextCursor}>
-                <div className={classes.navBarMenuButton}>
-                  <img
-                    style={{ margin: "0px 10px", marginLeft: 50 }}
-                    src={e.logo}
-                  />
-                  {e.name}
-                </div>
+            <NavLink activeClassName={classes.navBarMenuTextCursorActive} to={e.link} className={classes.navBarMenuText}>
+              <div className={classes.navBarMenuButton}>
+                <img
+                  style={{ margin: "0px 10px", marginLeft: 50 }}
+                  src={e.logo}
+                />
+                {e.name}
               </div>
             </NavLink>
           ))}
