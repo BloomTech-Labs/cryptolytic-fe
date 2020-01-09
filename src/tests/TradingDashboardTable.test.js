@@ -9,17 +9,17 @@ import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 test("Trading DashboardTable components initialized without crashing", () => {
-  render(<TableHeaderRow headerData={["test", "test"]} />);
-  render(
-    <TableDataRow
-      dataRow={{
-        buy_exchange: "binance",
-        sell_exchange: "bitfinex",
-        trading_pair: "usd_btc",
-        exchange: "binance"
-      }}
-    />
-  );
+    render(<TableHeaderRow headerData={["Header", "Test"]} />);
+    render(
+      <TableDataRow
+        dataRow={{
+          buy_exchange: "binance",
+          sell_exchange: "bitfinex",
+          trading_pair: "usd_btc",
+          exchange: "binance"
+        }}
+      />
+    );
 });
 
 describe("<TradingDashboardTable /> matches verified SnapShot", () => {
@@ -27,7 +27,7 @@ describe("<TradingDashboardTable /> matches verified SnapShot", () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <TradingDashboardTable />
+            <TradingDashboardTable />
         </MemoryRouter>
       )
       .toJSON();

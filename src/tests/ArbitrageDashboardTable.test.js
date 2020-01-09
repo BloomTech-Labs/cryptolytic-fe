@@ -9,7 +9,7 @@ import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 test("ArbitrageDashboardTable components initialized without crashing", () => {
-  render(<TableHeaderRow headerData={["test", "test"]} />);
+  render(<TableHeaderRow headerData={["Header", "Test"]} />);
   render(
     <TableDataRow
       dataRow={
