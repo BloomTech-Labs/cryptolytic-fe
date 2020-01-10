@@ -68,15 +68,10 @@ const useStyles = makeStyles(theme => ({
       position: "relative"
     }
   },
-  navBarMenuTextCursor: {
-    visibility: "hidden",
+  navBarMenuTextCursorActive: {
     backgroundColor: "#4EB9FF",
     width: 20,
-    height: "125%",
-    marginLeft: -30,
-    "&:active": {
-      visibility: "visible"
-    }
+    marginLeft: '-18vw',
   },
   navBarMenuButton: {
     visibility: "visible",
@@ -104,6 +99,7 @@ function NavigationBar() {
         </div>
         <div className={classes.NavBarMenu}>
           {[
+
             { name: "Home", logo: home, link: "home", status: 'inactive' },
             { name: "Arbitrage", logo: arbitrage, link: "arbitrage-dashboard", status: 'active' },
             { name: "Trading", logo: trading, link: "trading-dashboard", status: 'active' },
