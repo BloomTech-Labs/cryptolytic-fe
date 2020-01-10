@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableData /> matches verified SnapShot should match snapshot 1`] = `<td />`;

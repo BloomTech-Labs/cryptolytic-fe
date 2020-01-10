@@ -139,6 +139,7 @@ function NavigationBar() {
                     />
                     {e.name}
                   </div>
+
                 </div>
               </NavLink>
              </div>
