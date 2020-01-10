@@ -14,17 +14,14 @@ function App() {
         <NavigationHeader />
         <NavigationBar />
       </div>
-      <div className='Main'>
-        <Switch>
-          <Route exact path='/trading-dashboard'>
-            <TradingDashboard />
-          </Route>
-          <Route exact path='/arbitrage-dashboard'>
-            <ArbitrageDashboard />
-          </Route>
-        </Switch>
-      </div>
-
+      <Switch>
+        <Route exact path='/trading-dashboard' component={TradingDashboard} />
+        <Route
+          exact
+          path='/arbitrage-dashboard'
+          component={ArbitrageDashboard}
+        />
+      </Switch>
       <Footer />
     </div>
   );

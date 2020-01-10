@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   mainHeader: {
     background:
-      "linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
+      "-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     position: "relative",

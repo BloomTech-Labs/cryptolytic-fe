@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TradingDashboardTable /> matches verified SnapShot should match snapshot 1`] = `
+<div
+  className="MuiTableContainer-root makeStyles-tableContainer-17"
+>
+  <table
+    className="MuiTable-root makeStyles-table-16"
+  >
+    <thead
+      className="MuiTableHead-root"
+    >
+      <tr
+        className="MuiTableRow-root makeStyles-tablerow-22 MuiTableRow-head"
+      />
+    </thead>
+    <tbody
+      className="MuiTableBody-root"
+    />
+  </table>
+</div>
+`;
