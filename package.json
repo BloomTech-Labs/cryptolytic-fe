@@ -41,9 +41,13 @@
     "@testing-library/react": "^9.4.0",
     "react-test-renderer": "^16.12.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 =======
   }
+=======
+  },
+>>>>>>> dcb2f3f23ab7dee66d998ccf64dc7700b857101e
 
 >>>>>>> 012c8deeee2242ca18630c3016b07ff349ea6d1e
   "presets": [
@@ -54,7 +58,10 @@
     "emotion"
   ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 r
 >>>>>>> 012c8deeee2242ca18630c3016b07ff349ea6d1e
+=======
+>>>>>>> dcb2f3f23ab7dee66d998ccf64dc7700b857101e
 }
