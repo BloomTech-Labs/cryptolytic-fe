@@ -21,7 +21,11 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     padding: "0.5em 0 0.5em 30%",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.7)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.7)",
+
+    "@media(max-width: 1600px)": {
+      padding: "1.2em 0"
+    }
   },
   data: {
     padding: "0.5em 0",
@@ -45,7 +49,7 @@ const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
   } else if (icon1 && icon2) {
     return (
       <td className={classes.tradingPair}>
-        <img src={icon1} />
+        <img src={icon1} className={classes.icon} />
         <img src={icon2} />
 
         {item}

@@ -22,7 +22,11 @@ const useStyles = makeStyles({
     alignItems: "center",
     paddingLeft: "23%",
     padding: "0.5em 0",
-    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)",
+
+    "@media(max-width: 1600px)": {
+      padding: "1.2em"
+    }
   },
   data: {
     padding: "0.5em 0",
