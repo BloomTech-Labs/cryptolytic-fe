@@ -59,7 +59,6 @@ const TableDataRow = ({ dataRow }) => {
   const data = Object.values(dataRow);
 
   const icons = getIcons(dataRow.trading_pair);
-
   return (
     <TableRow className={classes.tablerow}>
       {data.map((item, i) => {

@@ -73,7 +73,6 @@ const TradingDashboardTable = () => {
     date = trade_time.toLocaleDateString();
     time = trade_time.toLocaleTimeString();
 
-    console.log(date);
     return {
       date,
       time,

@@ -89,7 +89,11 @@ function NavigationBar() {
         <div className={classes.NavBarMenu}>
           {[
             { name: "Home", logo: home, link: "home" },
-            { name: "Arbitrage", logo: arbitrage, link: "arbitrage-dashboard" },
+            {
+              name: "Arbitrage",
+              logo: arbitrage,
+              link: "arbitrage-dashboard"
+            },
             { name: "Trading", logo: trading, link: "trading-dashboard" },
             { name: "API", logo: api, link: "api" },
             { name: "Data", logo: data, link: "data" }
