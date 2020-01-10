@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     flexDirection: "column",
     color: "#FFFFFF",
-    marginLeft: 25
+    marginLeft: 15
   },
   navBarMenuText: {
     width: "100%",
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: "0.03em",
     display: "flex",
     textDecoration: "none",
-    color: "#fff"
+    color: "#fff",
   },
   navBarMenuTextDisabled: {
     width: "100%",
@@ -109,15 +109,14 @@ function NavigationBar() {
             e.status === 'inactive' ? (
              <AlertDialog
               button={
-                <NavLink to={'/arbitrage-dashboard'} className={classes.navBarMenuTextDisabled}>
-                  <div className={classes.navBarMenuTextCursor}>
-                    <div className={classes.navBarMenuButton}>
-                      <img
-                        className={classes.navBarMenuIcon}
-                        src={e.logo}
-                      />
-                      {e.name}
-                    </div>
+                <NavLink activeClassName={classes.navBarMenuTextCursorActive} to={e.link} className={classes.navBarMenuText}>
+                  <div className={classes.navBarMenuButton}>
+                    <img
+                      className={classes.navBarMenuIcon}
+                      style={{ margin: "0px 10px", marginLeft: 50 }}
+                      src={e.logo}
+                    />
+                    {e.name}
                   </div>
                 </NavLink>
               }
@@ -126,8 +125,7 @@ function NavigationBar() {
             />
             ) : (
              <div style={{ all: 'inherit' }}>
-               <NavLink to={e.link} className={classes.navBarMenuText}>
-                <div className={classes.navBarMenuTextCursor}>
+               <NavLink activeClassName={classes.navBarMenuTextCursorActive} to={e.link} className={classes.navBarMenuText}>
                   <div className={classes.navBarMenuButton}>
                     <img
                       className={classes.navBarMenuIcon}
@@ -135,8 +133,6 @@ function NavigationBar() {
                     />
                     {e.name}
                   </div>
-
-                </div>
               </NavLink>
              </div>
             )  
