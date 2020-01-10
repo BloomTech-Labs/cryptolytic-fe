@@ -4,17 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   binanceColor: {
     color: "rgb(78, 185, 255)",
-    padding: "0.5em 0 0.5em 2em",
+    padding: "0.5em 0",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   coinbaseColor: {
     color: "rgb(83, 207, 215)",
-    padding: "0.5em 0 0.5em 2em",
+    padding: "0.5em 0",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   bitfinex: {
     color: "rgb(98, 227, 171)",
-    padding: "0.5em 0 0.5em 2em",
+    padding: "0.5em 0",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   },
   tradingPair: {
@@ -24,11 +24,11 @@ const useStyles = makeStyles({
     borderBottom: "1px solid rgba(35, 32, 44, 0.7)",
 
     "@media(max-width: 1600px)": {
-      padding: "1.2em"
+      padding: "1.2em 0"
     }
   },
   data: {
-    padding: "0.5em 0 0.5em 2em",
+    padding: "0.5em 0",
     borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
   }
 });
@@ -49,7 +49,7 @@ const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
   } else if (icon1 && icon2) {
     return (
       <td className={classes.tradingPair}>
-        <img src={icon1} />
+        <img src={icon1} className={classes.icon} />
         <img src={icon2} />
 
         {item}
