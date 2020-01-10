@@ -40,5 +40,12 @@
   "devDependencies": {
     "@testing-library/react": "^9.4.0",
     "react-test-renderer": "^16.12.0"
-  }
+  },
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "emotion"
+  ]
 }
