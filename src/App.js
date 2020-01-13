@@ -6,7 +6,7 @@ import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
-
+import Charts from "./Views/Charts";
 function App() {
   return (
     <div className='App'>
@@ -21,6 +21,7 @@ function App() {
           path='/arbitrage-dashboard'
           component={ArbitrageDashboard}
         />
+        <Route exact path= '/charts' component={Charts} />
       </Switch>
       <Footer />
     </div>
