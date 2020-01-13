@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import CanvasJSReact from "../assets/canvasjs.react";
 
+const CanvasJS = CanvasJSReact.CanvasJS;
+
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+
 class Chart extends Component {
   state = {
     chartData: [],
@@ -34,11 +39,32 @@ class Chart extends Component {
       dataObj.y = [obj.open, obj.high, obj.low, obj.close];
       return dataObj;
     });
-
+    
     console.log("dataPoints>>>>>>", dataPoints);
+
+    const options = {
+      theme: 'dark1',
+      axisX: {
+        valueFormatString: ''
+      },
+      axisY: {
+        includeZero: false, 
+        prefix: "$"
+      },
+      data: [
+        {
+          type: "candlestick",
+          showInLegend: true,
+          name: "",
+          yValueFormatString: "",
+          xValueFormatString: "",
+          dataPoints: []
+        }
+      ]
+    }
     return (
       <>
-        <h1>Chart</h1>
+       <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
       </>
     );
   }
