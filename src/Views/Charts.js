@@ -1,15 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import Chart from "../Components/Chart";
 
 const Charts = () => {
+  return (
+    <div>
+      <h1 style={{ color: "white" }}>Chart views coming</h1>
+      <Chart />
+    </div>
+  );
+};
 
-
-    return (
-        <div>
-            <h1 style={{ color:'white' }}>Chart views coming</h1>
-
-        </div>
-    )
-}
-
-export default Charts
+export default Charts;
