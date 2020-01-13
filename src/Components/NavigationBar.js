@@ -104,7 +104,8 @@ function NavigationBar() {
             { name: "Arbitrage", logo: arbitrage, link: "arbitrage-dashboard", status: 'active' },
             { name: "Trading", logo: trading, link: "trading-dashboard", status: 'active' },
             { name: "API", logo: api, link: "api", status: 'inactive' },
-            { name: "Data", logo: data, link: "data", status: 'inactive' }
+            { name: "Data", logo: data, link: "data", status: 'inactive' },
+            { name: "Charts", logo: null, link: "charts", status: "active"}
           ].map(e => 
             e.status === 'inactive' ? (
              <AlertDialog
