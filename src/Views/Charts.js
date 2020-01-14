@@ -1,10 +1,11 @@
 import React from "react";
-import Chart from "../Components/Chart";
+import Chart from "../Components/Charting/Chart";
+import ChartOptionSelect from "../Components/Charting/ChartOptionSelect";
 
 const Charts = () => {
   return (
     <div>
-      <h1 style={{ color: "white" }}>Chart views coming</h1>
+      <ChartOptionSelect />
       <Chart />
     </div>
   );
