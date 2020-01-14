@@ -9,13 +9,13 @@ const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class Chart extends Component {
   state = {
     chartData: [],
-    cryptoData: { exchange: "coinbase", trading_pair: "btc_usd" }
+    cryptoData: { exchange: "coinbase", trading_pair: "btc_usd", timeFrame: "Week" }
   };
 
-  componentDidMount() {
+  componentDidMount(timeFrame) {
     axios
       .post(
-        "https://cryptolytics-sample-ds.herokuapp.com/liveDataRoute/getDataByWeek",
+        `https://cryptolytics-sample-ds.herokuapp.com/liveDataRoute/getDataBy${timeFrame}`,
         this.state.cryptoData
       )
       .then(res => {
