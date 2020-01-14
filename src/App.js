@@ -7,8 +7,9 @@ import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
-
+import Charts from "./Views/Charts";
 function App() {
+<<<<<<< HEAD
 
 
 	useEffect(() => {
@@ -39,6 +40,26 @@ function App() {
 			<Footer />
 		</div>
 	);
+=======
+  return (
+    <div className='App'>
+      <div className='navHeader'>
+        <NavigationHeader />
+        <NavigationBar />
+      </div>
+      <Switch>
+        <Route exact path='/trading-dashboard' component={TradingDashboard} />
+        <Route
+          exact
+          path='/arbitrage-dashboard'
+          component={ArbitrageDashboard}
+        />
+        <Route exact path= '/charts' component={Charts} />
+      </Switch>
+      <Footer />
+    </div>
+  );
+>>>>>>> 2511cacb33c29e359719a868301720ee37ec5394
 }
 
 export default App;
