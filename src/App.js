@@ -8,6 +8,7 @@ import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
 import Charts from "./Views/Charts";
+import MarketIndex from "./Components/Market Index/MarketIndex"
 function App() {
 
 
@@ -26,6 +27,7 @@ function App() {
 				<NavigationBar />
 			</div>
 			<Switch>
+				<Route exact path='/home' component={MarketIndex} />
 				<Route exact path='/trading-dashboard' component={TradingDashboard} />
 				<Route
 					exact
