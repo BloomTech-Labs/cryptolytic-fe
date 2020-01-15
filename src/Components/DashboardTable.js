@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+
+import { makeStyles } from '@material-ui/core/styles';
 import { css } from "@emotion/core";
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+import { getIcons } from "../Utilities/tradingPairIcons"
+import axios from "axios";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import { makeStyles } from "@material-ui/core/styles";
-import TableContainer from "@material-ui/core/TableContainer";
-import Table from "@material-ui/core/Table";
-import TableHead from "@material-ui/core/TableHead";
-import TableBody from "@material-ui/core/TableBody";
 
-import TableHeaderRow from "./TradingDashboardTable/TableHeaderRow"
-import TableHeaderRow from "./TradingDashboardTable/TableDataRow"
-
-import TableHeaderRow from "./ArbitrageDashboardTable/TableHeaderRow"
-import TableDataRow from "./ArbitrageDashboardTable/TableDataRow"
+import DashboardTableRow from "./DashboardTableRow.js";
 
 const useStyles = makeStyles({
   table: {
@@ -26,14 +29,27 @@ const useStyles = makeStyles({
     }
   },
   tableContainer: {
-    maxHeight: 800,
-
+    maxHeight: '80vh',
     "&::-webkit-scrollbar": {
       display: "none"
     }
+  },
+  tableHeader: {
+    top: 0,
+  },
+  tableHeadRow: {
+    background: '#23282D',
+  },
+  tableHeadCell: {
+    padding: '0.5em 0px',
+    position: 'sticky',
+    top: '0px',
+    background: 'rgb(25, 30, 35)',
+    fontWeight: 'bold',
+    color: 'rgb(112, 112, 112)',
+    borderBottom: '1px solid rgba(35, 32, 44, 0.9)'
   }
 });
-
 const override = css`
   display: flex;
   justify-content: center;
@@ -41,70 +57,118 @@ const override = css`
   margin: 30vh 0 50vh 10vw;
 `;
 
-const TradingDashboardTable = (props) => {
+export default function DashboardTable(props) {
   const classes = useStyles();
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState({
+    setData: false,
+    formatData: false,
+  })
+
+  ///// Working Trading configuration
+  // let deletedColumns = ['_id', 'trade_time', '__v'];
+  // let orderedColumns = ['date', 'time', 'period', 'exchange', 'trading_pair', 'trade_price', 'percentage'].reverse()
+  // let tradingPairArray = [4]
+  // let exchangeArray = [3]
+  // let percentageArray = [6]
+  // let fiatArray = [5]
+  // let cryptoArray = []
+  // let endpointUrl = "https://cryptolytic-starter.herokuapp.com/trading"
+
+  ///// Working Arbitrage configuration
+  // let deletedColumns = ['_id', 'trade_time', '__v'];
+  // let orderedColumns = ['date', 'time', 'buy_exchange', 'sell_exchange', 'trading_pair', 'price_difference', 'arbitrage_percentage'].reverse()
+  // let tradingPairArray = [4]
+  // let exchangeArray = [2,3]
+  // let percentageArray = [6]
+  // let fiatArray = []
+  // let cryptoArray = [5]
+  // let endpointUrl = "https://cryptolytic-starter.herokuapp.com/arbitrage"
+
+  let deletedColumns = props.deletedColumns;
+  let orderedColumns = props.orderedColumns;
+  let tradingPairArray = props.tradingPairArray;
+  let exchangeArray = props.exchangeArray;
+  let percentageArray = props.percentageArray;
+  let fiatArray = props.fiatArray;
+  let cryptoArray = props.cryptoArray;
+  let endpointUrl = props.endpointUrl
 
   useEffect(() => {
     axios
-      .get(`${props.endpoint}`)
+      .get(endpointUrl)
       .then(res => {
         setData(res.data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
+        setLoading({
+          ...loading,
+          setData: true
+        })
       })
-      .catch(error => {
-        console.log("error", error);
-      });
+      .catch(err => console.log(err.response));
   }, []);
-
-  const tableData = data.map(obj => {
-    let {props.dataColumns} = obj;
-
-    let date, time;
-    trade_time = new Date(obj.trade_time * 1000);
-
-    date = trade_time.toLocaleDateString();
-    time = trade_time.toLocaleTimeString();
-
-    return props.tableColumns;
-  });
-
-  const headerData = [];
-
-  for (let key in tradingData[0]) {
-    headerData.push(key);
-  }
-
-  if (loading) {
-    return (
+  useEffect(() => {
+    // Capture and converts endpoint's time into seperate date AND time
+    data.map((e, i) =>{
+      let convertTime = new Date(e.trade_time* 1000)
+      let date = convertTime.toLocaleDateString();
+      let time = convertTime.toLocaleTimeString();
+      // should later be passed in as props
+      // uses array of strings to delete corresponding key
+      deletedColumns.map((ee, i) => {
+        delete e[ee]
+      })
+      // prepend date and time into data's object this iteration.
+      data[i] = {
+        date,
+        time,
+        ...data[i]
+      }
+      // orders columns based on order of strings in array
+      // currently appends results after date, time. will change this soon
+      orderedColumns.map(ee => {
+        Object.keys(data[i]).map((eee, ii) => {
+          if(ee === eee)
+          data[i] = {
+            [ee]: Object.values(data[i])[ii],
+            ...data[i]
+          }
+        })
+      })
+      setLoading({
+        ...loading,
+        formatData: true
+      })
+      console.log(data, "Use this order/formation to determine/calculate prop values")
+    }
+      )
+  }, [data]);
+  return (
+    !loading.formatData ?
       <PropagateLoader
-        css={override}
-        size={25}
-        color={
-          "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
-        }
-        loading={loading}
-      />
-    );
-  } else {
-    return (
-      <TableContainer className={classes.tableContainer}>
-        <Table stickyHeader aria-label='sticky table' className={classes.table}>
-          <TableHead>
-            <props.TableHeaderRow headerData={props.headerData} />
-          </TableHead>
-          <TableBody>
-            {props.rowData.map(e => (
-              <TableDataRow dataRow={e} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
-  }
-};
-
-export default TradingDashboardTable;
+      css={override}
+      size={25}
+      color={
+        "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+      }
+      loading={loading}
+    />
+      :
+    <TableContainer component={Paper} className={classes.tableContainer}>
+      <Table className={classes.table} size="small" aria-label="a dense table">
+        <TableHead className={classes.tableHeader}>
+          <TableRow className={classes.tableHeadRow}>
+              {data[0] ? 
+              // formats column headers (or keys) to readable format
+                Object.keys(data[0]).map((e, i) =>
+                  {e = e.replace(/\_/, " ").split(" ").map(e => {
+                        return e.charAt(0).toUpperCase() + e.substr(1)
+                      }).join(" ")
+                      return <TableCell align="center" className={classes.tableHeadCell}>{e}</TableCell>})
+                : <></>}
+          </TableRow>
+        </TableHead>
+        <DashboardTableRow loading={loading} data={data} tradingPairArray={tradingPairArray} exchangeArray={exchangeArray} fiatArray={fiatArray} percentageArray={percentageArray}/>
+      </Table>
+    </TableContainer>
+  );
+}
