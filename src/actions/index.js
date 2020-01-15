@@ -22,3 +22,10 @@ export const getChartData = fields => dispatch => {
       dispatch({ type: FETCH_CHARTDATA_FAILURE, payload: err });
     });
 };
+
+export const TOGGLE_VIEW_SWITCH = "TOGGLE_VIEW_SWITCH";
+
+export const toggleView = (toggle) => dispatch => {
+ 
+  dispatch({ type: TOGGLE_VIEW_SWITCH, payload: !toggle })
+}

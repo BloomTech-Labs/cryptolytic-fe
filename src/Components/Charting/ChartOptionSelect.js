@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getChartData } from "../../actions";
-import { makeStyles } from "@material-ui/core/styles";
+import { getChartData, toggleView } from "../../actions";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
+import Switch from '@material-ui/core/Switch';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 
 const exchanges = ["Coinbase", "Binance", "HITBTC", "Bitfinex"];
 const tradingPair = ["BTC/USD", "ETH/BTC"];
@@ -36,6 +40,42 @@ const useStyles = makeStyles({
   }
 });
 
+const ChartViewSwitch = withStyles(theme => ({
+  root: {
+    width: 28,
+    height: 16,
+    padding: 0,
+    display: 'flex',
+  },
+  switchBase: {
+    padding: 2,
+    color: theme.palette.grey[500],
+    '&$checked': {
+      transform: 'translateX(12px)',
+      color: theme.palette.common.white,
+      '& + $track': {
+        opacity: 1,
+        backgroundColor: theme.palette.primary.main,
+        borderColor: theme.palette.primary.main,
+      },
+    },
+  },
+  thumb: {
+    width: 12,
+    height: 12,
+    boxShadow: 'none',
+  },
+  track: {
+    border: `1px solid ${theme.palette.grey[500]}`,
+    borderRadius: 16 / 2,
+    opacity: 1,
+    backgroundColor: theme.palette.common.white,
+  },
+  checked: {},
+
+}))(Switch);
+
+
 const ChartOptionSelect = props => {
   const { exchange, trading_pair, timeFrame } = props;
   const [fields, setFields] = useState({
@@ -47,6 +87,12 @@ const ChartOptionSelect = props => {
   useEffect(() => {
     props.getChartData(fields);
   }, [fields]);
+
+  
+  const chartViewChange = (event) => {
+    console.log(event.target.value);
+   props.toggleView(event.target.checked)
+ };
 
   const handleChanges = event => {
     console.log("event>>>>>>", event.target.id);
@@ -69,6 +115,8 @@ const ChartOptionSelect = props => {
         break;
     }
   };
+
+ 
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -158,25 +206,31 @@ const ChartOptionSelect = props => {
         </Select>
       </FormControl>
 
-      <TextField
-        id='datetime-local'
-        label='Date/Time'
-        type='datetime-local'
-        defaultValue={Date.now().toString()}
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true
-        }}
-        style={{ color: "#62e3ab" }}
-      />
+
+    <Typography component="span">
+      <Grid component="label" container alignItems="center" spacing={1}>
+        <Grid item>Off</Grid>
+          <Grid item>
+            <ChartViewSwitch
+              checked={props.comparativeView}
+              onChange={chartViewChange}
+              // value=
+            />
+           </Grid>
+          <Grid item>On</Grid>
+        </Grid>
+      </Typography>
+
+
     </form>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    cryptoData: state.cryptoData
+    cryptoData: state.cryptoData,
+    comparativeView: state.comparativeView
   };
 };
 
-export default connect(mapStateToProps, { getChartData })(ChartOptionSelect);
+export default connect(mapStateToProps, { getChartData, toggleView })(ChartOptionSelect);

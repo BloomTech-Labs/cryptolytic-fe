@@ -1,7 +1,8 @@
 import {
   FETCH_CHARTDATA_START,
   FETCH_CHARTDATA_SUCCESS,
-  FETCH_CHARTDATA_FAILURE
+  FETCH_CHARTDATA_FAILURE,
+  TOGGLE_VIEW_SWITCH
 } from "../actions";
 
 const initialState = {
@@ -11,8 +12,10 @@ const initialState = {
     trading_pair: "btc_usd",
     timeFrame: "Day"
   },
+
   gettingCryptoData: false,
-  gettingCryptoDataError: null
+  gettingCryptoDataError: null,
+  comparativeView: false
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -36,6 +39,11 @@ export const rootReducer = (state = initialState, action) => {
         gettingCryptoData: false,
         gettingCryptoDataError: action.payload
       };
+    case TOGGLE_VIEW_SWITCH:
+      return {
+        ...state,
+        comparativeView: action.payload
+      }
     default:
       return state;
   }
