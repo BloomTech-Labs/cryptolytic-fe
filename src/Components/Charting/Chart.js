@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
 import CanvasJSReact from "../../assets/canvasjs.react";
 
 const CanvasJS = CanvasJSReact.CanvasJS;
@@ -7,35 +7,8 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class Chart extends Component {
-  state = {
-    chartData: [],
-    cryptoData: {
-      exchange: "coinbase",
-      trading_pair: "btc_usd",
-      timeFrame: "Week"
-    }
-  };
-
-  componentDidMount() {
-    const { cryptoData: { timeFrame } } = this.state;
-    axios
-      .post(
-        `https://cryptolytics-sample-ds.herokuapp.com/liveDataRoute/getDataBy${timeFrame}`,
-        this.state.cryptoData
-      )
-      .then(res => {
-        console.log(res.data.data);
-        this.setState({
-          chartData: res.data.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-
   render() {
-    const data = [...this.state.chartData].slice(0, 144);
+    const data = [...this.props.chartData];
 
     CanvasJS.addColorSet("chartColors", ["#62e3ab", "#53cfd7"]);
 
@@ -85,4 +58,11 @@ class Chart extends Component {
   }
 }
 
-export default Chart;
+const mapStateToProps = state => {
+  return {
+    cryptoData: state.cryptoData,
+    chartData: state.chartData
+  };
+};
+
+export default connect(mapStateToProps, {})(Chart);

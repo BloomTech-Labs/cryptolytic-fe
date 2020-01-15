@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { getChartData } from "../../actions";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -25,50 +27,48 @@ const useStyles = makeStyles({
   }
 });
 
+const ChartOptionSelect = props => {
+  const { exchange, trading_pair, timeFrame } = props;
+  const [fields, setFields] = useState({
+    exchange: "coinbase",
+    trading_pair: "btc_usd",
+    timeFrame: "Week"
+  });
 
+  useEffect(() => {
+    props.getChartData(fields);
+  }, [fields]);
 
+  const handleChanges = event => {
+    console.log("event>>>>>>", event.target.id);
 
-const ChartOptionSelect = () => {
+    let newFields;
+    switch (event.target.id) {
+      case "exchange":
+        const exchange = event.target.value.toLowerCase();
+        newFields = { ...fields, exchange };
+        setFields(newFields);
+        break;
+      case "tradingPair":
+        const trading_pair = event.target.value.toLowerCase().replace("/", "_");
+        newFields = { ...fields, trading_pair };
+        setFields(newFields);
+        break;
+      case "timeFrame":
+        newFields = { ...fields, timeFrame: event.target.value };
+        setFields(newFields);
+        break;
+    }
+  };
 
-const [ fields, setFields ] = useState({exchange: 'Coinbase', trading_pair: 'BTC/USD', timeFrame: 'Day' });
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.getChartData(fields);
+  };
 
-
-const handleChanges = (event) => {
-
- console.log("event>>>>>>", event.target.id)
-
-  let newFields; 
-  switch ( event.target.id ) {
-    case "exchange":
-      newFields = { ...fields, exchange: event.target.value } 
-      setFields(newFields)
-      break;
-    case "tradingPair":
-      newFields = { ...fields, trading_pair: event.target.value } 
-      setFields(newFields)
-      break;
-    case "timeFrame":
-      newFields = { ...fields, timeFrame: event.target.value } 
-      setFields(newFields)
-      break;
-  }
-
-};
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-  // formSubmit(fields);
-
-};
-
-
-
-console.log("field>>>>>>", fields)
+  console.log("field>>>>>>", fields);
 
   const classes = useStyles();
-
-
-
 
   return (
     <form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
@@ -152,4 +152,10 @@ console.log("field>>>>>>", fields)
   );
 };
 
-export default ChartOptionSelect;
+const mapStateToProps = state => {
+  return {
+    cryptoData: state.cryptoData
+  };
+};
+
+export default connect(mapStateToProps, { getChartData })(ChartOptionSelect);
