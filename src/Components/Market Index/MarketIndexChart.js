@@ -14,6 +14,7 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 let arrayData = []
+let formatArray = []
 arrayData.push(btc_usd_daily['Time Series (Digital Currency Daily)']);
 console.log(arrayData[0], "here!")
 
@@ -33,18 +34,51 @@ class MarketIndexChart extends Component {
 		arrayData.map((e, i) => {
 			formatData.push(Object.entries(e))
 		})
-		const data = formatData[0].slice(0, 144);
+		const data = formatData[0]
 
 		data.map(e => {
+			let { open, high, low, close } = e;
 			let obj = {}
-			obj.x = e[0]
-			obj.y = e[1]
-			console.log(obj)
+			obj.x = new Date(e[0])
+			open = Number(e[1]["1a. open (USD)"]).toFixed(2)
+			high = Number(e[1]["2a. high (USD)"]).toFixed(2)
+			low = Number(e[1]["3a. low (USD)"]).toFixed(2)
+			close = Number(e[1]["4a. close (USD)"]).toFixed(2)
+			obj.y = [open, high, low, close].map(ee => Number(ee));
+			formatArray.push(obj)
+			console.log()
 		})
+		console.log(formatArray, "formatarray")
 
+		const options = {
+			theme: "dark1",
+			colorSet: "chartColors",
+			backgroundColor: "#000",
+			zoomEnabled: true,
+			animationEnabled: true,
+			axisX: {
+				valueFormatString: ""
+			},
+			axisY: {
+				includeZero: false,
+				prefix: "$"
+			},
+			data: [
+				{
+					type: "candlestick",
+					showInLegend: true,
+					name: "",
+					yValueFormatString: "$###0.00",
+					xValueFormatString: "YYYY MMMM DD",
+					dataPoints: formatArray
+				}
+			]
+		};
 
 		return (
-			<></>
+			<div style={{ width: "50%", marginLeft: "350px" }}>
+				<CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
+			</div >
 		)
 	}
 }

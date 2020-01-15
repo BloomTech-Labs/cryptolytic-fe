@@ -46,9 +46,8 @@ class Chart extends Component {
 			dataObj.y = [open, high, low, close].map(i => Number(i));
 			return dataObj;
 		});
-
+		console.log(data, "data")
 		console.log("dataPoints>>>>>>", dataPoints);
-		console.log(this.chart, "checkitout yo")
 
 		const options = {
 			theme: "dark1",
