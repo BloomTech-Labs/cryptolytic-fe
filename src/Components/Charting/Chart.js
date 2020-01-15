@@ -32,6 +32,7 @@ class Chart extends Component {
       colorSet: "chartColors",
       backgroundColor: "#000",
       animationEnabled: true,
+      zoomEnabled: true,
       axisX: {
         valueFormatString: ""
       },
@@ -51,7 +52,7 @@ class Chart extends Component {
       ]
     };
     return (
-      <div style={{ width: "80%", marginLeft: "350px" }}>
+      <div style={{ width: "70%", marginLeft: "350px" }}>
         <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
       </div>
     );

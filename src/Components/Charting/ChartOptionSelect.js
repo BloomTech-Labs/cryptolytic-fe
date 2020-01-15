@@ -6,6 +6,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import TextField from "@material-ui/core/TextField";
 
 const exchanges = ["Coinbase", "Binance", "HITBTC", "Bitfinex"];
 const tradingPair = ["BTC/USD", "ETH/BTC"];
@@ -24,6 +25,14 @@ const useStyles = makeStyles({
     width: "100%",
     padding: "0.5em",
     color: "#62e3ab"
+  },
+  textField: {
+    width: "200px",
+    margin: "0 5px",
+    padding: "0.5em",
+    border: "1px solid #62e3ab",
+    borderRadius: "5px",
+    textAlign: "center"
   }
 });
 
@@ -148,6 +157,18 @@ const ChartOptionSelect = props => {
           })}
         </Select>
       </FormControl>
+
+      <TextField
+        id='datetime-local'
+        label='Date/Time'
+        type='datetime-local'
+        defaultValue={Date.now().toString()}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true
+        }}
+        style={{ color: "#62e3ab" }}
+      />
     </form>
   );
 };
