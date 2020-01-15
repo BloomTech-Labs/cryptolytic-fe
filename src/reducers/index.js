@@ -9,7 +9,7 @@ const initialState = {
   cryptoData: {
     exchange: "coinbase",
     trading_pair: "btc_usd",
-    timeFrame: "Week"
+    timeFrame: "Day"
   },
   gettingCryptoData: false,
   gettingCryptoDataError: null
