@@ -95,6 +95,10 @@ export default function DashboardTableRow(props) {
                     else if(Math.abs(b) > 999,999,999) 
                       return b = Math.sign(b)*((Math.abs(b)/1000000000).toFixed(1)) + " B"
                 })
+                props.tickerArray.map(ee => {
+                  if(i === ee)
+                    b = b.toUpperCase();
+                })
                 props.percentageArray.map(ee => {
                   if(i === ee)
                     if(b > 0)
