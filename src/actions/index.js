@@ -22,3 +22,10 @@ export const getChartData = fields => dispatch => {
       dispatch({ type: FETCH_CHARTDATA_FAILURE, payload: err });
     });
 };
+
+export const SET_OPTIONS_START = "SET_OPTIONS_START";
+
+export const setOptions = options => dispatch => {
+  console.log(options);
+  dispatch({ type: SET_OPTIONS_START, payload: options });
+};

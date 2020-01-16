@@ -1,12 +1,13 @@
 import {
   FETCH_CHARTDATA_START,
   FETCH_CHARTDATA_SUCCESS,
-  FETCH_CHARTDATA_FAILURE
+  FETCH_CHARTDATA_FAILURE,
+  SET_OPTIONS_START
 } from "../actions";
 
 const initialState = {
   chartData: [],
-  cryptoData: {
+  options: {
     exchange: "coinbase",
     trading_pair: "btc_usd",
     timeFrame: "Day"
@@ -35,6 +36,11 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         gettingCryptoData: false,
         gettingCryptoDataError: action.payload
+      };
+    case SET_OPTIONS_START:
+      return {
+        ...state,
+        options: action.payload
       };
     default:
       return state;
