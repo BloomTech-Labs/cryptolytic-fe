@@ -88,6 +88,13 @@ export default function DashboardTableRow(props) {
                   if(i === ee)
                 b = <span className={classes.fiat}>$ {b.toFixed(2)}</span>
                 })
+                props.largeNumberArray.map(ee => {
+                  if(i === ee)
+                    if(Math.abs(b) > 999,999 && Math.abs(b) < 1000000000) 
+                      return b = Math.sign(b)*((Math.abs(b)/1000000).toFixed(1)) + " M"
+                    else if(Math.abs(b) > 999,999,999) 
+                      return b = Math.sign(b)*((Math.abs(b)/1000000000).toFixed(1)) + " B"
+                })
                 props.percentageArray.map(ee => {
                   if(i === ee)
                     if(b > 0)
