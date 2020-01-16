@@ -26,7 +26,7 @@ const useStyles = makeStyles({
       },
       tableData: {
         color: 'rgb(255, 255, 255)',
-        borderBottom: '1px solid rgba(35, 32, 44, 0.9)'
+        borderBottom: '1px solid rgba(35, 32, 44, 0.9)',
       },
       tradingPair: {
         display: 'flex',
@@ -46,6 +46,9 @@ const useStyles = makeStyles({
       bitfinexColor: {
         color: "rgb(98, 227, 171)",
       },
+      fiat: {
+        whiteSpace: 'nowrap'
+      }
   });
 
 export default function DashboardTableRow(props) {
@@ -83,7 +86,7 @@ export default function DashboardTableRow(props) {
                 })
                 props.fiatArray.map(ee => {
                   if(i === ee)
-                  b = `$ ${b.toFixed(2)}`
+                b = <span className={classes.fiat}>$ {b.toFixed(2)}</span>
                 })
                 props.percentageArray.map(ee => {
                   if(i === ee)
