@@ -88,11 +88,11 @@ export default function DashboardTableRow(props) {
                 props.percentageArray.map(ee => {
                   if(i === ee)
                     if(b > 0)
-                      b = <p style={{ color: 'green', width: '100%' }}>{b} %</p>
+                      b = <p style={{ color: 'green', width: '100%' }}>{b.toFixed(2)} %</p>
                     else if(b < 0)
-                    b = <p style={{ color: 'red', width: '100%' }}>{b} %</p>
+                    b = <p style={{ color: 'red', width: '100%' }}>{b.toFixed(2)} %</p>
                   else
-                  b = `${b} %`
+                  b = `${b.toFixed(2)} %`
                 })
                   return <TableCell component="th" scope="row" align="center" className={classes.tableData}> {b} </TableCell>
                 })}
