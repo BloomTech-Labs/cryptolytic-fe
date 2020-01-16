@@ -118,6 +118,7 @@ export default function DashboardTable(props) {
         delete e[ee]
       })
       // prepend date and time into data's object this iteration.
+      if(e.trade_time)
       data[i] = {
         date,
         time,
@@ -160,7 +161,7 @@ export default function DashboardTable(props) {
               {data[0] ? 
               // formats column headers (or keys) to readable format
                 Object.keys(data[0]).map((e, i) =>
-                  {e = e.replace(/\_/, " ").split(" ").map(e => {
+                  {e = e.replace(/\_/g, " ").split(" ").map(e => {
                         return e.charAt(0).toUpperCase() + e.substr(1)
                       }).join(" ")
                       return <TableCell align="center" className={classes.tableHeadCell}>{e}</TableCell>})
