@@ -102,9 +102,9 @@ export default function DashboardTableRow(props) {
                 props.percentageArray.map(ee => {
                   if(i === ee)
                     if(b > 0)
-                      b = <p style={{ color: 'green', width: '100%' }}>{b.toFixed(2)} %</p>
+                      b = <p style={{ color: 'green' }}>{b.toFixed(2)} %</p>
                     else if(b < 0)
-                    b = <p style={{ color: 'red', width: '100%' }}>{b.toFixed(2)} %</p>
+                    b = <p style={{ color: 'red' }}>{b.toFixed(2)} %</p>
                   else
                   b = `${b.toFixed(2)} %`
                 })

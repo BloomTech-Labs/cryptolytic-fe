@@ -46,7 +46,6 @@ class MarketIndexChart extends Component {
 			close = Number(e[1]["4a. close (USD)"]).toFixed(2)
 			obj.y = [open, high, low, close].map(ee => Number(ee));
 			formatArray.push(obj)
-			console.log()
 		})
 		console.log(formatArray, "formatarray")
 
@@ -76,7 +75,7 @@ class MarketIndexChart extends Component {
 		};
 
 		return (
-			<div style={{ width: "50%", marginLeft: "350px" }}>
+			<div style={{ width: "50%", marginLeft: "17vw" }}>
 				<CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
 			</div >
 		)

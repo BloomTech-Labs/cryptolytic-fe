@@ -92,7 +92,9 @@ export default function DashboardTable(props) {
   let percentageArray = props.percentageArray;
   let fiatArray = props.fiatArray;
   let cryptoArray = props.cryptoArray;
-  let endpointUrl = props.endpointUrl
+  let endpointUrl = props.endpointUrl;
+  let largeNumberArray = props.largeNumberArray;
+  let tickerArray = props.tickerArray;
 
   useEffect(() => {
     axios
@@ -168,7 +170,7 @@ export default function DashboardTable(props) {
                 : <></>}
           </TableRow>
         </TableHead>
-        <DashboardTableRow loading={loading} data={data} tradingPairArray={tradingPairArray} exchangeArray={exchangeArray} fiatArray={fiatArray} percentageArray={percentageArray}/>
+        <DashboardTableRow loading={loading} data={data} tradingPairArray={tradingPairArray} exchangeArray={exchangeArray} fiatArray={fiatArray} percentageArray={percentageArray} largeNumberArray={largeNumberArray} tickerArray={tickerArray}/>
       </Table>
     </TableContainer>
   );
