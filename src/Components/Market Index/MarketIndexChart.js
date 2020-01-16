@@ -75,7 +75,7 @@ class MarketIndexChart extends Component {
 		};
 
 		return (
-			<div style={{ width: "50%", marginLeft: "17vw" }}>
+			<div style={{ width: "50%", marginLeft: "20vw" }}>
 				<CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
 			</div >
 		)
