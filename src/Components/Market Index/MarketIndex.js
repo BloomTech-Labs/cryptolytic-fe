@@ -5,6 +5,7 @@ import DashboardTable from "../DashboardTable"
 import CompareControls from "./CompareControls"
 import ViewControl from "./ViewControl"
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -32,14 +33,14 @@ export default function MarketIndex() {
 
 	return (
 		<div>
-			<div style={{ display: 'flex' }}>
+			<div style={{ display: 'flex', height: '100%' }}>
 				<MarketIndexChart />
 				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', marginLeft: '3em', color: 'white' }}>
-					Compare
+					<Typography style={{ fontSize: '1.4rem' }}>Compare</Typography>
 					<CompareControls />
-					View
+					<Typography style={{ fontSize: '1.4rem' }}>View</Typography>
 					<ViewControl />
-					<Button variant="outlined" color="primary" style={{ width: '60%' }}>
+					<Button variant="outlined" color="primary" style={{ width: '60%', margin: '1em 0' }}>
 						Clear
 					</Button>
 				</div>

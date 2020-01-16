@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CanvasJSReact from "../../assets/canvasjs.react"
+import Typography from '@material-ui/core/Typography'
 
 import bch_usd_daily from "./DummyData/bch_usd_daily"
 import bch_usd_monthly from "./DummyData/bch_usd_monthly"
@@ -75,7 +76,8 @@ class MarketIndexChart extends Component {
 		};
 
 		return (
-			<div style={{ width: "50%", marginLeft: "20vw" }}>
+			<div style={{ width: "50%", marginLeft: "20vw", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', color: 'white' }}>
+				<Typography style={{ fontSize: '1.4rem' }}>Chart Data</Typography>
 				<CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
 			</div >
 		)
