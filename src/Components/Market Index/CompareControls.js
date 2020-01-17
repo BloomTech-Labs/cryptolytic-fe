@@ -30,23 +30,19 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function CompareControl() {
+export default function CompareControl(props) {
 	const classes = useStyles();
-	const [state, setState] = React.useState({
-		age: '',
-		name: 'hai',
-	});
-	const [age, setAge] = React.useState('');
-
 	const inputLabel = React.useRef(null);
 	const [labelWidth, setLabelWidth] = React.useState(0);
 	React.useEffect(() => {
 		setLabelWidth(inputLabel.current.offsetWidth);
 	}, []);
 
-	const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-	const handleDateChange = date => {
-		setSelectedDate(date);
+	const handleDateChange = id => date => {
+		props.setCompareControl({
+			...props.compareControl,
+			[id]: date
+		})
 		const useStyles = makeStyles(theme => ({
 			formControl: {
 				margin: theme.spacing(1),
@@ -57,26 +53,26 @@ export default function CompareControl() {
 			},
 		}));
 	};
-	const handleChange = name => event => {
-		setState({
-			...state,
-			[name]: event.target.value,
-		});
+	const handleChange = event => {
+		props.setCompareControl({
+			...props.compareControl,
+			[event.target.name]: event.target.value,
+		})
 	};
-	const handleChangeOptions = event => {
-		setAge(event.target.value);
-	};
+
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Container style={{ width: '21vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '50%', borderRadius: '6px', paddingBottom: '2em' }}>
 				<div style={{ marginBottom: '1em', width: '100%' }}>
+					{/* <button onClick={() => console.log(props.compareControl)}>Check State</button> */}
 					<FormControl className={classes.formControl}>
 						<InputLabel id="demo-simple-select-label" ref={inputLabel} style={{ color: 'white', width: '50%' }}>Coin</InputLabel>
 						<Select
 							labelId="demo-simple-select-label"
-							id="demo-simple-select"
-							value={age}
-							onChange={handleChangeOptions}
+							id="coin1"
+							value={props.compareControl.coin1}
+							onChange={handleChange}
+							name="coin1"
 						>
 							<MenuItem value={10}>Ten</MenuItem>
 							<MenuItem value={20}>Twenty</MenuItem>
@@ -88,8 +84,9 @@ export default function CompareControl() {
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
-							value={age}
-							onChange={handleChangeOptions}
+							value={props.compareControl.coin2}
+							onChange={handleChange}
+							name="coin2"
 						>
 							<MenuItem value={10}>Ten</MenuItem>
 							<MenuItem value={20}>Twenty</MenuItem>
@@ -102,27 +99,29 @@ export default function CompareControl() {
 						margin="normal"
 						id="date-picker-dialog"
 						format="MM/dd/yyyy"
-						value={selectedDate}
-						onChange={handleDateChange}
+						value={props.compareControl.startDate}
+						onChange={handleDateChange('startDate')}
 						KeyboardButtonProps={{
 							'aria-label': 'change date',
 							className: classes.input
 						}}
 						style={{ width: '50%' }}
 						InputProps={{ className: classes.input }}
+						name="startDate"
 					/>
 					<KeyboardDatePicker
 						margin="normal"
 						id="date-picker-dialog"
 						format="MM/dd/yyyy"
-						value={selectedDate}
-						onChange={handleDateChange}
+						value={props.compareControl.endDate}
+						onChange={handleDateChange('endDate')}
 						KeyboardButtonProps={{
 							'aria-label': 'change date',
 							className: classes.input
 						}}
 						style={{ width: '50%' }}
 						InputProps={{ className: classes.input }}
+						name="endDate"
 					/>
 				</div>
 				<div>
@@ -131,8 +130,9 @@ export default function CompareControl() {
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
-							value={age}
-							onChange={handleChangeOptions}
+							value={props.compareControl.interval}
+							onChange={handleChange}
+							name="interval"
 						>
 							<MenuItem value={10}>Ten</MenuItem>
 							<MenuItem value={20}>Twenty</MenuItem>
@@ -144,8 +144,9 @@ export default function CompareControl() {
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
-							value={age}
-							onChange={handleChangeOptions}
+							value={props.compareControl.data}
+							onChange={handleChange}
+							name="data"
 						>
 							<MenuItem value={10}>Ten</MenuItem>
 							<MenuItem value={20}>Twenty</MenuItem>

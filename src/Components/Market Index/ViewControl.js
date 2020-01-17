@@ -32,15 +32,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ViewControl() {
+export default function ViewControl(props) {
 	const classes = useStyles();
 	const [state, setState] = React.useState({
 		age: '',
 		name: 'hai',
 	});
 	const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-	const handleDateChange = date => {
-		setSelectedDate(date);
+	const handleDateChange = id => date => {
+		props.setViewControl({
+			...props.viewControl,
+			[id]: date
+		})
 		const useStyles = makeStyles(theme => ({
 			formControl: {
 				margin: theme.spacing(1),
@@ -51,20 +54,25 @@ export default function ViewControl() {
 		}));
 	};
 	const [age, setAge] = React.useState('');
-	const handleChangeOptions = event => {
-		setAge(event.target.value);
+	const handleChange = event => {
+		props.setViewControl({
+			...props.viewControl,
+			[event.target.name]: event.target.value,
+		})
 	};
 
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Container style={{ width: '21vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '35%', borderRadius: '6px', paddingBottom: '1.4em' }}>
+				{/* <button onClick={() => console.log(props.viewControl)}>Check State</button> */}
 				<FormControl className={classes.formControl}>
 					<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Coin</InputLabel>
 					<Select
 						labelId="demo-simple-select-label"
-						id="demo-simple-select"
-						value={age}
-						onChange={handleChangeOptions}
+						id="coin"
+						value={props.viewControl.coin1}
+						onChange={handleChange}
+						name="coin"
 					>
 						<MenuItem value={10}>Ten</MenuItem>
 						<MenuItem value={20}>Twenty</MenuItem>
@@ -75,9 +83,10 @@ export default function ViewControl() {
 					<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Data</InputLabel>
 					<Select
 						labelId="demo-simple-select-label"
-						id="demo-simple-select"
-						value={age}
-						onChange={handleChangeOptions}
+						id="data"
+						value={props.viewControl.coin2}
+						onChange={handleChange}
+						name="data"
 					>
 						<MenuItem value={10}>Ten</MenuItem>
 						<MenuItem value={20}>Twenty</MenuItem>
@@ -88,8 +97,8 @@ export default function ViewControl() {
 					margin="normal"
 					id="date-picker-dialog"
 					format="MM/dd/yyyy"
-					value={selectedDate}
-					onChange={handleDateChange}
+					value={props.viewControl.endDate}
+					onChange={handleDateChange('startDate')}
 					KeyboardButtonProps={{
 						'aria-label': 'change date',
 						className: classes.input
@@ -101,8 +110,8 @@ export default function ViewControl() {
 					margin="normal"
 					id="date-picker-dialog"
 					format="MM/dd/yyyy"
-					value={selectedDate}
-					onChange={handleDateChange}
+					value={props.viewControl.endDate}
+					onChange={handleDateChange('endDate')}
 					KeyboardButtonProps={{
 						'aria-label': 'change date',
 						className: classes.input
