@@ -35,17 +35,19 @@ export default function MarketIndex() {
 		<div>
 			<div style={{ display: 'flex', height: '100%' }}>
 				<MarketIndexChart />
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', marginLeft: '3em', color: 'white' }}>
-					<Typography style={{ fontSize: '1.4rem' }}>Compare</Typography>
+				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', marginLeft: '2em', color: 'white' }}>
+					<Typography style={{ fontSize: '1.6rem' }}>Compare</Typography>
 					<CompareControls />
-					<Typography style={{ fontSize: '1.4rem' }}>View</Typography>
+					<Typography style={{ fontSize: '1.6rem' }}>View</Typography>
 					<ViewControl />
 					<Button variant="outlined" color="primary" style={{ width: '60%', margin: '1em 0' }}>
 						Clear
 					</Button>
 				</div>
 			</div>
-			<DashboardTable {...tradeProps} />
+			<div style={{ marginLeft: "2em" }}>
+				<DashboardTable {...tradeProps} />
+			</div>
 		</div>
 	)
 }

@@ -18,7 +18,8 @@ import {
 const useStyles = makeStyles(theme => ({
 	formControl: {
 		margin: theme.spacing(1),
-		width: theme.spacing(10),
+		// width: theme.spacing(16),
+		width: '44%',
 		height: '2.2em'
 	},
 	selectEmpty: {
@@ -56,7 +57,7 @@ export default function ViewControl() {
 
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
-			<Container style={{ width: '16vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '35%', borderRadius: '6px', paddingBottom: '1.4em' }}>
+			<Container style={{ width: '21vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '35%', borderRadius: '6px', paddingBottom: '1.4em' }}>
 				<FormControl className={classes.formControl}>
 					<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Coin</InputLabel>
 					<Select

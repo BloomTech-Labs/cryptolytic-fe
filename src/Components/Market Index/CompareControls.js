@@ -18,7 +18,7 @@ import {
 const useStyles = makeStyles(theme => ({
 	formControl: {
 		margin: theme.spacing(1),
-		width: theme.spacing(10),
+		width: '44%',
 		height: '2.2em'
 	},
 	selectEmpty: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	input: {
 		color: 'white',
-		fill: 'white'
+		fill: 'white',
 	}
 }));
 
@@ -68,10 +68,10 @@ export default function CompareControl() {
 	};
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
-			<Container style={{ width: '16vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '50%', borderRadius: '6px', paddingBottom: '2em' }}>
-				<div style={{ marginBottom: '1em' }}>
+			<Container style={{ width: '21vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '50%', borderRadius: '6px', paddingBottom: '2em' }}>
+				<div style={{ marginBottom: '1em', width: '100%' }}>
 					<FormControl className={classes.formControl}>
-						<InputLabel id="demo-simple-select-label" ref={inputLabel} style={{ color: 'white' }}>Interval</InputLabel>
+						<InputLabel id="demo-simple-select-label" ref={inputLabel} style={{ color: 'white', width: '50%' }}>Coin</InputLabel>
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
@@ -84,7 +84,7 @@ export default function CompareControl() {
 						</Select>
 					</FormControl>
 					<FormControl className={classes.formControl}>
-						<InputLabel id="demo-simple-select-label" ref={inputLabel} style={{ color: 'white' }}>Data</InputLabel>
+						<InputLabel id="demo-simple-select-label" ref={inputLabel} style={{ color: 'white' }}>Coin</InputLabel>
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
@@ -97,32 +97,34 @@ export default function CompareControl() {
 						</Select>
 					</FormControl>
 				</div>
-				<KeyboardDatePicker
-					margin="normal"
-					id="date-picker-dialog"
-					format="MM/dd/yyyy"
-					value={selectedDate}
-					onChange={handleDateChange}
-					KeyboardButtonProps={{
-						'aria-label': 'change date',
-						className: classes.input
-					}}
-					style={{ width: '50%' }}
-					InputProps={{ className: classes.input }}
-				/>
-				<KeyboardDatePicker
-					margin="normal"
-					id="date-picker-dialog"
-					format="MM/dd/yyyy"
-					value={selectedDate}
-					onChange={handleDateChange}
-					KeyboardButtonProps={{
-						'aria-label': 'change date',
-						className: classes.input
-					}}
-					style={{ width: '50%' }}
-					InputProps={{ className: classes.input }}
-				/>
+				<div>
+					<KeyboardDatePicker
+						margin="normal"
+						id="date-picker-dialog"
+						format="MM/dd/yyyy"
+						value={selectedDate}
+						onChange={handleDateChange}
+						KeyboardButtonProps={{
+							'aria-label': 'change date',
+							className: classes.input
+						}}
+						style={{ width: '50%' }}
+						InputProps={{ className: classes.input }}
+					/>
+					<KeyboardDatePicker
+						margin="normal"
+						id="date-picker-dialog"
+						format="MM/dd/yyyy"
+						value={selectedDate}
+						onChange={handleDateChange}
+						KeyboardButtonProps={{
+							'aria-label': 'change date',
+							className: classes.input
+						}}
+						style={{ width: '50%' }}
+						InputProps={{ className: classes.input }}
+					/>
+				</div>
 				<div>
 					<FormControl className={classes.formControl}>
 						<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Interval</InputLabel>
