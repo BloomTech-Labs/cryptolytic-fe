@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setOptions } from "../../actions";
+import { setOptions, setCompareOptions } from "../../actions";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -41,7 +41,9 @@ const SelectDropdown = props => {
     label,
     selectId,
     data,
-    options
+    options,
+    compareOptions,
+    toggled
   } = props;
 
   console.log("options", options);
@@ -52,17 +54,32 @@ const SelectDropdown = props => {
     switch (event.target.id) {
       case "exchange":
         const exchange = event.target.value.toLowerCase();
-        newOptions = { ...options, exchange };
-        props.setOptions(newOptions);
+        if (toggled && id === "exchangeLabel2") {
+          newOptions = { ...compareOptions, exchange };
+          props.setCompareOptions(newOptions);
+        } else {
+          newOptions = { ...options, exchange };
+          props.setOptions(newOptions);
+        }
         break;
       case "tradingPair":
         const trading_pair = event.target.value.toLowerCase().replace("/", "_");
-        newOptions = { ...options, trading_pair };
-        props.setOptions(newOptions);
+        if (toggled && label === "exchangeLabel2") {
+          newOptions = { ...compareOptions, trading_pair };
+          props.setCompareOptions(newOptions);
+        } else {
+          newOptions = { ...options, exchange };
+          props.setOptions(newOptions);
+        }
         break;
       case "timeFrame":
-        newOptions = { ...options, timeFrame: event.target.value };
-        props.setOptions(newOptions);
+        if (toggled && label === "exchangeLabel2") {
+          newOptions = { ...compareOptions, timeFrame: event.target.value };
+          props.setCompareOptions(newOptions);
+        } else {
+          newOptions = { ...options, timeFrame: event.target.value };
+          props.setOptions(newOptions);
+        }
         break;
     }
   };
@@ -99,8 +116,12 @@ const SelectDropdown = props => {
 const mapStateToProps = state => {
   return {
     cryptoData: state.cryptoData,
-    options: state.options
+    options: state.options,
+    compareOptions: state.compareOptions,
+    toggled: state.switchToggled
   };
 };
 
-export default connect(mapStateToProps, { setOptions })(SelectDropdown);
+export default connect(mapStateToProps, { setOptions, setCompareOptions })(
+  SelectDropdown
+);
