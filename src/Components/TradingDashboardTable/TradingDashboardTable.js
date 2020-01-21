@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
   tableContainer: {
     maxHeight: 800
-  }
+  },
 });
 
 const TradingDashboardTable = () => {

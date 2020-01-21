@@ -3,23 +3,26 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
-    color: "rgb(78, 185, 255)"
+    color: "rgb(78, 185, 255)",
+
   },
   coinbaseColor: {
-    color: "rgb(83, 207, 215)"
+    color: "rgb(83, 207, 215)",
+ 
   },
   bitfinex: {
-    color: "rgb(98, 227, 171)"
+    color: "rgb(98, 227, 171)",
   },
   positive: {
-    color: "green"
+    color: "green",
   },
-  negitive: {
+  negative: {
     color: "red"
   },
   tradingPair: {
     display: "flex",
-    marginLeft: "33%"
+    marginLeft: "33%",
+
   }
 });
 

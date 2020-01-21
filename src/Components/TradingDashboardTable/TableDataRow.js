@@ -9,14 +9,16 @@ const useStyles = makeStyles({
   tablerow: {
     background: "rgba(0, 0, 0, 0.8)",
     color: "rgb(255, 255, 255)",
-    borderBottom: "0.5px solid rgba(35, 32, 44, 0.8)"
   },
   positive: {
-    color: "green"
+    color: "green",
+
   },
   negative: {
-    color: "red"
-  }
+    color: "red",
+
+  },
+ 
 });
 
 const TableDataRow = ({ dataRow }) => {
