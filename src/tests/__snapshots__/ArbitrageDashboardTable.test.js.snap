@@ -2,21 +2,25 @@
 
 exports[`<ArbitrageDashboardTable /> matches verified SnapShot should match snapshot 1`] = `
 <div
-  className="MuiTableContainer-root makeStyles-tableContainer-15"
+  className="css-1n707d5"
 >
-  <table
-    className="MuiTable-root makeStyles-table-14"
-  >
-    <thead
-      className="MuiTableHead-root"
-    >
-      <tr
-        className="MuiTableRow-root makeStyles-tablerow-20 MuiTableRow-head"
-      />
-    </thead>
-    <tbody
-      className="MuiTableBody-root"
-    />
-  </table>
+  <div
+    className="css-wrax94"
+  />
+  <div
+    className="css-cxnvq8"
+  />
+  <div
+    className="css-xy7ez6"
+  />
+  <div
+    className="css-14panbf"
+  />
+  <div
+    className="css-uuu0ai"
+  />
+  <div
+    className="css-1svdgyg"
+  />
 </div>
 `;

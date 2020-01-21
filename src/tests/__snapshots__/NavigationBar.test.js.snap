@@ -2,32 +2,38 @@
 
 exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] = `
 <div
-  className="makeStyles-NavBar-15"
+  className="makeStyles-NavBar-49"
 >
   <div>
     <div
-      className="makeStyles-NavBarLogo-16"
+      className="makeStyles-NavBarLogo-50"
     >
       <img
         src="logo.svg"
       />
     </div>
     <div
-      className="makeStyles-NavBarMenu-17"
+      className="makeStyles-NavBarMenu-51"
     >
-      <a
-        aria-current={null}
-        className="makeStyles-navBarMenuText-18"
-        href="/home"
+      <div
         onClick={[Function]}
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
       >
-        <div
-          className="makeStyles-navBarMenuTextCursor-20"
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/home"
+          onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-21"
+            className="makeStyles-navBarMenuButton-56"
           >
             <img
+              className="makeStyles-navBarMenuIcon-57"
               src="home-logo.svg"
               style={
                 Object {
@@ -38,71 +44,75 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
             />
             Home
           </div>
-        </div>
-      </a>
-      <a
-        aria-current={null}
-        className="makeStyles-navBarMenuText-18"
-        href="/arbitrage-dashboard"
-        onClick={[Function]}
+        </a>
+      </div>
+      <div
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
       >
-        <div
-          className="makeStyles-navBarMenuTextCursor-20"
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/arbitrage-dashboard"
+          onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-21"
+            className="makeStyles-navBarMenuButton-56"
           >
             <img
+              className="makeStyles-navBarMenuIcon-57"
               src="arbitrage-logo.svg"
-              style={
-                Object {
-                  "margin": "0px 10px",
-                  "marginLeft": 50,
-                }
-              }
             />
             Arbitrage
           </div>
-        </div>
-      </a>
-      <a
-        aria-current={null}
-        className="makeStyles-navBarMenuText-18"
-        href="/trading-dashboard"
-        onClick={[Function]}
+        </a>
+      </div>
+      <div
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
       >
-        <div
-          className="makeStyles-navBarMenuTextCursor-20"
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/trading-dashboard"
+          onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-21"
+            className="makeStyles-navBarMenuButton-56"
           >
             <img
+              className="makeStyles-navBarMenuIcon-57"
               src="line-chart-logo.svg"
-              style={
-                Object {
-                  "margin": "0px 10px",
-                  "marginLeft": 50,
-                }
-              }
             />
             Trading
           </div>
-        </div>
-      </a>
-      <a
-        aria-current={null}
-        className="makeStyles-navBarMenuText-18"
-        href="/api"
+        </a>
+      </div>
+      <div
         onClick={[Function]}
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
       >
-        <div
-          className="makeStyles-navBarMenuTextCursor-20"
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/api"
+          onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-21"
+            className="makeStyles-navBarMenuButton-56"
           >
             <img
+              className="makeStyles-navBarMenuIcon-57"
               src="cloud-upload-logo.svg"
               style={
                 Object {
@@ -113,21 +123,27 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
             />
             API
           </div>
-        </div>
-      </a>
-      <a
-        aria-current={null}
-        className="makeStyles-navBarMenuText-18"
-        href="/data"
+        </a>
+      </div>
+      <div
         onClick={[Function]}
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
       >
-        <div
-          className="makeStyles-navBarMenuTextCursor-20"
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/data"
+          onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-21"
+            className="makeStyles-navBarMenuButton-56"
           >
             <img
+              className="makeStyles-navBarMenuIcon-57"
               src="data-logo.svg"
               style={
                 Object {
@@ -138,8 +154,32 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
             />
             Data
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
+      <div
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
+      >
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/charts"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-navBarMenuButton-56"
+          >
+            <img
+              className="makeStyles-navBarMenuIcon-57"
+              src={null}
+            />
+            Charts
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

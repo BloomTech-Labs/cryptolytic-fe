@@ -8,15 +8,15 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
     className="navHeader"
   >
     <div
-      className="makeStyles-navHeader-211"
+      className="makeStyles-navHeader-385"
     >
       <div
-        className="makeStyles-title-212"
+        className="makeStyles-title-386"
       >
         Dashboard
       </div>
       <div
-        className="makeStyles-cogWheel-213"
+        className="makeStyles-cogWheel-387"
       >
         <img
           src="cogwheel.svg"
@@ -39,32 +39,38 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="makeStyles-NavBar-230"
+      className="makeStyles-NavBar-404"
     >
       <div>
         <div
-          className="makeStyles-NavBarLogo-231"
+          className="makeStyles-NavBarLogo-405"
         >
           <img
             src="logo.svg"
           />
         </div>
         <div
-          className="makeStyles-NavBarMenu-232"
+          className="makeStyles-NavBarMenu-406"
         >
-          <a
-            aria-current={null}
-            className="makeStyles-navBarMenuText-233"
-            href="/home"
+          <div
             onClick={[Function]}
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
           >
-            <div
-              className="makeStyles-navBarMenuTextCursor-235"
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/home"
+              onClick={[Function]}
             >
               <div
-                className="makeStyles-navBarMenuButton-236"
+                className="makeStyles-navBarMenuButton-411"
               >
                 <img
+                  className="makeStyles-navBarMenuIcon-412"
                   src="home-logo.svg"
                   style={
                     Object {
@@ -75,71 +81,75 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
                 />
                 Home
               </div>
-            </div>
-          </a>
-          <a
-            aria-current={null}
-            className="makeStyles-navBarMenuText-233"
-            href="/arbitrage-dashboard"
-            onClick={[Function]}
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
           >
-            <div
-              className="makeStyles-navBarMenuTextCursor-235"
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/arbitrage-dashboard"
+              onClick={[Function]}
             >
               <div
-                className="makeStyles-navBarMenuButton-236"
+                className="makeStyles-navBarMenuButton-411"
               >
                 <img
+                  className="makeStyles-navBarMenuIcon-412"
                   src="arbitrage-logo.svg"
-                  style={
-                    Object {
-                      "margin": "0px 10px",
-                      "marginLeft": 50,
-                    }
-                  }
                 />
                 Arbitrage
               </div>
-            </div>
-          </a>
-          <a
-            aria-current={null}
-            className="makeStyles-navBarMenuText-233"
-            href="/trading-dashboard"
-            onClick={[Function]}
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
           >
-            <div
-              className="makeStyles-navBarMenuTextCursor-235"
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/trading-dashboard"
+              onClick={[Function]}
             >
               <div
-                className="makeStyles-navBarMenuButton-236"
+                className="makeStyles-navBarMenuButton-411"
               >
                 <img
+                  className="makeStyles-navBarMenuIcon-412"
                   src="line-chart-logo.svg"
-                  style={
-                    Object {
-                      "margin": "0px 10px",
-                      "marginLeft": 50,
-                    }
-                  }
                 />
                 Trading
               </div>
-            </div>
-          </a>
-          <a
-            aria-current={null}
-            className="makeStyles-navBarMenuText-233"
-            href="/api"
+            </a>
+          </div>
+          <div
             onClick={[Function]}
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
           >
-            <div
-              className="makeStyles-navBarMenuTextCursor-235"
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/api"
+              onClick={[Function]}
             >
               <div
-                className="makeStyles-navBarMenuButton-236"
+                className="makeStyles-navBarMenuButton-411"
               >
                 <img
+                  className="makeStyles-navBarMenuIcon-412"
                   src="cloud-upload-logo.svg"
                   style={
                     Object {
@@ -150,21 +160,27 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
                 />
                 API
               </div>
-            </div>
-          </a>
-          <a
-            aria-current={null}
-            className="makeStyles-navBarMenuText-233"
-            href="/data"
+            </a>
+          </div>
+          <div
             onClick={[Function]}
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
           >
-            <div
-              className="makeStyles-navBarMenuTextCursor-235"
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/data"
+              onClick={[Function]}
             >
               <div
-                className="makeStyles-navBarMenuButton-236"
+                className="makeStyles-navBarMenuButton-411"
               >
                 <img
+                  className="makeStyles-navBarMenuIcon-412"
                   src="data-logo.svg"
                   style={
                     Object {
@@ -175,11 +191,136 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
                 />
                 Data
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "all": "inherit",
+              }
+            }
+          >
+            <a
+              aria-current={null}
+              className="makeStyles-navBarMenuText-407"
+              href="/charts"
+              onClick={[Function]}
+            >
+              <div
+                className="makeStyles-navBarMenuButton-411"
+              >
+                <img
+                  className="makeStyles-navBarMenuIcon-412"
+                  src={null}
+                />
+                Charts
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="makeStyles-footer-428"
+  >
+    <nav
+      className="makeStyles-footerNavigation-429"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-flex-start MuiGrid-grid-sm-4"
+        >
+          <p
+            className="MuiTypography-root makeStyles-footerTitle-431 MuiTypography-body1"
+          >
+            Cryptolytic
+          </p>
+          <div
+            style={
+              Object {
+                "margin": "30px 0px",
+              }
+            }
+          >
+            <p
+              className="MuiTypography-root makeStyles-footerBody-432 MuiTypography-body1"
+            >
+              Contact Us
+            </p>
+            <p
+              className="MuiTypography-root makeStyles-footerBody-432 MuiTypography-body1"
+            >
+              cryptolyticapp@gmail.com
+            </p>
+          </div>
+          <p
+            className="MuiTypography-root makeStyles-footerCopyright-433 MuiTypography-body1"
+          >
+            Copyright 2020 Cryptolytic
+          </p>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-grid-sm-4"
+        >
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Home
+          </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            About
+          </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Services
+          </a>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-grid-sm-3"
+        >
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Legal
+          </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Privacy Policy
+          </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            User Agreement
+          </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-430 MuiTypography-colorInherit"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            FAQ
+          </a>
+        </div>
+      </div>
+    </nav>
   </div>
 </div>
 `;
