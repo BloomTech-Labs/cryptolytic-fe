@@ -1,111 +1,102 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import React, { useEffect } from "react";
+import SelectDropdown from "./SelectDropdown";
+import { connect } from "react-redux";
+import { getChartData, getCompareChartData, setToggled } from "../../actions";
 
 const exchanges = ["Coinbase", "Binance", "HITBTC", "Bitfinex"];
 const tradingPair = ["BTC/USD", "ETH/BTC"];
-const range = ["Day", "Week", "Month"];
+const timeFrames = ["Day", "Week", "Month"];
 
-const useStyles = makeStyles({
-  select: {
-    width: "200px",
-    margin: "0 5px",
-    padding: "0.5em",
-    border: "1px solid #62e3ab",
-    borderRadius: "5px",
-    textAlign: "center"
-  },
-  label: {
-    width: "100%",
-    padding: "0.5em",
-    color: "#62e3ab"
-  }
-});
+const ChartOptionSelect = props => {
+	const { options, compareOptions, toggled } = props;
 
-const ChartOptionSelect = () => {
-  const classes = useStyles();
-  return (
-    <div style={{ margin: "2em 0 2em 20em" }}>
-      <FormControl className={classes.select}>
-        <InputLabel id='exchangeLabel' className={classes.label}>
-          Exchange
-        </InputLabel>
-        <Select
-          labelId='exchangeLabel'
-          id='exchange'
-          native
-          style={{ color: "#fff" }}
-          // value={exchange}
-          // onChange={handlechanges}
-        >
-          {exchanges.map(ex => {
-            return (
-              <option
-                key={ex}
-                value={ex}
-                style={{ borderRadius: "5px", color: "#000" }}
-              >
-                {ex}
-              </option>
-            );
-          })}
-        </Select>
-      </FormControl>
-      <FormControl className={classes.select}>
-        <InputLabel id='tradingPairLabel' className={classes.label}>
-          Trading Pair
-        </InputLabel>
-        <Select
-          labelId='tradingPairLabel'
-          id='tradingPair'
-          native
-          style={{ color: "#fff" }}
-          // value={exchange}
-          // onChange={handlechanges}
-        >
-          {tradingPair.map(tp => {
-            return (
-              <option
-                key={tp}
-                value={tp}
-                style={{ borderRadius: "5px", color: "#000" }}
-              >
-                {tp}
-              </option>
-            );
-          })}
-        </Select>
-      </FormControl>
-      <FormControl className={classes.select}>
-        <InputLabel id='rangeLabel' className={classes.label}>
-          Range
-        </InputLabel>
-        <Select
-          labelId='rangeLabel'
-          id='range'
-          native
-          style={{ color: "#fff" }}
-          // value={exchange}
-          // onChange={handlechanges}
-        >
-          {range.map(r => {
-            return (
-              <option
-                key={r}
-                value={r}
-                style={{ borderRadius: "5px", color: "#000" }}
-              >
-                {r}
-              </option>
-            );
-          })}
-        </Select>
-      </FormControl>
-    </div>
-  );
+	useEffect(() => {
+		props.getChartData(options);
+		props.getCompareChartData(compareOptions);
+	}, [options, compareOptions]);
+
+
+
+	const handleSubmit = event => {
+		event.preventDefault();
+		props.getChartData(options);
+	};
+
+	const handleCompareSubmit = event => {
+		event.preventDefault();
+		props.getCompareChartData(compareOptions);
+	};
+
+	console.log("switch>>>>>>", toggled);
+
+	if (toggled) {
+		return (
+			<form onSubmit={handleCompareSubmit} style={{ margin: "2em 0 2em 20em" }}>
+				<SelectDropdown
+					id={"exchangeLabel"}
+					label={"Exchange 1"}
+					selectId={"exchange"}
+					data={exchanges}
+					val={options.exchange}
+				/>
+				<SelectDropdown
+					id={"exchangeLabel2"}
+					label={"Exchange 2"}
+					selectId={"exchange"}
+					data={exchanges}
+					val={compareOptions.exchange}
+				/>
+				<SelectDropdown
+					id={"tradingPairLabel"}
+					label={"Trading Pair"}
+					selectId={"tradingPair"}
+					data={tradingPair}
+				/>
+				<SelectDropdown
+					id={"timeFrameLabel"}
+					label={"Time Frame"}
+					selectId={"timeFrame"}
+					data={timeFrames}
+				/>
+			</form>
+		);
+	} else {
+		return (
+			<form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
+				<SelectDropdown
+					id={"exchangeLabel"}
+					label={"Exchange"}
+					selectId={"exchange"}
+					data={exchanges}
+				/>
+				<SelectDropdown
+					id={"tradingPairLabel"}
+					label={"Trading Pair"}
+					selectId={"tradingPair"}
+					data={tradingPair}
+				/>
+				<SelectDropdown
+					id={"timeFrameLabel"}
+					label={"Time Frame"}
+					selectId={"timeFrame"}
+					data={timeFrames}
+				/>
+			</form>
+		);
+	}
 };
 
-export default ChartOptionSelect;
+const mapStateToProps = state => {
+	return {
+		cryptoData: state.cryptoData,
+		options: state.options,
+		compareOptions: state.compareOptions,
+		toggled: state.switchToggled
+	};
+};
+
+export default connect(mapStateToProps, {
+	getChartData,
+	getCompareChartData,
+	setToggled
+})(ChartOptionSelect);
