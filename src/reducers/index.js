@@ -23,6 +23,7 @@ const initialState = {
     trading_pair: "btc_usd",
     timeFrame: "Day"
   },
+
   gettingCryptoData: false,
   gettingCryptoDataError: null,
   gettingCompareCryptoData: false,
