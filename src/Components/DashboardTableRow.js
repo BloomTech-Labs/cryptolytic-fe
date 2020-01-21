@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
 import { getIcons } from "../Utilities/tradingPairIcons"
-
-import axios from "axios";
-
 
 const useStyles = makeStyles({
     tableRow: {
@@ -26,7 +18,7 @@ const useStyles = makeStyles({
       },
       tableData: {
         color: 'rgb(255, 255, 255)',
-        borderBottom: '1px solid rgba(35, 32, 44, 0.9)'
+        borderBottom: '1px solid rgba(35, 32, 44, 0.9)',
       },
       tradingPair: {
         display: 'flex',
@@ -46,6 +38,9 @@ const useStyles = makeStyles({
       bitfinexColor: {
         color: "rgb(98, 227, 171)",
       },
+      fiat: {
+        whiteSpace: 'nowrap'
+      }
   });
 
 export default function DashboardTableRow(props) {
@@ -83,16 +78,27 @@ export default function DashboardTableRow(props) {
                 })
                 props.fiatArray.map(ee => {
                   if(i === ee)
-                  b = `$ ${b.toFixed(2)}`
+                b = <span className={classes.fiat}>$ {b.toFixed(2)}</span>
+                })
+                props.largeNumberArray.map(ee => {
+                  if(i === ee)
+                    if(Math.abs(b) > 999,999 && Math.abs(b) < 1000000000) 
+                      return b = Math.sign(b)*((Math.abs(b)/1000000).toFixed(1)) + " M"
+                    else if(Math.abs(b) > 999,999,999) 
+                      return b = Math.sign(b)*((Math.abs(b)/1000000000).toFixed(1)) + " B"
+                })
+                props.tickerArray.map(ee => {
+                  if(i === ee)
+                    b = b.toUpperCase();
                 })
                 props.percentageArray.map(ee => {
                   if(i === ee)
                     if(b > 0)
-                      b = <p style={{ color: 'green', width: '100%' }}>{b} %</p>
+                      b = <p style={{ color: 'green' }}>{b.toFixed(2)} %</p>
                     else if(b < 0)
-                    b = <p style={{ color: 'red', width: '100%' }}>{b} %</p>
+                    b = <p style={{ color: 'red' }}>{b.toFixed(2)} %</p>
                   else
-                  b = `${b} %`
+                  b = `${b.toFixed(2)} %`
                 })
                   return <TableCell component="th" scope="row" align="center" className={classes.tableData}> {b} </TableCell>
                 })}
