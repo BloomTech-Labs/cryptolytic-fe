@@ -21,7 +21,7 @@ const initialState = {
   compareOptions: {
     exchange: "bitfinex",
     trading_pair: "btc_usd",
-    timeFrame: "Month"
+    timeFrame: "Day"
   },
   gettingCryptoData: false,
   gettingCryptoDataError: null,

@@ -40,12 +40,14 @@ const ChartOptionSelect = props => {
           label={"Exchange 1"}
           selectId={"exchange"}
           data={exchanges}
+          val={options.exchange}
         />
         <SelectDropdown
           id={"exchangeLabel2"}
           label={"Exchange 2"}
           selectId={"exchange"}
           data={exchanges}
+          val={compareOptions.exchange}
         />
         <SelectDropdown
           id={"tradingPairLabel"}

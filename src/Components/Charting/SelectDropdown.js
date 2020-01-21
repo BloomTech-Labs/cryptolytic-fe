@@ -49,12 +49,11 @@ const SelectDropdown = props => {
   console.log("options", options);
 
   const handleChanges = event => {
-    console.log("event>>>>>>", event.target.id);
     let newOptions;
     switch (event.target.id) {
       case "exchange":
         const exchange = event.target.value.toLowerCase();
-        if (toggled && id === "exchangeLabel2") {
+        if (toggled) {
           newOptions = { ...compareOptions, exchange };
           props.setCompareOptions(newOptions);
         } else {
@@ -64,18 +63,22 @@ const SelectDropdown = props => {
         break;
       case "tradingPair":
         const trading_pair = event.target.value.toLowerCase().replace("/", "_");
-        if (toggled && label === "exchangeLabel2") {
+        if (toggled) {
           newOptions = { ...compareOptions, trading_pair };
           props.setCompareOptions(newOptions);
+          newOptions = { ...options, trading_pair };
+          props.setOptions(newOptions);
         } else {
           newOptions = { ...options, exchange };
           props.setOptions(newOptions);
         }
         break;
       case "timeFrame":
-        if (toggled && label === "exchangeLabel2") {
+        if (toggled) {
           newOptions = { ...compareOptions, timeFrame: event.target.value };
           props.setCompareOptions(newOptions);
+          newOptions = { ...options, timeFrame: event.target.value };
+          props.setOptions(newOptions);
         } else {
           newOptions = { ...options, timeFrame: event.target.value };
           props.setOptions(newOptions);
@@ -86,24 +89,19 @@ const SelectDropdown = props => {
 
   return (
     <FormControl className={classes.select}>
-      <InputLabel id={id} className={classes.label}>
+      <InputLabel id={id} htmlFor={id} className={classes.label}>
         {label}
       </InputLabel>
       <Select
+        native
         labelId={id}
         id={selectId}
-        native
         style={{ color: "#fff" }}
-        // value={exchange}
         onChange={handleChanges}
       >
         {data.map(ex => {
           return (
-            <option
-              key={ex}
-              value={ex}
-              style={{ borderRadius: "5px", color: "#000" }}
-            >
+            <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
               {ex}
             </option>
           );
