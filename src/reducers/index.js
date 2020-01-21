@@ -2,20 +2,33 @@ import {
   FETCH_CHARTDATA_START,
   FETCH_CHARTDATA_SUCCESS,
   FETCH_CHARTDATA_FAILURE,
-  TOGGLE_VIEW_SWITCH
+  FETCH_COMPARE_CHARTDATA_START,
+  FETCH_COMPARE_CHARTDATA_SUCCESS,
+  FETCH_COMPARE_CHARTDATA_FAILURE,
+  SET_OPTIONS_START,
+  SET_COMPARE_OPTIONS_START,
+  TOGGLE_SWITCH_START
 } from "../actions";
 
 const initialState = {
   chartData: [],
-  cryptoData: {
-    exchange: "coinbase",
+  compareData: [],
+  options: {
+    exchange: "hitbtc",
+    trading_pair: "btc_usd",
+    timeFrame: "Day"
+  },
+  compareOptions: {
+    exchange: "bitfinex",
     trading_pair: "btc_usd",
     timeFrame: "Day"
   },
 
   gettingCryptoData: false,
   gettingCryptoDataError: null,
-  comparativeView: false
+  gettingCompareCryptoData: false,
+  gettingCompareCryptoError: null,
+  switchToggled: false
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -39,11 +52,40 @@ export const rootReducer = (state = initialState, action) => {
         gettingCryptoData: false,
         gettingCryptoDataError: action.payload
       };
-    case TOGGLE_VIEW_SWITCH:
+    case FETCH_COMPARE_CHARTDATA_START:
       return {
         ...state,
-        comparativeView: action.payload
-      }
+        gettingCompareCryptoData: true,
+        gettingCompareCryptoError: ""
+      };
+    case FETCH_COMPARE_CHARTDATA_SUCCESS:
+      return {
+        ...state,
+        gettingCompareCryptoData: false,
+        compareData: action.payload,
+        gettingCompareCryptoError: ""
+      };
+    case FETCH_COMPARE_CHARTDATA_FAILURE:
+      return {
+        ...state,
+        gettingCompareCryptoData: false,
+        gettingCompareCryptoError: action.payload
+      };
+    case SET_OPTIONS_START:
+      return {
+        ...state,
+        options: action.payload
+      };
+    case SET_COMPARE_OPTIONS_START:
+      return {
+        ...state,
+        compareOptions: action.payload
+      };
+    case TOGGLE_SWITCH_START:
+      return {
+        ...state,
+        switchToggled: action.payload
+      };
     default:
       return state;
   }
