@@ -56,11 +56,14 @@ export default function MarketIndex(props) {
 	return (
 		<div>
 			<div style={{ display: 'flex', height: '100%' }}>
+				{controls.compare.length > 0 ?
 				<MarketIndexChart controls={controls} setControls={setControls} names={names} />
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', marginLeft: '2em', color: 'white' }}>
+				:
+				<h1 style = {{ paddingLeft: "20vw", width: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Select a coin, exchange, and interval...</h1>
+				}
+				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: '2em', color: 'white' }}>
 					<Typography style={{ fontSize: '1.6rem', background: "-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)", webkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} >Compare</Typography>
 					<CompareControls compare={controls} setCompare={setControls} names={names} />
-
 				</div>
 			</div>
 			<div style={{ marginLeft: "2em" }}>

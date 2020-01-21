@@ -64,7 +64,6 @@ export default function ViewControl(props) {
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Container style={{ width: '21vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', height: '35%', borderRadius: '6px', paddingBottom: '1.4em' }}>
-				{/* <button onClick={() => console.log(props.viewControl)}>Check State</button> */}
 				<FormControl className={classes.formControl}>
 					<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Coin</InputLabel>
 					<Select

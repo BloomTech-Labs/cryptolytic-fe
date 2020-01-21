@@ -8,14 +8,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Container from '@material-ui/core/Container';
 import DateFnsUtils from '@date-io/date-fns';
 import Input from '@material-ui/core/Input';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 
 import {
 	MuiPickersUtilsProvider,
-	KeyboardDatePicker,
 } from '@material-ui/pickers';
 
 // Use this to populate list of possible coins
@@ -38,37 +35,9 @@ const useStyles = makeStyles(theme => ({
 		fill: 'white',
 	}
 }));
-function getStyles(name, personName, theme) {
-	return {
-	  fontWeight:
-		personName.indexOf(name) === -1
-		  ? theme.typography.fontWeightRegular
-		  : theme.typography.fontWeightMedium,
-	};
-  }
 export default function CompareControl(props) {
 	const classes = useStyles();
-	const theme = useTheme();
-	const [state, setState] = React.useState({
-		age: '',
-		name: 'hai',
-	});
-	const [age, setAge] = React.useState('');
-	const inputLabel = React.useRef(null);
-	const [labelWidth, setLabelWidth] = React.useState(0);
-	const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-	const handleDateChange = date => {
-		setSelectedDate(date);
-		const useStyles = makeStyles(theme => ({
-			formControl: {
-				margin: theme.spacing(1),
 
-			},
-			selectEmpty: {
-				marginTop: theme.spacing(2),
-			},
-		}));
-	};
 	  const ITEM_HEIGHT = 48;
 	  const ITEM_PADDING_TOP = 8;
 	  const MenuProps = {
@@ -79,14 +48,6 @@ export default function CompareControl(props) {
 		  },
 		},
 	  };
-	  function getStyles(name, personName, theme) {
-		return {
-		  fontWeight:
-			personName.indexOf(name) === -1
-			  ? theme.typography.fontWeightRegular
-			  : theme.typography.fontWeightMedium,
-		};
-	  }
 
 	  const handleChangeOptions = name => event => {
 		props.setCompare({
@@ -148,15 +109,8 @@ export default function CompareControl(props) {
 							onChange={handleChangeOptions('exchange')}
 							style={{ color: 'white' }}
 						>
-							<MenuItem value={"Gemini"}>Gemini</MenuItem>
-							<MenuItem value={"itBit"}>itBit</MenuItem>
-							<MenuItem value={"Coinbase"}>Coinbase</MenuItem>
-							<MenuItem value={"Kraken"}>Kraken</MenuItem>
-							<MenuItem value={"Bitstamp"}>Bitstamp</MenuItem>
-							<MenuItem value={"Liquid"}>Liquid</MenuItem>
-							<MenuItem value={"Poloniex"}>Poloniex</MenuItem>
-							<MenuItem value={"bitflyer"}>bitFlyer</MenuItem>
-							<MenuItem value={"bitfinex"}>Bitfinex</MenuItem>
+							{["gemini","itbit","coinbase","kraken","bitstamp","liquid","poloniex","bitflyer","bitfinex"].map(e => 
+								<MenuItem value={e}>{e}</MenuItem>)}
 						</Select>
 					</FormControl>
 					<FormControl className={classes.formControl}>
@@ -168,9 +122,8 @@ export default function CompareControl(props) {
 							onChange={handleChangeOptions('interval')}
 							style={{ color: 'white' }}
 						>
-							<MenuItem value={"day"}>Day</MenuItem>
-							<MenuItem value={"hour"}>Hour</MenuItem>
-							<MenuItem value={"minute"}>Minute</MenuItem>
+							{["day","hour","minute"].map(e =>
+							<MenuItem value={e}>{e}</MenuItem>)}
 						</Select>
 					</FormControl>
 					<Button variant="outlined" color="primary" style={{ width: '30%', margin: '1em 0' }} onClick={() => props.setCompare({		

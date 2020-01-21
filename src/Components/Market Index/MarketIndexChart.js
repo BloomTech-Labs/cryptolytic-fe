@@ -6,13 +6,10 @@ import IndexChart from "./IndexChart"
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-
 let arrayData = []
 let formatArray = []
 let nested = []
 let chartData = []
-
-
 
 export default function MarketIndexChart(props){
 	const[ state, setState ] = useState({
@@ -113,7 +110,7 @@ export default function MarketIndexChart(props){
 		data: chartData
 	};
 
-	if(chartData){
+	if(!props.controls.render){
 	return(
 		<>
 			<IndexChart options={options} />
@@ -121,6 +118,6 @@ export default function MarketIndexChart(props){
 	)}
 	else{
 	return(
-		<></>
+		<h1 style={{ color: 'white', marginLeft: '25vw' }}>Loading...</h1>
 	)}
 }
