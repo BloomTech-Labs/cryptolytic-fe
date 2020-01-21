@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -25,10 +25,53 @@ const useStyles = makeStyles({
   }
 });
 
+
+
+
 const ChartOptionSelect = () => {
+
+const [ fields, setFields ] = useState({exchange: 'Coinbase', trading_pair: 'BTC/USD', timeFrame: 'Day' });
+
+
+const handleChanges = (event) => {
+
+ console.log("event>>>>>>", event.target.id)
+
+  let newFields; 
+  switch ( event.target.id ) {
+    case "exchange":
+      newFields = { ...fields, exchange: event.target.value } 
+      setFields(newFields)
+      break;
+    case "tradingPair":
+      newFields = { ...fields, trading_pair: event.target.value } 
+      setFields(newFields)
+      break;
+    case "timeFrame":
+      newFields = { ...fields, timeFrame: event.target.value } 
+      setFields(newFields)
+      break;
+  }
+
+};
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // formSubmit(fields);
+
+};
+
+
+
+console.log("field>>>>>>", fields)
+
   const classes = useStyles();
+
+
+
+
   return (
-    <div style={{ margin: "2em 0 2em 20em" }}>
+    <form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
       <FormControl className={classes.select}>
         <InputLabel id='exchangeLabel' className={classes.label}>
           Exchange
@@ -39,7 +82,7 @@ const ChartOptionSelect = () => {
           native
           style={{ color: "#fff" }}
           // value={exchange}
-          // onChange={handlechanges}
+          onChange={handleChanges}
         >
           {exchanges.map(ex => {
             return (
@@ -54,6 +97,7 @@ const ChartOptionSelect = () => {
           })}
         </Select>
       </FormControl>
+
       <FormControl className={classes.select}>
         <InputLabel id='tradingPairLabel' className={classes.label}>
           Trading Pair
@@ -64,7 +108,7 @@ const ChartOptionSelect = () => {
           native
           style={{ color: "#fff" }}
           // value={exchange}
-          // onChange={handlechanges}
+          onChange={handleChanges}
         >
           {tradingPair.map(tp => {
             return (
@@ -80,16 +124,16 @@ const ChartOptionSelect = () => {
         </Select>
       </FormControl>
       <FormControl className={classes.select}>
-        <InputLabel id='rangeLabel' className={classes.label}>
+        <InputLabel id='timeFrameLabel' className={classes.label}>
           Range
         </InputLabel>
         <Select
-          labelId='rangeLabel'
-          id='range'
+          labelId='timeFrameLabel'
+          id='timeFrame'
           native
           style={{ color: "#fff" }}
           // value={exchange}
-          // onChange={handlechanges}
+          onChange={handleChanges}
         >
           {range.map(r => {
             return (
@@ -104,7 +148,7 @@ const ChartOptionSelect = () => {
           })}
         </Select>
       </FormControl>
-    </div>
+    </form>
   );
 };
 
