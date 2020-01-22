@@ -29,13 +29,12 @@ function App() {
             <ArbitrageDashboard />
           </Route>
           <AuthProvider>
-            <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
           </AuthProvider>
         </Switch>
       </div>
-
       <Footer />
     </div>
   );
