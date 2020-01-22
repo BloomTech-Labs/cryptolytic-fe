@@ -1,19 +1,14 @@
 import React, { useEffect } from "react";
 import SelectDropdown from "./SelectDropdown";
-import ToggleChartSwitch from "./ToggleSwitch";
 import { connect } from "react-redux";
 import { getChartData, getCompareChartData, setToggled } from "../../actions";
 
-const exchanges = ["Coinbase", "Binance", "HITBTC", "Bitfinex"];
-const tradingPair = ["BTC/USD", "ETH/BTC"];
+const exchanges = ["coinbase", "binance", "hitbtc", "bitfinex"];
+const tradingPair = ["btc_usd", "eth_btc"];
 const timeFrames = ["Day", "Week", "Month"];
 
 const ChartOptionSelect = props => {
   const { options, compareOptions, toggled } = props;
-
-  // useEffect(() => {
-  //   props.getCompareChartData(compareOptions);
-  // }, [compareOptions]);
 
   useEffect(() => {
     props.getChartData(options);
@@ -52,16 +47,17 @@ const ChartOptionSelect = props => {
         <SelectDropdown
           id={"tradingPairLabel"}
           label={"Trading Pair"}
-          selectId={"tradingPair"}
+          selectId={"trading_pair"}
           data={tradingPair}
+          val={options.trading_pair}
         />
         <SelectDropdown
           id={"timeFrameLabel"}
           label={"Time Frame"}
           selectId={"timeFrame"}
           data={timeFrames}
+          val={options.timeFrame}
         />
-        <ToggleChartSwitch />
       </form>
     );
   } else {
@@ -72,20 +68,22 @@ const ChartOptionSelect = props => {
           label={"Exchange"}
           selectId={"exchange"}
           data={exchanges}
+          val={options.exchange}
         />
         <SelectDropdown
           id={"tradingPairLabel"}
           label={"Trading Pair"}
-          selectId={"tradingPair"}
+          selectId={"trading_pair"}
           data={tradingPair}
+          val={options.trading_pair}
         />
         <SelectDropdown
           id={"timeFrameLabel"}
           label={"Time Frame"}
           selectId={"timeFrame"}
           data={timeFrames}
+          val={options.timeFrame}
         />
-        <ToggleChartSwitch />
       </form>
     );
   }

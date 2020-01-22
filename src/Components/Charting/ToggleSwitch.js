@@ -3,37 +3,36 @@ import { connect } from "react-redux";
 import { setToggled } from "../../actions";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 const ToggleChartSwitch = withStyles(theme => ({
   root: {
-    width: 28,
-    height: 16,
+    width: 42,
+    height: 26,
     padding: 0,
-    display: "flex",
-    justifyContent: "flex-end",
-    marginLeft: 20
+    margin: theme.spacing(1)
   },
   switchBase: {
-    padding: 2,
+    padding: 1,
     color: theme.palette.grey[500],
     "&$checked": {
-      transform: "translateX(12px)",
+      transform: "translateX(16px)",
       color: theme.palette.common.white,
       "& + $track": {
         opacity: 1,
-        backgroundColor: theme.palette.primary.main,
-        borderColor: theme.palette.primary.main
+        backgroundColor: "#62e3ab",
+        borderColor: "#62e3ab"
       }
     }
   },
   thumb: {
-    width: 12,
-    height: 12,
-    boxShadow: "none"
+    width: 24,
+    height: 24
   },
   track: {
     border: `1px solid ${theme.palette.grey[500]}`,
-    borderRadius: 16 / 2,
+    borderRadius: 26,
     opacity: 1,
     backgroundColor: theme.palette.common.white
   },
@@ -47,11 +46,23 @@ const ToggleSwitch = props => {
     setToggled(!toggled);
   };
   return (
-    <ToggleChartSwitch
-      checked={toggled}
-      onChange={handleToggleChanges}
-      value='toggled'
-    />
+    <Typography component='div' style={{ marginLeft: "45%" }}>
+      <Grid component='label' container alignItems='center' spacing={1}>
+        <Grid item style={{ color: "white" }}>
+          Single Exchange
+        </Grid>
+        <Grid item>
+          <ToggleChartSwitch
+            checked={toggled}
+            onChange={handleToggleChanges}
+            value='toggled'
+          />
+        </Grid>
+        <Grid item style={{ color: "white" }}>
+          Compare Exchanges
+        </Grid>
+      </Grid>
+    </Typography>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { setOptions, setCompareOptions } from "../../actions";
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,54 +34,76 @@ const useStyles = makeStyles({
 const SelectDropdown = props => {
   const classes = useStyles();
   const {
-    exchange,
-    trading_pair,
-    timeFrame,
     id,
     label,
     selectId,
     data,
     options,
     compareOptions,
-    toggled
+    toggled,
+    val
   } = props;
 
   console.log("options", options);
+  console.log("val>>>>>>", val);
 
-  const handleChanges = event => {
-    let newOptions;
+  const handleChanges = name => event => {
+    console.log("event.id>>>>", event.target.id, name);
     switch (event.target.id) {
       case "exchange":
-        const exchange = event.target.value.toLowerCase();
-        if (toggled) {
-          newOptions = { ...compareOptions, exchange };
-          props.setCompareOptions(newOptions);
+        if (toggled && id === "exchangeLabel2") {
+          props.setCompareOptions({
+            ...compareOptions,
+            render: true,
+            [name]: event.target.value
+          });
         } else {
-          newOptions = { ...options, exchange };
-          props.setOptions(newOptions);
+          props.setOptions({
+            ...options,
+            render: true,
+            [name]: event.target.value
+          });
         }
         break;
-      case "tradingPair":
-        const trading_pair = event.target.value.toLowerCase().replace("/", "_");
+      case "trading_pair":
+        // const trading_pair = event.target.value.toLowerCase().replace("/", "_");
         if (toggled) {
-          newOptions = { ...compareOptions, trading_pair };
-          props.setCompareOptions(newOptions);
-          newOptions = { ...options, trading_pair };
-          props.setOptions(newOptions);
+          props.setCompareOptions({
+            ...compareOptions,
+            render: true,
+            [name]: event.target.value
+          });
+          props.setOptions({
+            ...options,
+            render: true,
+            [name]: event.target.value
+          });
         } else {
-          newOptions = { ...options, exchange };
-          props.setOptions(newOptions);
+          props.setOptions({
+            ...options,
+            render: true,
+            [name]: event.target.value
+          });
         }
         break;
       case "timeFrame":
         if (toggled) {
-          newOptions = { ...compareOptions, timeFrame: event.target.value };
-          props.setCompareOptions(newOptions);
-          newOptions = { ...options, timeFrame: event.target.value };
-          props.setOptions(newOptions);
+          props.setCompareOptions({
+            ...compareOptions,
+            render: true,
+            [name]: event.target.value
+          });
+          props.setOptions({
+            ...options,
+            render: true,
+            [name]: event.target.value
+          });
         } else {
-          newOptions = { ...options, timeFrame: event.target.value };
-          props.setOptions(newOptions);
+          props.setOptions({
+            ...options,
+            render: true,
+            [name]: event.target.value
+          });
         }
         break;
     }
@@ -96,8 +118,9 @@ const SelectDropdown = props => {
         native
         labelId={id}
         id={selectId}
+        value={val}
         style={{ color: "#fff" }}
-        onChange={handleChanges}
+        onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
           return (
