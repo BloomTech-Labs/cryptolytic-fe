@@ -53,7 +53,6 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           className="makeStyles-NavBarMenu-406"
         >
           <div
-            onClick={[Function]}
             style={
               Object {
                 "all": "inherit",
@@ -72,12 +71,6 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
                 <img
                   className="makeStyles-navBarMenuIcon-412"
                   src="home-logo.svg"
-                  style={
-                    Object {
-                      "margin": "0px 10px",
-                      "marginLeft": 50,
-                    }
-                  }
                 />
                 Home
               </div>
@@ -141,7 +134,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           >
             <a
               aria-current={null}
-              className="makeStyles-navBarMenuText-407"
+              className="makeStyles-navBarMenuTextDisabled-408"
               href="/api"
               onClick={[Function]}
             >
@@ -172,7 +165,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           >
             <a
               aria-current={null}
-              className="makeStyles-navBarMenuText-407"
+              className="makeStyles-navBarMenuTextDisabled-408"
               href="/data"
               onClick={[Function]}
             >
