@@ -22,7 +22,7 @@ export default function MarketIndexChart(props){
 			let formatData = []
 				await axios
 				.get(
-					`https://min-api.cryptocompare.com/data/v2/histo${props.controls.interval}?fsym=${e}&tsym=USD&limit=1000&e=${props.controls.exchange}&api_key={e3d42438b4feed7530ea18fbebdefb6d9c9e475a39c8d6486f4f7fc63d0a5e97}`
+					`https://min-api.cryptocompare.com/data/v2/histo${props.controls.interval}?fsym=${e}&tsym=USD&limit=7&e=${props.controls.exchange}&api_key={e3d42438b4feed7530ea18fbebdefb6d9c9e475a39c8d6486f4f7fc63d0a5e97}`
 				)
 				.then(res => {
 					console.log(res.data.Data.Data);
@@ -84,7 +84,8 @@ export default function MarketIndexChart(props){
 		}
 		props.setControls({
 			...props.controls,
-			render: false
+			render: false,
+			chartLoaded: true
 		})
 	}, [props.controls.compare, props.controls.exchange, props.controls.interval])
 
@@ -110,7 +111,7 @@ export default function MarketIndexChart(props){
 		data: chartData
 	};
 
-	if(!props.controls.render){
+	if(!props.controls.chartLoaded){
 	return(
 		<>
 			<IndexChart options={options} />
@@ -118,6 +119,6 @@ export default function MarketIndexChart(props){
 	)}
 	else{
 	return(
-		<h1 style={{ color: 'white', marginLeft: '25vw' }}>Loading...</h1>
+		<h1 style={{ color: 'white', marginLeft: '40vw', marginRight: '20vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</h1>
 	)}
 }

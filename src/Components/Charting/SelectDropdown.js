@@ -46,7 +46,7 @@ const SelectDropdown = props => {
 
   console.log("options", options);
   console.log("val>>>>>>", val);
-
+  console.log(data)
   const handleChanges = name => event => {
     switch (event.target.id) {
       case "exchange":
@@ -107,6 +107,7 @@ const SelectDropdown = props => {
         onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
+<<<<<<< HEAD
           // if (ex.includes("_")) {
           //   ex = ex.toUpperCase().replace("_", "/");
           //   return (
@@ -135,6 +136,23 @@ const SelectDropdown = props => {
               {ex}
             </option>
           );
+=======
+          if (ex.includes("_")) {
+            let newEx = ex.toUpperCase().replace("_", "/");
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
+              </option>
+            );
+          } else {
+            let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
+              </option>
+            );
+          }
+>>>>>>> a2a0eeaa9048ec9a9b808e82f0b414f86184967c
         })}
       </Select>
     </FormControl>
