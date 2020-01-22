@@ -3,8 +3,8 @@ import SelectDropdown from "./SelectDropdown";
 import { connect } from "react-redux";
 import { getChartData, getCompareChartData, setToggled } from "../../actions";
 
-const exchanges = ["Coinbase", "Binance", "HITBTC", "Bitfinex"];
-const tradingPair = ["BTC/USD", "ETH/BTC"];
+const exchanges = ["coinbase", "binance", "hitbtc", "bitfinex"];
+const tradingPair = ["btc_usd", "eth_btc"];
 const timeFrames = ["Day", "Week", "Month"];
 
 const ChartOptionSelect = props => {
@@ -29,61 +29,66 @@ const ChartOptionSelect = props => {
 
 	console.log("switch>>>>>>", toggled);
 
-	if (toggled) {
-		return (
-			<form onSubmit={handleCompareSubmit} style={{ margin: "2em 0 2em 20em" }}>
-				<SelectDropdown
-					id={"exchangeLabel"}
-					label={"Exchange 1"}
-					selectId={"exchange"}
-					data={exchanges}
-					val={options.exchange}
-				/>
-				<SelectDropdown
-					id={"exchangeLabel2"}
-					label={"Exchange 2"}
-					selectId={"exchange"}
-					data={exchanges}
-					val={compareOptions.exchange}
-				/>
-				<SelectDropdown
-					id={"tradingPairLabel"}
-					label={"Trading Pair"}
-					selectId={"tradingPair"}
-					data={tradingPair}
-				/>
-				<SelectDropdown
-					id={"timeFrameLabel"}
-					label={"Time Frame"}
-					selectId={"timeFrame"}
-					data={timeFrames}
-				/>
-			</form>
-		);
-	} else {
-		return (
-			<form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
-				<SelectDropdown
-					id={"exchangeLabel"}
-					label={"Exchange"}
-					selectId={"exchange"}
-					data={exchanges}
-				/>
-				<SelectDropdown
-					id={"tradingPairLabel"}
-					label={"Trading Pair"}
-					selectId={"tradingPair"}
-					data={tradingPair}
-				/>
-				<SelectDropdown
-					id={"timeFrameLabel"}
-					label={"Time Frame"}
-					selectId={"timeFrame"}
-					data={timeFrames}
-				/>
-			</form>
-		);
-	}
+  if (toggled) {
+    return (
+      <form onSubmit={handleCompareSubmit} style={{ margin: "2em 0 2em 20em" }}>
+        <SelectDropdown
+          id={"exchangeLabel"}
+          label={"Exchange 1"}
+          selectId={"exchange"}
+          data={exchanges}
+          val={options.exchange}
+        />
+        <SelectDropdown
+          id={"exchangeLabel2"}
+          label={"Exchange 2"}
+          selectId={"exchange"}
+          data={exchanges}
+          val={compareOptions.exchange}
+        />
+        <SelectDropdown
+          id={"tradingPairLabel"}
+          label={"Trading Pair"}
+          selectId={"trading_pair"}
+          data={tradingPair}
+          val={options.trading_pair}
+        />
+        <SelectDropdown
+          id={"timeFrameLabel"}
+          label={"Time Frame"}
+          selectId={"timeFrame"}
+          data={timeFrames}
+          val={options.timeFrame}
+        />
+      </form>
+    );
+  } else {
+    return (
+      <form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
+        <SelectDropdown
+          id={"exchangeLabel"}
+          label={"Exchange"}
+          selectId={"exchange"}
+          data={exchanges}
+          val={options.exchange}
+        />
+        <SelectDropdown
+          id={"tradingPairLabel"}
+          label={"Trading Pair"}
+          selectId={"trading_pair"}
+          data={tradingPair}
+          val={options.trading_pair}
+        />
+        <SelectDropdown
+          id={"timeFrameLabel"}
+          label={"Time Frame"}
+          selectId={"timeFrame"}
+          data={timeFrames}
+          val={options.timeFrame}
+        />
+      </form>
+    );
+  }
 };
 
 const mapStateToProps = state => {
