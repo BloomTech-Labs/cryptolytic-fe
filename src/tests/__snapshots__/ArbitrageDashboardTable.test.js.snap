@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArbitrageDashboardTable /> matches verified SnapShot should match snapshot 1`] = `
+<div
+  className="css-1n707d5"
+>
+  <div
+    className="css-wrax94"
+  />
+  <div
+    className="css-cxnvq8"
+  />
+  <div
+    className="css-xy7ez6"
+  />
+  <div
+    className="css-14panbf"
+  />
+  <div
+    className="css-uuu0ai"
+  />
+  <div
+    className="css-1svdgyg"
+  />
+</div>
+`;

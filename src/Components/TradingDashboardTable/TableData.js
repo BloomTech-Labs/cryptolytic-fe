@@ -1,9 +1,10 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
     color: "rgb(78, 185, 255)",
+
 
   },
   coinbaseColor: {
@@ -23,10 +24,38 @@ const useStyles = makeStyles({
     display: "flex",
     marginLeft: "33%",
 
+
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+  },
+  coinbaseColor: {
+    color: "rgb(83, 207, 215)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+  },
+  bitfinex: {
+    color: "rgb(98, 227, 171)",
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+  },
+  tradingPair: {
+    display: "flex",
+    alignItems: "center",
+    padding: "0.5em 0 0.5em 30%",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.7)",
+
+    "@media(max-width: 1600px)": {
+      padding: "1.2em 0"
+    }
+  },
+  data: {
+    padding: "0.5em 0",
+    borderBottom: "1px solid rgba(35, 32, 44, 0.9)"
+
   }
 });
 
-const TableData = ({ item, positive, negative, icon1, icon2 }) => {
+const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
@@ -42,14 +71,16 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
   } else if (icon1 && icon2) {
     return (
       <td className={classes.tradingPair}>
-        <img src={icon1} />
+        <img src={icon1} className={classes.icon} />
         <img src={icon2} />
 
         {item}
       </td>
     );
+  } else if (item === typeof "string" && item.includes("$ ")) {
+    return <td className={alined}>{item}</td>;
   } else {
-    return <td>{item}</td>;
+    return <td className={classes.data}>{item}</td>;
   }
 };
 
