@@ -30,8 +30,8 @@ function App() {
           </Route>
           <AuthProvider>
             <PrivateRoute exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={SignUp} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </AuthProvider>
         </Switch>
       </div>

@@ -21,3 +21,13 @@ td img {
   width: 20px;
     height: 20px;
 }
+
+.signupForm {
+  display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 600px;
+    align-items: center;
+    
+}
+
