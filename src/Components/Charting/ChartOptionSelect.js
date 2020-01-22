@@ -12,54 +12,42 @@ const ChartViewSwitch = withStyles(theme => ({
     width: 28,
     height: 16,
     padding: 0,
-    display: 'flex',
+    display: "flex"
   },
   switchBase: {
     padding: 2,
     color: theme.palette.grey[500],
-    '&$checked': {
-      transform: 'translateX(12px)',
+    "&$checked": {
+      transform: "translateX(12px)",
       color: theme.palette.common.white,
-      '& + $track': {
+      "& + $track": {
         opacity: 1,
         backgroundColor: theme.palette.primary.main,
-        borderColor: theme.palette.primary.main,
-      },
-    },
+        borderColor: theme.palette.primary.main
+      }
+    }
   },
   thumb: {
     width: 12,
     height: 12,
-    boxShadow: 'none',
+    boxShadow: "none"
   },
   track: {
     border: `1px solid ${theme.palette.grey[500]}`,
     borderRadius: 16 / 2,
     opacity: 1,
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.common.white
   },
-  checked: {},
-
+  checked: {}
 }))(Switch);
-
 
 const ChartOptionSelect = props => {
   const { options, compareOptions, toggled } = props;
 
-<<<<<<< HEAD
-=======
-
-  // useEffect(() => {
-  //   props.getCompareChartData(compareOptions);
-  // }, [compareOptions]);
-
->>>>>>> 9b317d604fc5b1bea441c25da1c5d1f542494496
   useEffect(() => {
     props.getChartData(options);
     props.getCompareChartData(compareOptions);
   }, [options, compareOptions]);
-
- 
 
   const handleSubmit = event => {
     event.preventDefault();
