@@ -46,7 +46,7 @@ const SelectDropdown = props => {
 
   console.log("options", options);
   console.log("val>>>>>>", val);
-
+  console.log(data)
   const handleChanges = name => event => {
     console.log("event.id>>>>", event.target.id, name);
     switch (event.target.id) {
@@ -124,17 +124,17 @@ const SelectDropdown = props => {
       >
         {data.map(ex => {
           if (ex.includes("_")) {
-            ex = ex.toUpperCase().replace("_", "/");
+            let newEx = ex.toUpperCase().replace("_", "/");
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-                {ex}
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
               </option>
             );
           } else {
-            ex = ex.slice(0, 1).toUpperCase() + ex.substr(1);
+            let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-                {ex}
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
               </option>
             );
           }
