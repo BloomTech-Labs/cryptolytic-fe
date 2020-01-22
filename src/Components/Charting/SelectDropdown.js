@@ -123,11 +123,21 @@ const SelectDropdown = props => {
         onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
-          return (
-            <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-              {ex}
-            </option>
-          );
+          if (ex.includes("_")) {
+            ex = ex.toUpperCase().replace("_", "/");
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
+                {ex}
+              </option>
+            );
+          } else {
+            ex = ex.slice(0, 1).toUpperCase() + ex.substr(1);
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
+                {ex}
+              </option>
+            );
+          }
         })}
       </Select>
     </FormControl>
