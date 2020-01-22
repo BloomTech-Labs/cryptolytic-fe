@@ -18,10 +18,17 @@ class Chart extends Component {
       let { open, high, low, close } = obj;
       const dataObj = {};
       dataObj.x = new Date(obj.timestamp * 1000);
-      open = Number(open).toFixed(2);
-      high = Number(high).toFixed(2);
-      low = Number(low).toFixed(2);
-      close = Number(close).toFixed(2);
+      if (obj.trading_pair.includes("eth")) {
+        open = Number(open);
+        high = Number(high);
+        low = Number(low);
+        close = Number(close);
+      } else {
+        open = Number(open).toFixed(2);
+        high = Number(high).toFixed(2);
+        low = Number(low).toFixed(2);
+        close = Number(close).toFixed(2);
+      }
 
       dataObj.y = [open, high, low, close].map(i => Number(i));
       return dataObj;
@@ -31,10 +38,17 @@ class Chart extends Component {
       let { open, high, low, close } = obj;
       const dataObj = {};
       dataObj.x = new Date(obj.timestamp * 1000);
-      open = Number(open).toFixed(2);
-      high = Number(high).toFixed(2);
-      low = Number(low).toFixed(2);
-      close = Number(close).toFixed(2);
+      if (obj.trading_pair.includes("eth")) {
+        open = Number(open);
+        high = Number(high);
+        low = Number(low);
+        close = Number(close);
+      } else {
+        open = Number(open).toFixed(2);
+        high = Number(high).toFixed(2);
+        low = Number(low).toFixed(2);
+        close = Number(close).toFixed(2);
+      }
 
       dataObj.y = [open, high, low, close].map(i => Number(i));
       return dataObj;

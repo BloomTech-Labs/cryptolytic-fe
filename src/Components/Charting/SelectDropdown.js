@@ -48,7 +48,6 @@ const SelectDropdown = props => {
   console.log("val>>>>>>", val);
 
   const handleChanges = name => event => {
-    console.log("event.id>>>>", event.target.id, name);
     switch (event.target.id) {
       case "exchange":
         if (toggled && id === "exchangeLabel2") {
@@ -67,44 +66,29 @@ const SelectDropdown = props => {
         break;
       case "trading_pair":
         // const trading_pair = event.target.value.toLowerCase().replace("/", "_");
-        if (toggled) {
-          props.setCompareOptions({
-            ...compareOptions,
-            render: true,
-            [name]: event.target.value
-          });
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        } else {
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        }
+
+        props.setCompareOptions({
+          ...compareOptions,
+          render: true,
+          [name]: event.target.value
+        });
+        props.setOptions({
+          ...options,
+          render: true,
+          [name]: event.target.value
+        });
         break;
       case "timeFrame":
-        if (toggled) {
-          props.setCompareOptions({
-            ...compareOptions,
-            render: true,
-            [name]: event.target.value
-          });
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        } else {
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        }
+        props.setCompareOptions({
+          ...compareOptions,
+          render: true,
+          [name]: event.target.value
+        });
+        props.setOptions({
+          ...options,
+          render: true,
+          [name]: event.target.value
+        });
         break;
     }
   };
@@ -123,21 +107,34 @@ const SelectDropdown = props => {
         onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
-          if (ex.includes("_")) {
-            ex = ex.toUpperCase().replace("_", "/");
-            return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-                {ex}
-              </option>
-            );
-          } else {
-            ex = ex.slice(0, 1).toUpperCase() + ex.substr(1);
-            return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-                {ex}
-              </option>
-            );
-          }
+          // if (ex.includes("_")) {
+          //   ex = ex.toUpperCase().replace("_", "/");
+          //   return (
+          //     <option
+          //       key={ex}
+          //       style={{ borderRadius: "5px", color: "#000" }}
+          //       value={ex}
+          //     >
+          //       {ex}
+          //     </option>
+          //   );
+          // } else {
+          //   ex = ex.slice(0, 1).toUpperCase() + ex.substr(1);
+          //   return (
+          //     <option
+          //       key={ex}
+          //       style={{ borderRadius: "5px", color: "#000" }}
+          //       value={ex}
+          //     >
+          //       {ex}
+          //     </option>
+          //   );
+          // }
+          return (
+            <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
+              {ex}
+            </option>
+          );
         })}
       </Select>
     </FormControl>
