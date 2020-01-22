@@ -4,6 +4,7 @@ import { getIcons } from "../../Utilities/tradingPairIcons";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
+import { ListItemIcon } from "@material-ui/core";
 
 const useStyles = makeStyles({
   tablerow: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
 
 const TableDataRow = ({ dataRow }) => {
   const classes = useStyles();
-  console.log(dataRow, `trading`)
+  console.log(dataRow, `trading`);
 
   dataRow.exchange = dataRow.exchange
     .replace(/\_/, " ")
@@ -66,7 +67,7 @@ const TableDataRow = ({ dataRow }) => {
             <TableData item={item} icon1={icons.icon1} icon2={icons.icon2} />
           );
         }
-        return <TableData item={item} />;
+        return <TableData item={item} alined={classes.alined} />;
       })}
     </TableRow>
   );

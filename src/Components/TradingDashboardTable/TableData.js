@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   binanceColor: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TableData = ({ item, positive, negative, icon1, icon2 }) => {
+const TableData = ({ item, positive, negative, icon1, icon2, alined }) => {
   const classes = useStyles();
 
   if (positive && item >= 0) {
@@ -42,14 +42,16 @@ const TableData = ({ item, positive, negative, icon1, icon2 }) => {
   } else if (icon1 && icon2) {
     return (
       <td className={classes.tradingPair}>
-        <img src={icon1} />
+        <img src={icon1} className={classes.icon} />
         <img src={icon2} />
 
         {item}
       </td>
     );
+  } else if (item === typeof "string" && item.includes("$ ")) {
+    return <td className={alined}>{item}</td>;
   } else {
-    return <td>{item}</td>;
+    return <td className={classes.data}>{item}</td>;
   }
 };
 

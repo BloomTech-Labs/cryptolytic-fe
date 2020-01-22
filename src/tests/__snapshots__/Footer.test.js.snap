@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer/> matches verified SnapShot should match snapshot 1`] = `
+<div
+  className="makeStyles-footer-146"
+>
+  <nav
+    className="makeStyles-footerNavigation-147"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-flex-start MuiGrid-grid-sm-4"
+      >
+        <p
+          className="MuiTypography-root makeStyles-footerTitle-149 MuiTypography-body1"
+        >
+          Cryptolytic
+        </p>
+        <div
+          style={
+            Object {
+              "margin": "30px 0px",
+            }
+          }
+        >
+          <p
+            className="MuiTypography-root makeStyles-footerBody-150 MuiTypography-body1"
+          >
+            Contact Us
+          </p>
+          <p
+            className="MuiTypography-root makeStyles-footerBody-150 MuiTypography-body1"
+          >
+            cryptolyticapp@gmail.com
+          </p>
+        </div>
+        <p
+          className="MuiTypography-root makeStyles-footerCopyright-151 MuiTypography-body1"
+        >
+          Copyright 2020 Cryptolytic
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-grid-sm-4"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Home
+        </a>
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          About
+        </a>
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Services
+        </a>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-grid-sm-3"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Legal
+        </a>
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Privacy Policy
+        </a>
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          User Agreement
+        </a>
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-footerLinks-148 MuiTypography-colorInherit"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          FAQ
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

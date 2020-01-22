@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { css } from "@emotion/core";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import TableHeaderRow from "./TableHeaderRow";
 import TableDataRow from "./TableDataRow";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,16 +26,27 @@ const useStyles = makeStyles({
   },
 });
 
+const override = css`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 30vh 0 50vh 10vw;
+`;
+
 const TradingDashboardTable = () => {
   const classes = useStyles();
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://cryptolytic-starter.herokuapp.com/trading")
       .then(res => {
         setData(res.data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       })
       .catch(error => {
         console.log("error", error);
@@ -56,7 +69,6 @@ const TradingDashboardTable = () => {
     date = trade_time.toLocaleDateString();
     time = trade_time.toLocaleTimeString();
 
-    console.log(date);
     return {
       date,
       time,
@@ -74,20 +86,33 @@ const TradingDashboardTable = () => {
     headerData.push(key);
   }
 
-  return (
-    <TableContainer className={classes.tableContainer}>
-      <Table stickyHeader aria-label='sticky table' className={classes.table}>
-        <TableHead>
-          <TableHeaderRow headerData={headerData} />
-        </TableHead>
-        <TableBody>
-          {tradingData.map(items => (
-            <TableDataRow dataRow={items} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+  if (loading) {
+    return (
+      <PropagateLoader
+        css={override}
+        size={25}
+        color={
+          "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+        }
+        loading={loading}
+      />
+    );
+  } else {
+    return (
+      <TableContainer className={classes.tableContainer}>
+        <Table stickyHeader aria-label='sticky table' className={classes.table}>
+          <TableHead>
+            <TableHeaderRow headerData={headerData} />
+          </TableHead>
+          <TableBody>
+            {tradingData.map(items => (
+              <TableDataRow dataRow={items} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
+  }
 };
 
 export default TradingDashboardTable;

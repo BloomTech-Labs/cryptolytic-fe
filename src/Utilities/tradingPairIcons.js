@@ -99,7 +99,6 @@ export const getIcons = tradingPair => {
     return acc;
   }, []);
 
-  console.log("iconpair>>>>>>", iconPair);
   return {
     icon1: iconPair[0],
     icon2: iconPair[1]

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import PrivateRoute from "./Components/Registeration/PrivateRoute";
 import { AuthProvider } from "./Components/Registeration/Auth";

@@ -20,7 +20,7 @@ const TableHeaderRow = ({ headerData }) => {
   });
 
   return (
-    <TableRow stickyHeader className={classes.tablerow}>
+    <TableRow className={classes.tablerow}>
       {headerData.map(header => (
         <TableHeader className={classes.tableHead} header={header} />
       ))}
