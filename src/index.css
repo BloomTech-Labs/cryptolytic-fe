@@ -31,3 +31,9 @@ td img {
     
 }
 
+.signupForm input {
+  height: 0px;
+  width: 100%;
+  border-radius: 5px;
+
+}
