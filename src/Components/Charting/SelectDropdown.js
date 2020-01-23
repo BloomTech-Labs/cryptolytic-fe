@@ -12,14 +12,14 @@ const useStyles = makeStyles({
     width: "200px",
     margin: "0 5px",
     padding: "0.5em",
-    border: "1px solid #62e3ab",
+    border: "1px solid black",
     borderRadius: "5px",
     textAlign: "center"
   },
   label: {
     width: "100%",
     padding: "0.5em",
-    color: "#62e3ab"
+    color: "#fff"
   },
   textField: {
     width: "200px",
@@ -28,7 +28,10 @@ const useStyles = makeStyles({
     border: "1px solid #62e3ab",
     borderRadius: "5px",
     textAlign: "center"
-  }
+  },
+  dropDown: `&focus: {
+    color: green
+  }`
 });
 
 const SelectDropdown = props => {
@@ -46,7 +49,7 @@ const SelectDropdown = props => {
 
   console.log("options", options);
   console.log("val>>>>>>", val);
-  console.log(data)
+  console.log(data);
   const handleChanges = name => event => {
     switch (event.target.id) {
       case "exchange":
@@ -99,60 +102,37 @@ const SelectDropdown = props => {
         {label}
       </InputLabel>
       <Select
-        native
         labelId={id}
         id={selectId}
         value={val}
         style={{ color: "#fff" }}
+        className={classes.dropDown}
         onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
-<<<<<<< HEAD
-          // if (ex.includes("_")) {
-          //   ex = ex.toUpperCase().replace("_", "/");
-          //   return (
-          //     <option
-          //       key={ex}
-          //       style={{ borderRadius: "5px", color: "#000" }}
-          //       value={ex}
-          //     >
-          //       {ex}
-          //     </option>
-          //   );
-          // } else {
-          //   ex = ex.slice(0, 1).toUpperCase() + ex.substr(1);
-          //   return (
-          //     <option
-          //       key={ex}
-          //       style={{ borderRadius: "5px", color: "#000" }}
-          //       value={ex}
-          //     >
-          //       {ex}
-          //     </option>
-          //   );
-          // }
-          return (
-            <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-              {ex}
-            </option>
-          );
-=======
           if (ex.includes("_")) {
             let newEx = ex.toUpperCase().replace("_", "/");
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+              <MenuItem
+                key={ex}
+                style={{ borderRadius: "5px", color: "#000" }}
+                value={ex}
+              >
                 {newEx}
-              </option>
+              </MenuItem>
             );
           } else {
             let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+              <MenuItem
+                key={ex}
+                style={{ borderRadius: "5px", color: "#000" }}
+                value={ex}
+              >
                 {newEx}
-              </option>
+              </MenuItem>
             );
           }
->>>>>>> a2a0eeaa9048ec9a9b808e82f0b414f86184967c
         })}
       </Select>
     </FormControl>

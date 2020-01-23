@@ -78,7 +78,9 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.compareOptions.exchange.slice(0, 1).toUpperCase()+this.props.compareOptions.exchange.substr(1),
+            name:
+              this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
+              this.props.compareOptions.exchange.substr(1),
             yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: dataPoints
@@ -86,7 +88,10 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.compareOptions.exchange.slice(0, 1).toUpperCase()+this.props.compareOptions.exchange.substr(1),            yValueFormatString: "$###0.00",
+            name:
+              this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
+              this.props.compareOptions.exchange.substr(1),
+            yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: compareDataPoints
           }
@@ -117,7 +122,9 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.options.exchange.slice(0, 1).toUpperCase()+this.props.options.exchange.substr(1),
+            name:
+              this.props.options.exchange.slice(0, 1).toUpperCase() +
+              this.props.options.exchange.substr(1),
             yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: dataPoints

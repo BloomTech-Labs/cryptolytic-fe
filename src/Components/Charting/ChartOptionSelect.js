@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import SelectDropdown from "./SelectDropdown";
 import { connect } from "react-redux";
 import { getChartData, getCompareChartData, setToggled } from "../../actions";
-import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles({
+  form: {
+    display: "flex",
+    justifyContent: "flex-start",
+    margin: "2em 0 2em 28em",
+    width: "35%",
+    backgroundColor: "rgba(35, 32, 44, 0.8)",
+    borderRadius: "5px"
+  }
+});
 
 const ChartOptionSelect = props => {
+  const classes = useStyles();
   const { options, compareOptions, toggled } = props;
   const [exchanges, setExchanges] = useState([
     "coinbase",
@@ -34,45 +46,40 @@ const ChartOptionSelect = props => {
 
   if (toggled) {
     return (
-      <Container>
-        <form
-          onSubmit={handleCompareSubmit}
-          style={{ margin: "2em 0 2em 20em" }}
-        >
-          <SelectDropdown
-            id={"exchangeLabel"}
-            label={"Exchange 1"}
-            selectId={"exchange"}
-            data={exchanges}
-            val={options.exchange}
-          />
-          <SelectDropdown
-            id={"exchangeLabel2"}
-            label={"Exchange 2"}
-            selectId={"exchange"}
-            data={exchanges}
-            val={compareOptions.exchange}
-          />
-          <SelectDropdown
-            id={"tradingPairLabel"}
-            label={"Trading Pair"}
-            selectId={"trading_pair"}
-            data={tradingPair}
-            val={options.trading_pair}
-          />
-          <SelectDropdown
-            id={"timeFrameLabel"}
-            label={"Time Frame"}
-            selectId={"timeFrame"}
-            data={timeFrames}
-            val={options.timeFrame}
-          />
-        </form>
-      </Container>
+      <form onSubmit={handleCompareSubmit} className={classes.form}>
+        <SelectDropdown
+          id={"exchangeLabel"}
+          label={"Exchange 1"}
+          selectId={"exchange"}
+          data={exchanges}
+          val={options.exchange}
+        />
+        <SelectDropdown
+          id={"exchangeLabel2"}
+          label={"Exchange 2"}
+          selectId={"exchange"}
+          data={exchanges}
+          val={compareOptions.exchange}
+        />
+        <SelectDropdown
+          id={"tradingPairLabel"}
+          label={"Trading Pair"}
+          selectId={"trading_pair"}
+          data={tradingPair}
+          val={options.trading_pair}
+        />
+        <SelectDropdown
+          id={"timeFrameLabel"}
+          label={"Time Frame"}
+          selectId={"timeFrame"}
+          data={timeFrames}
+          val={options.timeFrame}
+        />
+      </form>
     );
   } else {
     return (
-      <form onSubmit={handleSubmit} style={{ margin: "2em 0 2em 20em" }}>
+      <form onSubmit={handleSubmit} className={classes.form}>
         <SelectDropdown
           id={"exchangeLabel"}
           label={"Exchange"}
