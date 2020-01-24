@@ -26,7 +26,11 @@ const ChartOptionSelect = props => {
     "hitbtc",
     "bitfinex"
   ]);
-  const [tradingPair, setTradingPair] = useState(["btc_usd", "eth_btc"]);
+  const [tradingPair, setTradingPair] = useState([
+    "btc_usd",
+    "eth_btc",
+    "btc_usdt"
+  ]);
   const [timeFrames, setTimeFrames] = useState(["Day", "Week", "Month"]);
 
   useEffect(() => {

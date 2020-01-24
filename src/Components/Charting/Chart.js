@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { singleExchangeOptions, twoExchangeOptions } from "./chartConfig";
 import CanvasJSReact from "../../assets/canvasjs.react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/core";
@@ -65,47 +66,20 @@ class Chart extends Component {
 
     console.log("dataPoints>>>>>>", dataPoints);
 
+    let firstExchange =
+      this.props.options.exchange.slice(0, 1).toUpperCase() +
+      this.props.options.exchange.substr(1);
+    let secondExchange =
+      this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
+      this.props.compareOptions.exchange.substr(1);
+
+    // Checks to see if the switch is toggled from bool val in redux
     if (this.props.toggled) {
-      const options = {
-        theme: "dark1",
-        colorSet: "chartColors",
-        backgroundColor: "#000",
-        animationEnabled: true,
-        zoomEnabled: true,
-        zoomType: "xy",
-        toolTip: {
-          shared: true
-        },
-        axisX: {
-          valueFormatString: ""
-        },
-        axisY: {
-          includeZero: false,
-          prefix: "$"
-        },
-        data: [
-          {
-            type: "candlestick",
-            showInLegend: true,
-            name:
-              this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
-              this.props.compareOptions.exchange.substr(1),
-            yValueFormatString: "$###0.00",
-            xValueFormatString: "MMMM DD YYYY",
-            dataPoints: dataPoints
-          },
-          {
-            type: "candlestick",
-            showInLegend: true,
-            name:
-              this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
-              this.props.compareOptions.exchange.substr(1),
-            yValueFormatString: "$###0.00",
-            xValueFormatString: "MMMM DD YYYY",
-            dataPoints: compareDataPoints
-          }
-        ]
-      };
+      twoExchangeOptions.colorSet = "chartColors";
+      twoExchangeOptions.data[0].name = firstExchange;
+      twoExchangeOptions.data[0].dataPoints = dataPoints;
+      twoExchangeOptions.data[1].name = secondExchange;
+      twoExchangeOptions.data[1].dataPoints = compareDataPoints;
 
       if (this.props.fetchingSecondExchangeData) {
         return (
@@ -122,40 +96,16 @@ class Chart extends Component {
         return (
           <div style={{ width: "60%", marginLeft: "440px" }}>
             <CanvasJSChart
-              options={options}
+              options={twoExchangeOptions}
               onRef={ref => (this.chart = ref)}
             />
           </div>
         );
       }
     } else {
-      const options = {
-        theme: "dark1",
-        colorSet: "chartColors",
-        backgroundColor: "#000",
-        animationEnabled: true,
-        zoomEnabled: true,
-        zoomType: "xy",
-        axisX: {
-          valueFormatString: ""
-        },
-        axisY: {
-          includeZero: false,
-          prefix: "$"
-        },
-        data: [
-          {
-            type: "candlestick",
-            showInLegend: true,
-            name:
-              this.props.options.exchange.slice(0, 1).toUpperCase() +
-              this.props.options.exchange.substr(1),
-            yValueFormatString: "$###0.00",
-            xValueFormatString: "MMMM DD YYYY",
-            dataPoints: dataPoints
-          }
-        ]
-      };
+      singleExchangeOptions.colorSet = "chartColors";
+      singleExchangeOptions.data[0].name = firstExchange;
+      singleExchangeOptions.data[0].dataPoints = dataPoints;
 
       if (this.props.fetchingFirstExchangeData) {
         return (
@@ -172,7 +122,7 @@ class Chart extends Component {
         return (
           <div style={{ width: "60%", marginLeft: "440px" }}>
             <CanvasJSChart
-              options={options}
+              options={singleExchangeOptions}
               onRef={ref => (this.chart = ref)}
             />
           </div>
