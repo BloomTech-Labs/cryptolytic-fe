@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "./Components/Registeration/PrivateRoute";
 import { AuthProvider } from "./Components/Registeration/Auth";
 import Home from "./Components/Registeration/Home";
@@ -16,26 +16,31 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <div className='App'>
-      <div className='navHeader'>
-        <NavigationHeader />
-        <NavigationBar />
-      </div>
-      <div className='Main'>
-        <Switch>
-          <Route exact path='/trading-dashboard'>
-            <TradingDashboard />
-          </Route>
-          <Route exact path='/arbitrage-dashboard'>
-            <ArbitrageDashboard />
-          </Route>
-          <AuthProvider>
-          <PrivateRoute exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
+      <AuthProvider>
+        <Router>
+      
+            <Route exact path="/" component={Login} /> 
             <Route path="/signup" component={SignUp} />
-          </AuthProvider>
-        </Switch>
-      </div>
-      <Footer />
+
+            <Route path="/main" render={({match: { url } })=> (
+            <>
+              <div className='navHeader'>
+                <NavigationHeader />
+                <NavigationBar />
+              </div>
+
+              <Route path={`${url}/home`} component={Home} />
+              <Route path={`${url}/trading-dashboard`} component={TradingDashboard} />
+              <Route path={`${url}/arbitrage-dashboard`} component={ArbitrageDashboard} />
+              
+              <Footer />
+            </>
+          )}/>
+
+          
+        </Router>
+      </AuthProvider>
+
     </div>
   );
 }
