@@ -19,19 +19,28 @@ const useStyles = makeStyles({
   label: {
     width: "100%",
     padding: "0.5em",
-    color: "#fff"
+    color: "#fff",
+
+    "&.Mui-focused": {
+      color: "#4EB9FF"
+    }
   },
-  textField: {
-    width: "200px",
-    margin: "0 5px",
-    padding: "0.5em",
-    border: "1px solid #62e3ab",
-    borderRadius: "5px",
-    textAlign: "center"
-  },
-  dropDown: `&focus: {
-    color: green
-  }`
+  // textField: {
+  //   width: "200px",
+  //   margin: "0 5px",
+  //   padding: "0.5em",
+  //   border: "1px solid #62e3ab",
+  //   borderRadius: "5px",
+  //   textAlign: "center"
+  // },
+  dropDown: {
+    "&:after": {
+      borderColor: "#4EB9FF"
+    },
+    icon: {
+      fill: "#4EB9FF"
+    }
+  }
 });
 
 const SelectDropdown = props => {
@@ -102,35 +111,41 @@ const SelectDropdown = props => {
         {label}
       </InputLabel>
       <Select
+        native
         labelId={id}
         id={selectId}
         value={val}
         style={{ color: "#fff" }}
         className={classes.dropDown}
         onChange={handleChanges(selectId)}
+        inputProps={{
+          classes: {
+            icon: classes.icon
+          }
+        }}
       >
         {data.map(ex => {
           if (ex.includes("_")) {
             let newEx = ex.toUpperCase().replace("_", "/");
             return (
-              <MenuItem
+              <option
                 key={ex}
                 style={{ borderRadius: "5px", color: "#000" }}
                 value={ex}
               >
                 {newEx}
-              </MenuItem>
+              </option>
             );
           } else {
             let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
             return (
-              <MenuItem
+              <option
                 key={ex}
                 style={{ borderRadius: "5px", color: "#000" }}
                 value={ex}
               >
                 {newEx}
-              </MenuItem>
+              </option>
             );
           }
         })}

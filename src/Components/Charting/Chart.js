@@ -99,7 +99,7 @@ class Chart extends Component {
       };
 
       return (
-        <div style={{ width: "70%", marginLeft: "350px" }}>
+        <div style={{ width: "60%", marginLeft: "440px" }}>
           <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
         </div>
       );
@@ -133,7 +133,7 @@ class Chart extends Component {
       };
 
       return (
-        <div style={{ width: "70%", marginLeft: "350px" }}>
+        <div style={{ width: "60%", marginLeft: "440px" }}>
           <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
         </div>
       );

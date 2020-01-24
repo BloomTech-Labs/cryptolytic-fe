@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import SelectDropdown from "./SelectDropdown";
+import ToggleSwitch from "../../Components/Charting/ToggleSwitch";
 import { connect } from "react-redux";
 import { getChartData, getCompareChartData, setToggled } from "../../actions";
 
@@ -8,7 +9,8 @@ const useStyles = makeStyles({
   form: {
     display: "flex",
     justifyContent: "flex-start",
-    margin: "2em 0 2em 28em",
+    margin: "2em 0 2em 28.5em",
+    padding: "0.5em",
     width: "35%",
     backgroundColor: "rgba(35, 32, 44, 0.8)",
     borderRadius: "5px"
@@ -46,62 +48,73 @@ const ChartOptionSelect = props => {
 
   if (toggled) {
     return (
-      <form onSubmit={handleCompareSubmit} className={classes.form}>
-        <SelectDropdown
-          id={"exchangeLabel"}
-          label={"Exchange 1"}
-          selectId={"exchange"}
-          data={exchanges}
-          val={options.exchange}
-        />
-        <SelectDropdown
-          id={"exchangeLabel2"}
-          label={"Exchange 2"}
-          selectId={"exchange"}
-          data={exchanges}
-          val={compareOptions.exchange}
-        />
-        <SelectDropdown
-          id={"tradingPairLabel"}
-          label={"Trading Pair"}
-          selectId={"trading_pair"}
-          data={tradingPair}
-          val={options.trading_pair}
-        />
-        <SelectDropdown
-          id={"timeFrameLabel"}
-          label={"Time Frame"}
-          selectId={"timeFrame"}
-          data={timeFrames}
-          val={options.timeFrame}
-        />
-      </form>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <form onSubmit={handleCompareSubmit} className={classes.form}>
+          <SelectDropdown
+            id={"exchangeLabel"}
+            label={"Exchange 1"}
+            selectId={"exchange"}
+            data={exchanges}
+            val={options.exchange}
+          />
+          <SelectDropdown
+            id={"exchangeLabel2"}
+            label={"Exchange 2"}
+            selectId={"exchange"}
+            data={exchanges}
+            val={compareOptions.exchange}
+          />
+          <SelectDropdown
+            id={"tradingPairLabel"}
+            label={"Trading Pair"}
+            selectId={"trading_pair"}
+            data={tradingPair}
+            val={options.trading_pair}
+          />
+          <SelectDropdown
+            id={"timeFrameLabel"}
+            label={"Time Frame"}
+            selectId={"timeFrame"}
+            data={timeFrames}
+            val={options.timeFrame}
+          />
+        </form>
+        <ToggleSwitch />
+      </div>
     );
   } else {
     return (
-      <form onSubmit={handleSubmit} className={classes.form}>
-        <SelectDropdown
-          id={"exchangeLabel"}
-          label={"Exchange"}
-          selectId={"exchange"}
-          data={exchanges}
-          val={options.exchange}
-        />
-        <SelectDropdown
-          id={"tradingPairLabel"}
-          label={"Trading Pair"}
-          selectId={"trading_pair"}
-          data={tradingPair}
-          val={options.trading_pair}
-        />
-        <SelectDropdown
-          id={"timeFrameLabel"}
-          label={"Time Frame"}
-          selectId={"timeFrame"}
-          data={timeFrames}
-          val={options.timeFrame}
-        />
-      </form>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <form onSubmit={handleSubmit} className={classes.form}>
+          <SelectDropdown
+            id={"exchangeLabel"}
+            label={"Exchange"}
+            selectId={"exchange"}
+            data={exchanges}
+            val={options.exchange}
+          />
+          <SelectDropdown
+            id={"tradingPairLabel"}
+            label={"Trading Pair"}
+            selectId={"trading_pair"}
+            data={tradingPair}
+            val={options.trading_pair}
+          />
+          <SelectDropdown
+            id={"timeFrameLabel"}
+            label={"Time Frame"}
+            selectId={"timeFrame"}
+            data={timeFrames}
+            val={options.timeFrame}
+          />
+        </form>
+        <ToggleSwitch />
+      </div>
     );
   }
 };
