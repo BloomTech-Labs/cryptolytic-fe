@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CanvasJSReact from "../../assets/canvasjs.react";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from "@emotion/core";
 
 const CanvasJS = CanvasJSReact.CanvasJS;
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 30vh 0 50vh 10vw;
+`;
 
 class Chart extends Component {
   render() {
@@ -98,11 +107,27 @@ class Chart extends Component {
         ]
       };
 
-      return (
-        <div style={{ width: "60%", marginLeft: "440px" }}>
-          <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
-        </div>
-      );
+      if (this.props.fetchingSecondExchangeData) {
+        return (
+          <PropagateLoader
+            css={override}
+            size={25}
+            color={
+              "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+            }
+            loading={this.props.fetchingSecondExchangeData}
+          />
+        );
+      } else {
+        return (
+          <div style={{ width: "60%", marginLeft: "440px" }}>
+            <CanvasJSChart
+              options={options}
+              onRef={ref => (this.chart = ref)}
+            />
+          </div>
+        );
+      }
     } else {
       const options = {
         theme: "dark1",
@@ -132,11 +157,27 @@ class Chart extends Component {
         ]
       };
 
-      return (
-        <div style={{ width: "60%", marginLeft: "440px" }}>
-          <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
-        </div>
-      );
+      if (this.props.fetchingFirstExchangeData) {
+        return (
+          <PropagateLoader
+            css={override}
+            size={25}
+            color={
+              "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+            }
+            loading={this.props.fetchingFirstExchangeData}
+          />
+        );
+      } else {
+        return (
+          <div style={{ width: "60%", marginLeft: "440px" }}>
+            <CanvasJSChart
+              options={options}
+              onRef={ref => (this.chart = ref)}
+            />
+          </div>
+        );
+      }
     }
   }
 }
@@ -147,7 +188,9 @@ const mapStateToProps = state => {
     compareOptions: state.compareOptions,
     chartData: state.chartData,
     compareData: state.compareData,
-    toggled: state.switchToggled
+    toggled: state.switchToggled,
+    fetchingFirstExchangeData: state.gettingCryptoData,
+    fetchingSecondExchangeData: state.gettingCompareCryptoData
   };
 };
 
