@@ -6,6 +6,8 @@ import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
 import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
+import Projects from "./Components/Projects";
+import CreateProject from "./Components/CreateProject";
 
 function App() {
   return (
@@ -24,7 +26,8 @@ function App() {
           </Route>
         </Switch>
       </div>
-
+      <Projects />
+<CreateProject />
       <Footer />
     </div>
   );

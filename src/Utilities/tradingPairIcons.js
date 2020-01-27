@@ -12,17 +12,16 @@ import VET from "../../node_modules/cryptocurrency-icons/svg/color/vet.svg";
 import TRX from "../../node_modules/cryptocurrency-icons/svg/color/trx.svg";
 import LINK from "../../node_modules/cryptocurrency-icons/svg/color/link.svg";
 import TOMO from "../../node_modules/cryptocurrency-icons/svg/color/tomo.svg";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import ETC from "../../node_modules/cryptocurrency-icons/svg/color/ETC.svg";
-=======
->>>>>>> 58425e58d44c27a14814207fd1884e88e303b71e
-=======
+
+
+
+
+
 import ETC from "../../node_modules/cryptocurrency-icons/svg/color/etc.svg";
 import ZIL from "../../node_modules/cryptocurrency-icons/svg/color/zil.svg";
 import XLM from "../../node_modules/cryptocurrency-icons/svg/color/xlm.svg";
 
->>>>>>> 2508c96de37105392e9eb197d270459f70aa54f6
+
 
 export const getIcons = tradingPair => {
   const iconPair = tradingPair.split("/").reduce((acc, curr) => {
