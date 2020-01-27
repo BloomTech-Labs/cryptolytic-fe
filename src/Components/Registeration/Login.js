@@ -1,11 +1,11 @@
 import React, { useCallback, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { withRouter, Redirect } from "react-router";
-import firebase from '../../firebase'
+import firebase from "firebase/app";
 
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",
-    padding: 5,
+    padding: 5
   },
   button: {
     width: "30%",
@@ -30,27 +30,26 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textField: {
-    width: "75%",
+    width: "75%"
   },
 
   cssOutlinedInput: {
-    '&$cssFocused $notchedOutline': {
-      borderColor: `gray !important`,
+    "&$cssFocused $notchedOutline": {
+      borderColor: `gray !important`
     }
   },
 
-  cssFocused:{
+  cssFocused: {
     color: "black !important"
   },
 
   notchedOutline: {
-    borderWidth: '1px',
-    borderColor: 'black !important',
-  },
-}))
+    borderWidth: "1px",
+    borderColor: "black !important"
+  }
+}));
 
 const Login = ({ history }) => {
-
   const classes = useStyles();
 
   const handleLogin = useCallback(
@@ -69,8 +68,6 @@ const Login = ({ history }) => {
     [history]
   );
 
-
-
   // if (currentUser) {
   //   return <Redirect to="/" />;
   // }
@@ -78,41 +75,56 @@ const Login = ({ history }) => {
   return (
     <div>
       <h1>Log in</h1>
-      <Paper className={classes.form} >
+      <Paper className={classes.form}>
         <form onSubmit={handleLogin} className={classes.formContainer}>
-            <div className="emailField">
-              <TextField name="email" label="Email" type="email" size="small" variant="outlined" className={classes.textField} 
+          <div className='emailField'>
+            <TextField
+              name='email'
+              label='Email'
+              type='email'
+              size='small'
+              variant='outlined'
+              className={classes.textField}
               InputProps={{
                 classes: {
                   root: classes.cssOutlinedInput,
                   focused: classes.cssFocused,
-                  notchedOutline: classes.notchedOutline,
-                },
+                  notchedOutline: classes.notchedOutline
+                }
               }}
               InputLabelProps={{
                 classes: {
-                  focused: classes.cssFocused,
-                },
+                  focused: classes.cssFocused
+                }
               }}
             />
-            </div>
-              <div className="passField">
-              <TextField name="password" label="Password" type="password" size="small" variant="outlined" className={classes.textField} 
+          </div>
+          <div className='passField'>
+            <TextField
+              name='password'
+              label='Password'
+              type='password'
+              size='small'
+              variant='outlined'
+              className={classes.textField}
               InputProps={{
                 classes: {
                   root: classes.cssOutlinedInput,
                   focused: classes.cssFocused,
-                  notchedOutline: classes.notchedOutline,
-                },
+                  notchedOutline: classes.notchedOutline
+                }
               }}
               InputLabelProps={{
                 classes: {
-                  focused: classes.cssFocused,
-                },
-              }}/>
-            </div>
-            <Button variant="contained" type="submit" className={classes.button}>Log In</Button>
-            <p>Don't have an account yet? Sign up!</p>
+                  focused: classes.cssFocused
+                }
+              }}
+            />
+          </div>
+          <Button variant='contained' type='submit' className={classes.button}>
+            Log In
+          </Button>
+          <p>Don't have an account yet? Sign up!</p>
         </form>
       </Paper>
     </div>
