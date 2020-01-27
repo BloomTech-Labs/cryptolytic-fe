@@ -88,6 +88,30 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
         </a>
       </div>
       <div
+        style={
+          Object {
+            "all": "inherit",
+          }
+        }
+      >
+        <a
+          aria-current={null}
+          className="makeStyles-navBarMenuText-52"
+          href="/charts"
+          onClick={[Function]}
+        >
+          <div
+            className="makeStyles-navBarMenuButton-56"
+          >
+            <img
+              className="makeStyles-navBarMenuIcon-57"
+              src="candlestick-icon2.png"
+            />
+            Charts
+          </div>
+        </a>
+      </div>
+      <div
         onClick={[Function]}
         style={
           Object {
@@ -146,30 +170,6 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
               }
             />
             Data
-          </div>
-        </a>
-      </div>
-      <div
-        style={
-          Object {
-            "all": "inherit",
-          }
-        }
-      >
-        <a
-          aria-current={null}
-          className="makeStyles-navBarMenuText-52"
-          href="/charts"
-          onClick={[Function]}
-        >
-          <div
-            className="makeStyles-navBarMenuButton-56"
-          >
-            <img
-              className="makeStyles-navBarMenuIcon-57"
-              src={null}
-            />
-            Charts
           </div>
         </a>
       </div>

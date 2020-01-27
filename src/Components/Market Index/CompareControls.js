@@ -33,7 +33,8 @@ const useStyles = makeStyles(theme => ({
 	input: {
 		color: 'white',
 		fill: 'white',
-	}
+	},
+
 }));
 export default function CompareControl(props) {
 	const classes = useStyles();
@@ -57,9 +58,12 @@ export default function CompareControl(props) {
 		});
 	};
 	  const handleDelete = event => {
+		event.stopPropagation();
 		props.setCompare({
 			compare: props.compare.filter(e => e.key !== event.key)
 		});
+		console.log("handledelete")
+
 	  };
 	  const handleChangeCompare = event => {
 		props.setCompare({
@@ -89,6 +93,7 @@ export default function CompareControl(props) {
 							))}
 							</div>
 						)}
+						
 						MenuProps={MenuProps}
 						>
 						{props.names.map(name => (
@@ -98,6 +103,7 @@ export default function CompareControl(props) {
 						))}
 						</Select>
 					</FormControl>
+					
 				</div>
 				<div>
 					<FormControl className={classes.formControl}>

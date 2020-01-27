@@ -14,21 +14,21 @@ const ToggleChartSwitch = withStyles(theme => ({
     margin: theme.spacing(1)
   },
   switchBase: {
-    padding: 1,
-    color: theme.palette.grey[500],
+    padding: 0,
+    color: "rgba(35, 32, 44, 0.8)",
     "&$checked": {
       transform: "translateX(16px)",
       color: theme.palette.common.white,
       "& + $track": {
         opacity: 1,
-        backgroundColor: "#62e3ab",
-        borderColor: "#62e3ab"
+        backgroundColor: theme.palette.grey[500],
+        borderColor: theme.palette.grey[500]
       }
     }
   },
   thumb: {
-    width: 24,
-    height: 24
+    width: 26,
+    height: 26
   },
   track: {
     border: `1px solid ${theme.palette.grey[500]}`,
@@ -46,7 +46,7 @@ const ToggleSwitch = props => {
     setToggled(!toggled);
   };
   return (
-    <Typography component='div' style={{ marginLeft: "45%" }}>
+    <Typography component='div' style={{ marginLeft: "4em" }}>
       <Grid component='label' container alignItems='center' spacing={1}>
         <Grid item style={{ color: "white" }}>
           Single Exchange

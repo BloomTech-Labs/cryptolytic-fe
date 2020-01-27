@@ -16,12 +16,12 @@ const initialState = {
   options: {
     exchange: "hitbtc",
     trading_pair: "btc_usd",
-    timeFrame: "Week"
+    timeFrame: "Month"
   },
   compareOptions: {
     exchange: "bitfinex",
     trading_pair: "btc_usd",
-    timeFrame: "Week"
+    timeFrame: "Month"
   },
 
   gettingCryptoData: false,

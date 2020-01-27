@@ -27,7 +27,8 @@ export default function MarketIndex(props) {
 		compare: ['BTC'],
 		interval: "day",
 		exchange: "bitfinex",
-		render: true
+		render: true,
+		chartLoaded: false
 	})
 	const classes = useStyles();
 
