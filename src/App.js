@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import ReactGa from 'react-ga';
 import TradingDashboard from "./Views/TradingDashboard";
-import { AuthProvider } from "./Components/Registeration/Auth";
 import ArbitrageDashboard from "./Views/ArbitrageDashboard";
 import "./App.css";
 import NavigationHeader from "./Components/NavigationHeader";
@@ -16,7 +15,7 @@ import SignUp from "./Components/Registeration/SignUp";
 function App() {
 	return (
 	  <div className='App'>
-		<AuthProvider>
+	
 		  <Router>
 			  <Route exact path="/" component={Login} /> 
 			  <Route path="/signup" component={SignUp} />
@@ -33,7 +32,7 @@ function App() {
 			  </>
 			)}/>
 		  </Router>
-		</AuthProvider>
+		
 	  </div>
 	);
   }

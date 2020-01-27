@@ -1,11 +1,12 @@
 import React from "react";
-import app from "./base";
+import firebase from '../../firebase'
+
 
 const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
+      <button onClick={() => firebase.auth().signOut()}>Sign out</button>
     </>
   );
 };

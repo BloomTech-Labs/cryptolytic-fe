@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
-const app = firebase.initializeApp({
+firebase.initializeApp({
   apiKey: "AIzaSyB-yIaoqsFya7T5PWiy6nAVKONXqRz1VOk",
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
@@ -10,4 +10,4 @@ const app = firebase.initializeApp({
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
 });
 
-export default app;
+export default firebase;

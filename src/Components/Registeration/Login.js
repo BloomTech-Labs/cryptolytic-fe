@@ -1,8 +1,8 @@
 import React, { useCallback, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { withRouter, Redirect } from "react-router";
-import app from "./base.js";
-import { AuthContext } from "./Auth.js";
+import firebase from '../../firebase'
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -58,7 +58,7 @@ const Login = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await app
+        await firebase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
@@ -69,11 +69,11 @@ const Login = ({ history }) => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
 
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
+
+  // if (currentUser) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <div>
