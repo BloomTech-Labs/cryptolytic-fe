@@ -1,33 +1,31 @@
 import React, { useEffect } from "react";
 import SelectDropdown from "./SelectDropdown";
 import { connect } from "react-redux";
-import { getChartData, getCompareChartData, setToggled } from "../../actions";
+import { getChartData, getCompareChartData, setToggled } from "../../store/actions";
 
 const exchanges = ["coinbase", "binance", "hitbtc", "bitfinex"];
 const tradingPair = ["btc_usd", "eth_btc"];
 const timeFrames = ["Day", "Week", "Month"];
 
 const ChartOptionSelect = props => {
-	const { options, compareOptions, toggled } = props;
+  const { options, compareOptions, toggled } = props;
 
-	useEffect(() => {
-		props.getChartData(options);
-		props.getCompareChartData(compareOptions);
-	}, [options, compareOptions]);
+  useEffect(() => {
+    props.getChartData(options);
+    props.getCompareChartData(compareOptions);
+  }, [options, compareOptions]);
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.getChartData(options);
+  };
 
+  const handleCompareSubmit = event => {
+    event.preventDefault();
+    props.getCompareChartData(compareOptions);
+  };
 
-	const handleSubmit = event => {
-		event.preventDefault();
-		props.getChartData(options);
-	};
-
-	const handleCompareSubmit = event => {
-		event.preventDefault();
-		props.getCompareChartData(compareOptions);
-	};
-
-	console.log("switch>>>>>>", toggled);
+  console.log("switch>>>>>>", toggled);
 
   if (toggled) {
     return (
@@ -92,16 +90,16 @@ const ChartOptionSelect = props => {
 };
 
 const mapStateToProps = state => {
-	return {
-		cryptoData: state.cryptoData,
-		options: state.options,
-		compareOptions: state.compareOptions,
-		toggled: state.switchToggled
-	};
+  return {
+    cryptoData: state.cryptoData,
+    options: state.options,
+    compareOptions: state.compareOptions,
+    toggled: state.switchToggled
+  };
 };
 
 export default connect(mapStateToProps, {
-	getChartData,
-	getCompareChartData,
-	setToggled
+  getChartData,
+  getCompareChartData,
+  setToggled
 })(ChartOptionSelect);

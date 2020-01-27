@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setToggled } from "../../actions";
+import { setToggled } from "../../store/actions";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import Grid from "@material-ui/core/Grid";

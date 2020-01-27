@@ -22,8 +22,12 @@ const useStyles = makeStyles({
     }
   },
   tableContainer: {
-    maxHeight: 800
-  },
+    maxHeight: 800,
+
+    "&::-webkit-scrollbar": {
+      display: "none"
+    }
+  }
 });
 
 const override = css`
