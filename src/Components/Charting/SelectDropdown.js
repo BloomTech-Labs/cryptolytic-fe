@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { setOptions, setCompareOptions } from "../../actions";
+import { setOptions, setCompareOptions } from "../../store/actions";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -46,7 +46,7 @@ const SelectDropdown = props => {
 
   console.log("options", options);
   console.log("val>>>>>>", val);
-
+  console.log(data)
   const handleChanges = name => event => {
     console.log("event.id>>>>", event.target.id, name);
     switch (event.target.id) {
@@ -123,11 +123,21 @@ const SelectDropdown = props => {
         onChange={handleChanges(selectId)}
       >
         {data.map(ex => {
-          return (
-            <option key={ex} style={{ borderRadius: "5px", color: "#000" }}>
-              {ex}
-            </option>
-          );
+          if (ex.includes("_")) {
+            let newEx = ex.toUpperCase().replace("_", "/");
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
+              </option>
+            );
+          } else {
+            let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
+            return (
+              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+                {newEx}
+              </option>
+            );
+          }
         })}
       </Select>
     </FormControl>

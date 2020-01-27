@@ -13,13 +13,11 @@ import MarketIndex from "./Components/Market Index/MarketIndex"
 import Home from "./Components/Registeration/Home";
 import Login from "./Components/Registeration/Login";
 import SignUp from "./Components/Registeration/SignUp";
-
 function App() {
 	return (
 	  <div className='App'>
 		<AuthProvider>
 		  <Router>
-  
 			  <Route exact path="/" component={Login} /> 
 			  <Route path="/signup" component={SignUp} />
 			  <Route path="/main" render={({match: { url } })=> (
@@ -36,7 +34,6 @@ function App() {
 			)}/>
 		  </Router>
 		</AuthProvider>
-  
 	  </div>
 	);
   }
