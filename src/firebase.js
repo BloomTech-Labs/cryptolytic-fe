@@ -1,5 +1,5 @@
-// import * as firebase from "firebase/app";
-// import "firebase/auth";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 export const fbConfig = {
   apiKey: "AIzaSyB-yIaoqsFya7T5PWiy6nAVKONXqRz1VOk",
@@ -9,3 +9,7 @@ export const fbConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
 };
+
+firebase.initializeApp(fbConfig);
+
+export default firebase;
