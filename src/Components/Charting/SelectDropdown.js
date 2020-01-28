@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { setOptions, setCompareOptions } from "../../store/actions";
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,14 +25,6 @@ const useStyles = makeStyles({
       color: "#4EB9FF"
     }
   },
-  // textField: {
-  //   width: "200px",
-  //   margin: "0 5px",
-  //   padding: "0.5em",
-  //   border: "1px solid #62e3ab",
-  //   borderRadius: "5px",
-  //   textAlign: "center"
-  // },
   dropDown: {
     "&:after": {
       borderColor: "#4EB9FF"
@@ -77,8 +69,6 @@ const SelectDropdown = props => {
         }
         break;
       case "trading_pair":
-        // const trading_pair = event.target.value.toLowerCase().replace("/", "_");
-
         props.setCompareOptions({
           ...compareOptions,
           render: true,
@@ -154,12 +144,12 @@ const SelectDropdown = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ project }) => {
   return {
-    cryptoData: state.cryptoData,
-    options: state.options,
-    compareOptions: state.compareOptions,
-    toggled: state.switchToggled
+    cryptoData: project.cryptoData,
+    options: project.options,
+    compareOptions: project.compareOptions,
+    toggled: project.switchToggled
   };
 };
 

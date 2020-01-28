@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { singleExchangeOptions, twoExchangeOptions } from "./chartConfig";
 import CanvasJSReact from "../../assets/canvasjs.react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/core";
@@ -75,11 +74,42 @@ class Chart extends Component {
 
     // Checks to see if the switch is toggled from bool val in redux
     if (this.props.toggled) {
-      twoExchangeOptions.colorSet = "chartColors";
-      twoExchangeOptions.data[0].name = firstExchange;
-      twoExchangeOptions.data[0].dataPoints = dataPoints;
-      twoExchangeOptions.data[1].name = secondExchange;
-      twoExchangeOptions.data[1].dataPoints = compareDataPoints;
+      const twoExchangeOptions = {
+        theme: "dark1",
+        colorSet: "chartColors",
+        backgroundColor: "#000",
+        animationEnabled: false,
+        zoomEnabled: true,
+        zoomType: "xy",
+        toolTip: {
+          shared: true
+        },
+        axisX: {
+          valueFormatString: ""
+        },
+        axisY: {
+          includeZero: false,
+          prefix: "$"
+        },
+        data: [
+          {
+            type: "candlestick",
+            showInLegend: true,
+            name: firstExchange,
+            yValueFormatString: "$###0.00",
+            xValueFormatString: "MMMM DD YYYY",
+            dataPoints: dataPoints
+          },
+          {
+            type: "candlestick",
+            showInLegend: true,
+            name: secondExchange,
+            yValueFormatString: "$###0.00",
+            xValueFormatString: "MMMM DD YYYY",
+            dataPoints: compareDataPoints
+          }
+        ]
+      };
 
       if (this.props.fetchingSecondExchangeData) {
         return (
@@ -103,9 +133,31 @@ class Chart extends Component {
         );
       }
     } else {
-      singleExchangeOptions.colorSet = "chartColors";
-      singleExchangeOptions.data[0].name = firstExchange;
-      singleExchangeOptions.data[0].dataPoints = dataPoints;
+      const singleExchangeOptions = {
+        theme: "dark1",
+        colorSet: "chartColors",
+        backgroundColor: "#000",
+        animationEnabled: true,
+        zoomEnabled: true,
+        zoomType: "xy",
+        axisX: {
+          valueFormatString: ""
+        },
+        axisY: {
+          includeZero: false,
+          prefix: "$"
+        },
+        data: [
+          {
+            type: "candlestick",
+            showInLegend: true,
+            name: firstExchange,
+            yValueFormatString: "$###0.00",
+            xValueFormatString: "MMMM DD YYYY",
+            dataPoints: dataPoints
+          }
+        ]
+      };
 
       if (this.props.fetchingFirstExchangeData) {
         return (
@@ -132,15 +184,15 @@ class Chart extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ project }) => {
   return {
-    options: state.options,
-    compareOptions: state.compareOptions,
-    chartData: state.chartData,
-    compareData: state.compareData,
-    toggled: state.switchToggled,
-    fetchingFirstExchangeData: state.gettingCryptoData,
-    fetchingSecondExchangeData: state.gettingCompareCryptoData
+    options: project.options,
+    compareOptions: project.compareOptions,
+    chartData: project.chartData,
+    compareData: project.compareData,
+    toggled: project.switchToggled,
+    fetchingFirstExchangeData: project.gettingCryptoData,
+    fetchingSecondExchangeData: project.gettingCompareCryptoData
   };
 };
 

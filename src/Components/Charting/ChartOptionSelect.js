@@ -3,7 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import SelectDropdown from "./SelectDropdown";
 import ToggleSwitch from "../../Components/Charting/ToggleSwitch";
 import { connect } from "react-redux";
-import { getChartData, getCompareChartData, setToggled } from "../../store/actions";
+import {
+  getChartData,
+  getCompareChartData,
+  setToggled
+} from "../../store/actions";
 
 const useStyles = makeStyles({
   form: {
@@ -123,12 +127,12 @@ const ChartOptionSelect = props => {
   }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ project }) => {
   return {
-    cryptoData: state.cryptoData,
-    options: state.options,
-    compareOptions: state.compareOptions,
-    toggled: state.switchToggled
+    cryptoData: project.cryptoData,
+    options: project.options,
+    compareOptions: project.compareOptions,
+    toggled: project.switchToggled
   };
 };
 

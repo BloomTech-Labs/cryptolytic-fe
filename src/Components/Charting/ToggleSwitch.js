@@ -66,9 +66,9 @@ const ToggleSwitch = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ project }) => {
   return {
-    toggled: state.switchToggled
+    toggled: project.switchToggled
   };
 };
 
