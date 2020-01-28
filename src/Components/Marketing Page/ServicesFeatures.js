@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { makeStyles } from '@material-ui/core/styles';
+
 const data = [
     {
         title: "Bitfinex",
@@ -18,29 +20,7 @@ const data = [
         BTC_USD: true,
         BTC_USDC: true,
         BTC_USDT: true,
-        DASH_BTC: true,
-        // DASH_USD: true,
-        // DASH_USDT: true,
-        // EOS_BTC: true,
-        // EOS_USD: true,
-        // EOS_USDT: true,
-        // ETC_USD: true,
-        // ETC_USDT: true,
-        // ETH_BTC: true,
-        // ETH_USD: true,
-        // ETH_USDC: true,
-        // ETH_USDT: true,
-        // LTC_BTC: true,
-        // LTC_USD: true,
-        // LTC_USDT: true,
-        // XRP_BTC: true,
-        // XRP_USD: true,
-        // XRP_USDT: true,
-        // ZEC_USD: true,
-        // ZEC_USDC: true,
-        // ZEC_USDT: true,
-        // ZRX_USD: true,
-        // ZRX_USDT: true     
+        DASH_BTC: true,   
     },
     {
         title: "Coinbase Pro",
@@ -59,29 +39,7 @@ const data = [
         BTC_USD: true,
         BTC_USDC: true,
         BTC_USDT: true,
-        DASH_BTC: true,
-        // DASH_USD: true,
-        // DASH_USDT: true,
-        // EOS_BTC: true,
-        // EOS_USD: true,
-        // EOS_USDT: true,
-        // ETC_USD: true,
-        // ETC_USDT: true,
-        // ETH_BTC: true,
-        // ETH_USD: true,
-        // ETH_USDC: true,
-        // ETH_USDT: true,
-        // LTC_BTC: true,
-        // LTC_USD: true,
-        // LTC_USDT: true,
-        // XRP_BTC: true,
-        // XRP_USD: true,
-        // XRP_USDT: true,
-        // ZEC_USD: true,
-        // ZEC_USDC: true,
-        // ZEC_USDT: true,
-        // ZRX_USD: true,
-        // ZRX_USDT: true       
+        DASH_BTC: true,      
     },
     {
         title: "Gemini",
@@ -100,29 +58,7 @@ const data = [
         BTC_USD: true,
         BTC_USDC: true,
         BTC_USDT: true,
-        DASH_BTC: true,
-        // DASH_USD: true,
-        // DASH_USDT: true,
-        // EOS_BTC: true,
-        // EOS_USD: true,
-        // EOS_USDT: true,
-        // ETC_USD: true,
-        // ETC_USDT: true,
-        // ETH_BTC: true,
-        // ETH_USD: true,
-        // ETH_USDC: true,
-        // ETH_USDT: true,
-        // LTC_BTC: true,
-        // LTC_USD: true,
-        // LTC_USDT: true,
-        // XRP_BTC: true,
-        // XRP_USD: true,
-        // XRP_USDT: true,
-        // ZEC_USD: true,
-        // ZEC_USDC: true,
-        // ZEC_USDT: true,
-        // ZRX_USD: true,
-        // ZRX_USDT: true     
+        DASH_BTC: true,   
     },
     {
         title: "HitBTC",
@@ -141,29 +77,7 @@ const data = [
         BTC_USD: true,
         BTC_USDC: true,
         BTC_USDT: true,
-        DASH_BTC: true,
-        // DASH_USD: true,
-        // DASH_USDT: true,
-        // EOS_BTC: true,
-        // EOS_USD: true,
-        // EOS_USDT: true,
-        // ETC_USD: true,
-        // ETC_USDT: true,
-        // ETH_BTC: true,
-        // ETH_USD: true,
-        // ETH_USDC: true,
-        // ETH_USDT: true,
-        // LTC_BTC: true,
-        // LTC_USD: true,
-        // LTC_USDT: true,
-        // XRP_BTC: true,
-        // XRP_USD: true,
-        // XRP_USDT: true,
-        // ZEC_USD: true,
-        // ZEC_USDC: true,
-        // ZEC_USDT: true,
-        // ZRX_USD: true,
-        // ZRX_USDT: true     
+        DASH_BTC: true,  
     },
     {
         title: "Kraken",
@@ -182,53 +96,127 @@ const data = [
         BTC_USD: true,
         BTC_USDC: true,
         BTC_USDT: true,
-        DASH_BTC: true,
-        // DASH_USD: true,
-        // DASH_USDT: true,
-        // EOS_BTC: true,
-        // EOS_USD: true,
-        // EOS_USDT: true,
-        // ETC_USD: true,
-        // ETC_USDT: true,
-        // ETH_BTC: true,
-        // ETH_USD: true,
-        // ETH_USDC: false,
-        // ETH_USDT: false,
-        // LTC_BTC: false,
-        // LTC_USD: true,
-        // LTC_USDT: false,
-        // XRP_BTC: true,
-        // XRP_USD: false,
-        // XRP_USDT: true,
-        // ZEC_USD: true,
-        // ZEC_USDC: true,
-        // ZEC_USDT: true,
-        // ZRX_USD: false,
-        // ZRX_USDT: true      
+        DASH_BTC: true,   
     },
 ]
 
-console.log(Object.keys(data[0])[0])
+const useStyles = makeStyles({
+    servicesFeaturesContainer: {
+        width: '90%', 
+        backgroundColor: 'black', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        flexDirection: 'column', 
+        fontSize: '1.6em', 
+        paddingBottom: '3em'
+    },
+    servicesFeaturesRow: {
+        width: '100%', 
+        height: '100%', 
+        display: 'flex', 
+        justifyContent: 'space-around'
+    },
+    servicesFeaturesHeadersContainer: {
+        width: '20%', 
+        height: '100%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        fontSize: '.6em', 
+        textAlign: 'right', 
+        flexWrap: 'wrap', 
+        marginRight: '1em'
+    },
+    servicesFeaturesHeadersText: {
+        width: '100%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        whiteSpace: 'nowrap', 
+        lineHeight: '2em'
+    },
+    servicesFeaturesHeadersTitle: {
+        marginTop: -20
+    },
+    servicesFeaturesHeadersFeatures: {
+        fontSize: '1.4em', 
+        padding: 5, 
+        textDecoration: 'bold'
+    },
+    servicesFeaturesHeadersTradingPair: {
+        marginTop: 20, 
+        fontSize: '1.4em', 
+        textDecoration: 'bold'
+    },
+    servicesFeaturesRowContainer: {
+        display: 'flex', 
+        flexDirection: 'column',
+        width: '14%', 
+        background: 'white', 
+        borderRadius: 50
+    },
+    servicesFeatureRow: {
+        display: 'flex', 
+        flexDirection: 'column', 
+        width: '100%', 
+        borderRadius: 50, 
+        padding: '1%'
+    },
+    servicesFeatureRowTextContainer: {
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        fontSize: '.6em', 
+        textAlign: 'right', 
+        flexWrap: 'wrap', 
+        whiteSpace: 'nowrap'
+    },
+    servicesFeaturesRowText: {
+        padding: 5, 
+        fontSize: '2em', 
+        lineHeight: '1em'
+    },
+    servicesFeaturesRowTextTitle: {
+        position: 'absolute', 
+        marginTop: -20, 
+        fontSize: '1.6em', 
+        padding: 5 
+    },
+    servicesFeaturesRowTextFeatures: {
+        padding: 5, 
+        marginTop: 10
+    },
+    servicesFeaturesRowTextEmail: {
+        paddingBottom: 10, 
+        marginBottom: 30, 
+        marginTop: 10
+    }
+  });
+
 
 
 export default function ServicesFeatures(){
+    const classes = useStyles();
     return(
-        <div style={{ width: '90%', backgroundColor: 'black', display: 'flex', justifyContent: 'center', flexDirection: 'column', fontSize: '1.6em', paddingBottom: '3em' }}>
+        <div className={classes.servicesFeaturesContainer}>
             <h2>Features & Support</h2>
-            <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'space-around'}}>
-                <div style={{ width: '20%', height: '100%', display: 'flex', flexDirection: 'column', fontSize: '.6em', textAlign: 'right', flexWrap: 'wrap', marginRight: '1em' }}>
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', whiteSpace: 'nowrap', lineHeight: '2em' }}>
+            <div className={classes.servicesFeaturesRow}>
+                <div className={classes.servicesFeaturesHeadersContainer}>
+                    <div className={classes.servicesFeaturesHeadersText}>
                         {Object.keys(data[0]).map(e =>
                             e === Object.keys(data[0])[0] ?
-                            <span style={{ marginTop: -20 }}></span>
+                            // key for title is hidde+styling
+                            <span className={classes.servicesFeaturesHeadersTitle}></span>
                             :
                             e === Object.keys(data[0])[1] ?
-                            <span style={{ fontSize: '1.4em', padding: 5, textDecoration: 'bold' }}>{e.replace(/\_/g, " ")}</span>
+                            // key for features formatting+styling 
+                            <span className={classes.servicesFeaturesHeadersFeatures}>{e.replace(/\_/g, " ")}</span>
                             :
                             e === Object.keys(data[0])[8] ?
-                            <span style={{ marginTop: 20, fontSize: '1.4em', textDecoration: 'bold' }}>{e.replace(/\_/g, " ")}</span>
+                            // key for tradingPair formatting+styling 
+                            <span className={classes.servicesFeaturesHeadersTradingPair}>{e.replace(/\_/g, " ")}</span>
                             :
                             e === Object.keys(data[0])[9] ?
+                            // key for color is hidden
                             e = null
                             :
                             <span style={{ padding: 5 }}>{e.replace(/\_/g, " ")}</span>
@@ -236,24 +224,24 @@ export default function ServicesFeatures(){
                     </div>
                 </div>
                 {data.map((e, i) => 
-                    <div style={{ display: 'flex', flexDirection: 'column', width: '14%', background: 'white', borderRadius: 50 }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', background: e.color, borderRadius: 50, padding: '1%'}}>
+                    <div className={classes.servicesFeaturesRowContainer}>
+                        <div style={{ background: e.color }} className={classes.servicesFeatureRow}>
                             {Object.values(e).map((ee, ii) =>
-                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', fontSize: '.6em', textAlign: 'right', flexWrap: 'wrap', whiteSpace: 'nowrap' }}>
+                                <div className={classes.servicesFeatureRowTextContainer}>
                                     {ee === true ? 
-                                        <span style={{padding: 5, fontSize: '2em', lineHeight: '1em' }}>✔</span>
+                                        <span className={classes.servicesFeaturesRowText}>✔</span>
                                         :
                                     ee === false ?
-                                        <span style={{padding: 5, fontSize: '2em', lineHeight: '1em' }}>-</span>
+                                        <span className={classes.servicesFeaturesRowText}>-</span>
                                         :
                                     ee === Object.values(e)[0] ?
-                                        <span style={{ position: 'absolute', marginTop: -20, fontSize: '1.6em', padding: 5 }}>{ee}</span>
+                                        <span className={classes.servicesFeaturesRowTextTitle}>{ee}</span>
                                         :
                                     ee === Object.values(e)[1] ?
-                                        <span style={{ padding: 5, marginTop: 10 }}>{ee}</span>
+                                        <span className={classes.servicesFeaturesRowTextFeatures}>{ee}</span>
                                         :
                                     ee === Object.values(e)[7] ?
-                                        <span style={{ paddingBottom: 10, marginBottom: 30, marginTop: 10 }}>{ee}</span>
+                                        <span className={classes.servicesFeaturesRowTextEmail}>{ee}</span>
                                         :
                                     ee === Object.values(e)[9] ?
                                     <span></span>

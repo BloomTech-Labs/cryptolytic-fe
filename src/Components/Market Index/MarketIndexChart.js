@@ -1,7 +1,10 @@
 import React,{ useState, useEffect } from "react"
 import axios from 'axios'
+import { css } from "@emotion/core";
+
 import CanvasJSReact from "../../assets/canvasjs.react"
 import IndexChart from "./IndexChart"
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -11,6 +14,12 @@ let formatArray = []
 let nested = []
 let chartData = []
 
+const override = css`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 30vh 0 50vh 10vw;
+`;
 export default function MarketIndexChart(props){
 	const[ state, setState ] = useState({
 		chartArray: [],
@@ -22,7 +31,7 @@ export default function MarketIndexChart(props){
 			let formatData = []
 				await axios
 				.get(
-					`https://min-api.cryptocompare.com/data/v2/histo${props.controls.interval}?fsym=${e}&tsym=USD&limit=7&e=${props.controls.exchange}&api_key={e3d42438b4feed7530ea18fbebdefb6d9c9e475a39c8d6486f4f7fc63d0a5e97}`
+					`https://min-api.cryptocompare.com/data/v2/histo${props.controls.interval}?fsym=${e}&tsym=USD&limit=1500&e=${props.controls.exchange}&api_key={e3d42438b4feed7530ea18fbebdefb6d9c9e475a39c8d6486f4f7fc63d0a5e97}`
 				)
 				.then(res => {
 					console.log(res.data.Data.Data);
@@ -119,6 +128,15 @@ export default function MarketIndexChart(props){
 	)}
 	else{
 	return(
-		<h1 style={{ color: 'white', marginLeft: '40vw', marginRight: '20vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</h1>
+		<div style={{ color: 'white', marginLeft: '40vw', marginRight: '20vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+			<PropagateLoader
+			size={25}
+			css={override}
+	        color={
+	          "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+	        }
+	        loading={props.controls.chartLoaded}
+	      />
+		</div>
 	)}
 }

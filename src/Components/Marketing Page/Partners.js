@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import exchangeOne from "../../../src/images/bitfinex_logo 1.svg"
 import exchangeTwo from "../../../src/images/coinbase_logo.svg"
 import exchangeThree from "../../../src/images/hitbtc_logo.svg"
@@ -19,18 +21,46 @@ import coinTen from "../../../src/images/ethc coin.png"
 import coinEleven from "../../../src/images/sia coin.png"
 
 
+const useStyles = makeStyles({
+    partnersContainer: {
+        width: '100%', 
+        height:'70vh', 
+        backgroundColor: 'black', 
+        display: 'flex', 
+        alignItems: 'center', 
+        flexDirection: 'column', 
+        color: 'white' 
+    },
+    partnersTitle: {
+        fontSize: '2.8em', 
+        marginTop: '2em'
+    },
+    partnersTopRow: {
+        width: '90%', 
+        display: 'flex', 
+        justifyContent: 'space-around'
+    },
+    partnersBottomRow: {
+        width: '70%', 
+        height: '13%', 
+        display: 'flex', 
+        justifyContent: 'space-around' 
+    }
+});
+
 export default function Partners(){
+    const classes = useStyles();
     return(
-        <div style={{ width: '100%', height:'70vh', backgroundColor: 'black', display: 'flex', alignItems: 'center', flexDirection: 'column', color: 'white' }}>
-            <h2 style={{ fontSize: '2.8em', marginTop: '2em' }}>Supported Exchanges</h2>
-            <div style={{ width: '90%', display: 'flex', justifyContent: 'space-around' }}>
+        <div className={classes.partnersContainer}>
+            <h2 className={classes.partnersTitle}>Supported Exchanges</h2>
+            <div className={classes.partnersTopRow}>
                 <img src={exchangeOne} />
                 <img src={exchangeTwo} />
                 <img src={exchangeThree} />
                 <img src={exchangeFour} />
                 <img src={exchangeFive} />
             </div>
-            <div style={{ width: '70%', height: '13%', display: 'flex', justifyContent: 'space-around' }}>
+            <div className={classes.partnersBottomRow}>
                 <img src={coinOne} />
                 <img src={coinTwo} />
                 {/* <img src={coinThree} /> */}

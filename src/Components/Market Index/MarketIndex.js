@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import MarketIndexChart from "./MarketIndexChart"
 import DashboardTable from "../DashboardTable"
 import CompareControls from "./CompareControls"
-import ViewControl from "./ViewControl"
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,8 +16,32 @@ const useStyles = makeStyles(theme => ({
 		background: "-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
 	  	WebkitBackgroundClip: "text",
 	  	WebkitTextFillColor: "transparent",
-	}
+		}
 	},
+	emptyInputMessage: {
+		paddingLeft: "20vw", 
+		width: '50%', 
+		color: 'white', 
+		display: 'flex', 
+		alignItems: 'center', 
+		justifyContent: 'center'
+	},
+	indexControlsContainer: {
+		display: 'flex', 
+		flexDirection: 'column', 
+		alignItems: 'center', 
+		justifyContent: 'center', 
+		marginLeft: '2em', 
+		color: 'white'
+	},
+	dashboardTableContainer: {
+		marginLeft: "2em" 
+	},
+	marketIndexContainer: {
+		display: 'flex', 
+		height: '100%'
+	}
+
 }));
 
 
@@ -56,18 +79,17 @@ export default function MarketIndex(props) {
 	
 	return (
 		<div>
-			<div style={{ display: 'flex', height: '100%' }}>
+			<div className={classes.marketIndexContainer}>
 				{controls.compare.length > 0 ?
 				<MarketIndexChart controls={controls} setControls={setControls} names={names} />
 				:
-				<h1 style = {{ paddingLeft: "20vw", width: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Select a coin, exchange, and interval...</h1>
+				<h1 className={classes.emptyInputMessage}>Select a coin, exchange, and interval...</h1>
 				}
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: '2em', color: 'white' }}>
-					<Typography style={{ fontSize: '1.6rem', background: "-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)", webkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} >Compare</Typography>
+				<div className={classes.indexControlsContainer}>
 					<CompareControls compare={controls} setCompare={setControls} names={names} />
 				</div>
 			</div>
-			<div style={{ marginLeft: "2em" }}>
+			<div className={classes.dashboardTableContainer}>
 				<DashboardTable {...tradeProps} />
 			</div>
 		</div>
