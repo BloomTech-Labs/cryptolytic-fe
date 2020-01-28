@@ -116,7 +116,7 @@ function NavigationBar() {
             {
               name: "Charts",
               logo: candlestick,
-              link: "charts",
+              link: "exchange-charts",
               status: "active"
             },
             { name: "API", logo: api, link: "api", status: "inactive" },
