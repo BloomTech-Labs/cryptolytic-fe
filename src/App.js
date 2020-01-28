@@ -12,19 +12,30 @@ import MarketIndex from "./Components/Market Index/MarketIndex";
 import Home from "./Components/Registeration/Home";
 import Login from "./Components/Registeration/Login";
 import SignUp from "./Components/Registeration/SignUp";
+import IntroIndex from "./Components/Marketing Page/IntroIndex"
+import Services from "./Components/Marketing Page/Services"
+import TeamPage from "./Components/TeamPage/TeamPage"
 function App() {
   return (
     <div className='App'>
       <Router>
-        <Route exact path='/' component={Login} />
+        <Route exact path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
+		<Route exact path='/' component={IntroIndex} />
+		<Route exact path='/services' component={Services} />
+		<Route exact path='/team' component={TeamPage}/>
         <Route
           path='/main'
           render={({ match: { url } }) => (
             <>
               <div className='navHeader'>
-                <NavigationHeader />
-                <NavigationBar />
+				  {!window.location.href.includes("intro") ?
+                <>
+                	<NavigationHeader />
+	                <NavigationBar />
+                </>
+				:
+				<></>}
               </div>
               <Route path={`${url}/home`} component={MarketIndex} />
               <Route
@@ -35,8 +46,8 @@ function App() {
                 path={`${url}/arbitrage-dashboard`}
                 component={ArbitrageDashboard}
               />
-              <Route path={`${url}/exchange-charts`} component={Charts} />
-              <Footer />
+			<Route path={`${url}/exchange-charts`} component={Charts} />
+			<Footer />
             </>
           )}
         />
