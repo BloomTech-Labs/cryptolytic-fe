@@ -6,8 +6,8 @@ import Link from '@material-ui/core/Link';
 import logo from "../../../src/images/logo.svg"
 
 const data = [
-    {name: "Services", href: "/intro/services"},
-    {name: "Team", href: "/intro/team"}
+    {name: "Services", href: "/services"},
+    {name: "Team", href: "/team"}
 ]
 
 const useStyles = makeStyles({
@@ -91,7 +91,7 @@ export default function Header(){
         <div className={classes.headerContainer}>
             <div className={classes.headerLeft}>
                 <div className={classes.headerLogoContainer}>
-                    <Link href="/intro" className={classes.headerLogoLink}>
+                    <Link href="/" className={classes.headerLogoLink}>
                         <img src={logo} className={classes.headerLogo}/>
                         <p>Cryptolytic</p>
                     </Link>
@@ -102,7 +102,7 @@ export default function Header(){
                     {data.map(e => 
                         <Link href={e.href} className={classes.headerMenuLink}>{e.name}</Link>
                         )}
-                    <Link href="/home" className={classes.headerMenuLogin}>Login</Link>
+                    <Link href="/login" className={classes.headerMenuLogin}>Login</Link>
                 </div>
             </div>
         </div>
