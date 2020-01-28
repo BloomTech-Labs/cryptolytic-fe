@@ -71,3 +71,25 @@ export const setToggled = toggle => dispatch => {
   console.log(toggle);
   dispatch({ type: TOGGLE_SWITCH_START, payload: toggle });
 };
+
+export const USER_SIGNIN_START = "USER_SIGNIN_START";
+export const USER_SIGNIN_SUCCESS = "USER_SIGNIN_SUCCESS";
+export const USER_SIGNIN_FAILURE = "USER_SIGNIN_FAILURE";
+
+// Sign In
+export const signIn = credentials => {
+  return (dispatch, getState, { getFirebase }) => {
+    dispatch({ type: USER_SIGNIN_START });
+    const firebase = getFirebase();
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(credentials.email, credentials.password)
+      .then(() => {
+        dispatch({ type: USER_SIGNIN_SUCCESS });
+      })
+      .catch(error => {
+        dispatch({ type: USER_SIGNIN_FAILURE, payload: error });
+      });
+  };
+};
