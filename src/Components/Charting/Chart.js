@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CanvasJSReact from "../../assets/canvasjs.react";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from "@emotion/core";
 
 const CanvasJS = CanvasJSReact.CanvasJS;
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 30vh 0 50vh 10vw;
+`;
 
 class Chart extends Component {
   render() {
@@ -18,10 +27,17 @@ class Chart extends Component {
       let { open, high, low, close } = obj;
       const dataObj = {};
       dataObj.x = new Date(obj.timestamp * 1000);
-      open = Number(open).toFixed(2);
-      high = Number(high).toFixed(2);
-      low = Number(low).toFixed(2);
-      close = Number(close).toFixed(2);
+      if (obj.trading_pair.includes("eth")) {
+        open = Number(open);
+        high = Number(high);
+        low = Number(low);
+        close = Number(close);
+      } else {
+        open = Number(open).toFixed(2);
+        high = Number(high).toFixed(2);
+        low = Number(low).toFixed(2);
+        close = Number(close).toFixed(2);
+      }
 
       dataObj.y = [open, high, low, close].map(i => Number(i));
       return dataObj;
@@ -31,10 +47,17 @@ class Chart extends Component {
       let { open, high, low, close } = obj;
       const dataObj = {};
       dataObj.x = new Date(obj.timestamp * 1000);
-      open = Number(open).toFixed(2);
-      high = Number(high).toFixed(2);
-      low = Number(low).toFixed(2);
-      close = Number(close).toFixed(2);
+      if (obj.trading_pair.includes("eth")) {
+        open = Number(open);
+        high = Number(high);
+        low = Number(low);
+        close = Number(close);
+      } else {
+        open = Number(open).toFixed(2);
+        high = Number(high).toFixed(2);
+        low = Number(low).toFixed(2);
+        close = Number(close).toFixed(2);
+      }
 
       dataObj.y = [open, high, low, close].map(i => Number(i));
       return dataObj;
@@ -42,12 +65,20 @@ class Chart extends Component {
 
     console.log("dataPoints>>>>>>", dataPoints);
 
+    let firstExchange =
+      this.props.options.exchange.slice(0, 1).toUpperCase() +
+      this.props.options.exchange.substr(1);
+    let secondExchange =
+      this.props.compareOptions.exchange.slice(0, 1).toUpperCase() +
+      this.props.compareOptions.exchange.substr(1);
+
+    // Checks to see if the switch is toggled from bool val in redux
     if (this.props.toggled) {
-      const options = {
+      const twoExchangeOptions = {
         theme: "dark1",
         colorSet: "chartColors",
         backgroundColor: "#000",
-        animationEnabled: true,
+        animationEnabled: false,
         zoomEnabled: true,
         zoomType: "xy",
         toolTip: {
@@ -64,7 +95,7 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.compareOptions.exchange.slice(0, 1).toUpperCase()+this.props.compareOptions.exchange.substr(1),
+            name: firstExchange,
             yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: dataPoints
@@ -72,20 +103,37 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.compareOptions.exchange.slice(0, 1).toUpperCase()+this.props.compareOptions.exchange.substr(1),            yValueFormatString: "$###0.00",
+            name: secondExchange,
+            yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: compareDataPoints
           }
         ]
       };
 
-      return (
-        <div style={{ width: "70%", marginLeft: "350px" }}>
-          <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
-        </div>
-      );
+      if (this.props.fetchingSecondExchangeData) {
+        return (
+          <PropagateLoader
+            css={override}
+            size={25}
+            color={
+              "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+            }
+            loading={this.props.fetchingSecondExchangeData}
+          />
+        );
+      } else {
+        return (
+          <div style={{ width: "60%", marginLeft: "440px" }}>
+            <CanvasJSChart
+              options={twoExchangeOptions}
+              onRef={ref => (this.chart = ref)}
+            />
+          </div>
+        );
+      }
     } else {
-      const options = {
+      const singleExchangeOptions = {
         theme: "dark1",
         colorSet: "chartColors",
         backgroundColor: "#000",
@@ -103,7 +151,7 @@ class Chart extends Component {
           {
             type: "candlestick",
             showInLegend: true,
-            name: this.props.options.exchange.slice(0, 1).toUpperCase()+this.props.options.exchange.substr(1),
+            name: firstExchange,
             yValueFormatString: "$###0.00",
             xValueFormatString: "MMMM DD YYYY",
             dataPoints: dataPoints
@@ -111,22 +159,40 @@ class Chart extends Component {
         ]
       };
 
-      return (
-        <div style={{ width: "70%", marginLeft: "350px" }}>
-          <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
-        </div>
-      );
+      if (this.props.fetchingFirstExchangeData) {
+        return (
+          <PropagateLoader
+            css={override}
+            size={25}
+            color={
+              "linear-gradient(93.16deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%);"
+            }
+            loading={this.props.fetchingFirstExchangeData}
+          />
+        );
+      } else {
+        return (
+          <div style={{ width: "60%", marginLeft: "440px" }}>
+            <CanvasJSChart
+              options={singleExchangeOptions}
+              onRef={ref => (this.chart = ref)}
+            />
+          </div>
+        );
+      }
     }
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ project }) => {
   return {
-    options: state.options,
-    compareOptions: state.compareOptions,
-    chartData: state.chartData,
-    compareData: state.compareData,
-    toggled: state.switchToggled
+    options: project.options,
+    compareOptions: project.compareOptions,
+    chartData: project.chartData,
+    compareData: project.compareData,
+    toggled: project.switchToggled,
+    fetchingFirstExchangeData: project.gettingCryptoData,
+    fetchingSecondExchangeData: project.gettingCompareCryptoData
   };
 };
 

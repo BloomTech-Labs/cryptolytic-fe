@@ -12,9 +12,6 @@ import MarketIndex from "./Components/Market Index/MarketIndex";
 import Home from "./Components/Registeration/Home";
 import Login from "./Components/Registeration/Login";
 import SignUp from "./Components/Registeration/SignUp";
-import IntroIndex from "./Components/Marketing Page/IntroIndex";
-import Services from "./Components/Marketing Page/Services";
-import TeamPage from "./Components/TeamPage/TeamPage";
 function App() {
 	return (
 		<div className='App'>
@@ -38,31 +35,7 @@ function App() {
 								path={`${url}/arbitrage-dashboard`}
 								component={ArbitrageDashboard}
 							/>
-							<Switch>
-								{/* <Route exact path='/home' component={MarketIndex} /> */}
-								<Route
-									exact
-									path='/trading-dashboard'
-									component={TradingDashboard}
-								/>
-								<Route
-									exact
-									path='/arbitrage-dashboard'
-									component={ArbitrageDashboard}
-								/>
-								<Route exact path={`${url}/charts`} component={Charts} />
-								<Route exact path={`${url}/intro`} component={IntroIndex} />
-								<Route
-									exact
-									path={`${url}/intro/services`}
-									component={Services}
-								/>
-								<Route
-									exact
-									path={`${url}/intro/team-page`}
-									component={TeamPage}
-								/>
-							</Switch>
+							<Route path={`${url}/exchange-charts`} component={Charts} />
 							<Footer />
 						</>
 					)}

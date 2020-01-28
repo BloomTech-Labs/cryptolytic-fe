@@ -1,7 +1,6 @@
 import React from "react";
 import Chart from "../Components/Charting/Chart";
 import ChartOptionSelect from "../Components/Charting/ChartOptionSelect";
-import ToggleSwitch from "../Components/Charting/ToggleSwitch";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -29,10 +28,9 @@ const Charts = () => {
 
   return (
     <div>
-      <h1 className={classes.mainHeader}>Historical Price Charts</h1>
+      <h1 className={classes.mainHeader}>Exchange Charts</h1>
       <ChartOptionSelect />
       <Chart />
-      <ToggleSwitch />
     </div>
   );
 };
