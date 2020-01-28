@@ -9,9 +9,9 @@ import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
 import Charts from "./Views/Charts";
 import MarketIndex from "./Components/Market Index/MarketIndex";
-import Home from "./Components/Registeration/Home";
-import Login from "./Components/Registeration/Login";
-import SignUp from "./Components/Registeration/SignUp";
+import Home from "./Components/Registration/Home";
+import Login from "./Components/Registration/Login";
+import SignUp from "./Components/Registration/SignUp";
 import IntroIndex from "./Components/Marketing Page/IntroIndex"
 import Services from "./Components/Marketing Page/Services"
 import TeamPage from "./Components/TeamPage/TeamPage"

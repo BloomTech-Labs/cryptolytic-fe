@@ -8,6 +8,8 @@ import trading from "../images/line-chart-logo.svg";
 import candlestick from "../images/candlestick-icon2.png";
 import api from "../images/cloud-upload-logo.svg";
 import data from "../images/data-logo.svg";
+import Link from '@material-ui/core/Link';
+
 
 import AlertDialog from "./AlertDialog";
 
@@ -96,7 +98,8 @@ function NavigationBar() {
 		<div className={classes.NavBar}>
 			<div className={classes.NavMenuContainer}>
 				<div className={classes.NavBarLogo}>
-					<img src={logo} className={classes.Logo} />
+					<Link href="/">
+						<img src={logo} className={classes.Logo} /></Link>
 				</div>
 				<div className={classes.NavBarMenu}>
 					{[

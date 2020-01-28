@@ -126,7 +126,7 @@ const Login = ({ history }) => {
 					<Button variant='contained' type='submit' className={classes.button}>
 						Log In
           </Button>
-					<p>Don't have an account yet?<Link href="/signup" className={classes.heroLink}> Sign Up!</Link> </p>
+					<p>Don't have an account yet?<Link href="/signup"> Sign Up!</Link> </p>
 				</form>
 			</Paper>
 		</div>
