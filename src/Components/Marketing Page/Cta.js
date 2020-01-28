@@ -46,7 +46,7 @@ export default function Cta(){
     return(
         <div className={classes.ctaContainer}>
             <h2 className={classes.ctaTitle}>Supercharge your trading with Cryptolytic</h2>
-            <Link href="/home" className={classes.ctaButton}>
+            <Link href="/signup" className={classes.ctaButton}>
                 Sign Up for a free account
             </Link>
             <p className={classes.ctaDisclaimer}>Cryptolytic does not offer financial advice. Trade at your own risk.</p>

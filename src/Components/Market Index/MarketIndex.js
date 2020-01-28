@@ -41,7 +41,6 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex', 
 		height: '100%'
 	}
-
 }));
 
 
