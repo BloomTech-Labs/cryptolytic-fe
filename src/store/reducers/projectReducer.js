@@ -31,7 +31,7 @@ const initialState = {
   switchToggled: false
 };
 
-export const rootReducer = (state = initialState, action) => {
+export const projectReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CHARTDATA_START:
       return {

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SelectDropdown from "./SelectDropdown";
 import ToggleSwitch from "../../Components/Charting/ToggleSwitch";
 import { connect } from "react-redux";
-import { getChartData, getCompareChartData, setToggled } from "../../actions";
+import { getChartData, getCompareChartData, setToggled } from "../../store/actions";
 
 const useStyles = makeStyles({
   form: {
