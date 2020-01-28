@@ -9,6 +9,10 @@ import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
 import Charts from "./Views/Charts";
 import MarketIndex from "./Components/Market Index/MarketIndex"
+import IntroIndex from "./Components/Marketing Page/IntroIndex"
+import Services from "./Components/Marketing Page/Services"
+import TeamPage from "./Components/TeamPage/TeamPage"
+
 function App() {
 
 
@@ -23,8 +27,14 @@ function App() {
 	return (
 		<div className='App'>
 			<div className='navHeader'>
-				<NavigationHeader />
-				<NavigationBar />
+				{!window.location.href.includes("intro") ?
+					<>
+						<NavigationHeader />
+						<NavigationBar />
+					</>
+					:
+					<></>
+				}
 			</div>
 			<Switch>
 				<Route exact path='/home' component={MarketIndex} />
@@ -35,6 +45,9 @@ function App() {
 					component={ArbitrageDashboard}
 				/>
 				<Route exact path='/charts' component={Charts} />
+				<Route exact path='/intro' component={IntroIndex} />
+				<Route exact path='/intro/services' component={Services} />
+				<Route exact path='/intro/team-page' component={TeamPage}/>
 			</Switch>
 			<Footer />
 		</div>

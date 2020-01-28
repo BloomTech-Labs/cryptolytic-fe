@@ -10,6 +10,8 @@ import DateFnsUtils from '@date-io/date-fns';
 import Input from '@material-ui/core/Input';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+
 
 import {
 	MuiPickersUtilsProvider,
@@ -34,6 +36,24 @@ const useStyles = makeStyles(theme => ({
 		color: 'white',
 		fill: 'white',
 	},
+	controlsContainer: {
+		width: '17vw', 
+		backgroundColor: 'rgba(35, 32, 44, 0.8)', 
+		minHeight: '50%', 
+		borderRadius: '6px'
+	},
+	cryptoInput: {
+		color: 'white', 
+		width: '90%', 
+		textAlign: 'left'
+	},
+	clearButton: {
+		width: '30%', 
+		margin: '1em 0'
+	},
+	selectInput: {
+		color: 'white'
+	}
 
 }));
 export default function CompareControl(props) {
@@ -45,7 +65,7 @@ export default function CompareControl(props) {
 		PaperProps: {
 		  style: {
 			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
+			width: 100,
 		  },
 		},
 	  };
@@ -57,14 +77,7 @@ export default function CompareControl(props) {
 			[name]: event.target.value,
 		});
 	};
-	  const handleDelete = event => {
-		event.stopPropagation();
-		props.setCompare({
-			compare: props.compare.filter(e => e.key !== event.key)
-		});
-		console.log("handledelete")
 
-	  };
 	  const handleChangeCompare = event => {
 		props.setCompare({
 			...props.compare,
@@ -72,74 +85,68 @@ export default function CompareControl(props) {
 			compare: event.target.value
 		});
 	  };
-	  console.log(props.compare)
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
-			<Container style={{ width: '17vw', backgroundColor: 'rgba(35, 32, 44, 0.8)', minHeight: '50%', borderRadius: '6px' }}>
-				<div style={{ width: '100%' }}>
+			<Container className={classes.controlsContainer}>
 					<FormControl className={classes.formControl}>
-						<InputLabel id="demo-mutiple-chip-label" style={{ color: 'white', width: '90%', textAlign: 'left' }}>Crypto Coin</InputLabel>
+						<InputLabel id="crypto-coin" className={classes.cryptoInput}>Crypto Coin</InputLabel>
 						<Select
-						labelId="demo-mutiple-chip-label"
-						id="demo-mutiple-chip"
+						labelId="crypto-coin"
+						id="crypto-coin"
 						multiple
 						value={props.compare.compare}
 						onChange={handleChangeCompare}
-						input={<Input id="select-multiple-chip" />}
+						input={<Input id="crypto-coin-input" />}
 						renderValue={selected => (
 							<div className={classes.chips}>
 							{selected.map((value, index) => (
-								<Chip key={value} label={value} className={classes.chip} onDelete={handleDelete} style={{ backgroundColor: props.names[index].color }} />
+								<Chip key={value} label={value} className={classes.chip} style={{ backgroundColor: props.names[index].color }} />
 							))}
 							</div>
 						)}
 						
 						MenuProps={MenuProps}
 						>
-						{props.names.map(name => (
+						{props.names.map((name, i) => (
 							<MenuItem key={name.name} value={name.name} style={{ color: name.color }}>
-							{name.name}
+								{name.name}
 							</MenuItem>
 						))}
 						</Select>
-					</FormControl>
-					
-				</div>
-				<div>
+					</FormControl>	
 					<FormControl className={classes.formControl}>
-						<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Exchange</InputLabel>
+						<InputLabel id="exchange" className={classes.selectInput}>Exchange</InputLabel>
 						<Select
-							labelId="demo-simple-select-label"
+							labelId="exchange"
 							id="exchange"
 							value={props.compare.exchange}
 							onChange={handleChangeOptions('exchange')}
-							style={{ color: 'white' }}
+							className={classes.selectInput}
 						>
 							{["gemini","itbit","coinbase","kraken","bitstamp","liquid","poloniex","bitflyer","bitfinex"].map(e => 
 								<MenuItem value={e}>{e}</MenuItem>)}
 						</Select>
 					</FormControl>
 					<FormControl className={classes.formControl}>
-						<InputLabel id="demo-simple-select-label" style={{ color: 'white' }}>Interval</InputLabel>
+						<InputLabel id="interval" className={classes.selectInput}>Interval</InputLabel>
 						<Select
-							labelId="demo-simple-select-label"
+							labelId="interval"
 							id="interval"
 							value={props.compare.interval}
 							onChange={handleChangeOptions('interval')}
-							style={{ color: 'white' }}
+							className={classes.selectInput}
 						>
 							{["day","hour","minute"].map(e =>
 							<MenuItem value={e}>{e}</MenuItem>)}
 						</Select>
 					</FormControl>
-					<Button variant="outlined" color="primary" style={{ width: '30%', margin: '1em 0' }} onClick={() => props.setCompare({		
+					<Button variant="outlined" color="primary" className={classes.clearButton} onClick={() => props.setCompare({		
 						compare: [],
 						interval: "day",
 						exchange: "bitfinex",
 						render: true})}>
-					Clear
+						Clear
 					</Button>
-				</div>
 			</Container>
 		</MuiPickersUtilsProvider>
 	)

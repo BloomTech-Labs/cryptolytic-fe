@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CanvasJSReact from "../../assets/canvasjs.react"
 import Typography from '@material-ui/core/Typography'
 
+
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
