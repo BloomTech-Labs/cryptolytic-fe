@@ -12,22 +12,34 @@ const useStyles = makeStyles({
     width: "200px",
     margin: "0 5px",
     padding: "0.5em",
-    border: "1px solid #62e3ab",
+    border: "1px solid black",
     borderRadius: "5px",
     textAlign: "center"
   },
   label: {
     width: "100%",
     padding: "0.5em",
-    color: "#62e3ab"
+    color: "#fff",
+
+    "&.Mui-focused": {
+      color: "#4EB9FF"
+    }
   },
-  textField: {
-    width: "200px",
-    margin: "0 5px",
-    padding: "0.5em",
-    border: "1px solid #62e3ab",
-    borderRadius: "5px",
-    textAlign: "center"
+  // textField: {
+  //   width: "200px",
+  //   margin: "0 5px",
+  //   padding: "0.5em",
+  //   border: "1px solid #62e3ab",
+  //   borderRadius: "5px",
+  //   textAlign: "center"
+  // },
+  dropDown: {
+    "&:after": {
+      borderColor: "#4EB9FF"
+    },
+    icon: {
+      fill: "#4EB9FF"
+    }
   }
 });
 
@@ -46,9 +58,8 @@ const SelectDropdown = props => {
 
   console.log("options", options);
   console.log("val>>>>>>", val);
-  console.log(data)
+  console.log(data);
   const handleChanges = name => event => {
-    console.log("event.id>>>>", event.target.id, name);
     switch (event.target.id) {
       case "exchange":
         if (toggled && id === "exchangeLabel2") {
@@ -67,44 +78,29 @@ const SelectDropdown = props => {
         break;
       case "trading_pair":
         // const trading_pair = event.target.value.toLowerCase().replace("/", "_");
-        if (toggled) {
-          props.setCompareOptions({
-            ...compareOptions,
-            render: true,
-            [name]: event.target.value
-          });
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        } else {
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        }
+
+        props.setCompareOptions({
+          ...compareOptions,
+          render: true,
+          [name]: event.target.value
+        });
+        props.setOptions({
+          ...options,
+          render: true,
+          [name]: event.target.value
+        });
         break;
       case "timeFrame":
-        if (toggled) {
-          props.setCompareOptions({
-            ...compareOptions,
-            render: true,
-            [name]: event.target.value
-          });
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        } else {
-          props.setOptions({
-            ...options,
-            render: true,
-            [name]: event.target.value
-          });
-        }
+        props.setCompareOptions({
+          ...compareOptions,
+          render: true,
+          [name]: event.target.value
+        });
+        props.setOptions({
+          ...options,
+          render: true,
+          [name]: event.target.value
+        });
         break;
     }
   };
@@ -120,20 +116,34 @@ const SelectDropdown = props => {
         id={selectId}
         value={val}
         style={{ color: "#fff" }}
+        className={classes.dropDown}
         onChange={handleChanges(selectId)}
+        inputProps={{
+          classes: {
+            icon: classes.icon
+          }
+        }}
       >
         {data.map(ex => {
           if (ex.includes("_")) {
             let newEx = ex.toUpperCase().replace("_", "/");
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+              <option
+                key={ex}
+                style={{ borderRadius: "5px", color: "#000" }}
+                value={ex}
+              >
                 {newEx}
               </option>
             );
           } else {
             let newEx = ex.slice(0, 1).toUpperCase() + ex.substr(1);
             return (
-              <option key={ex} style={{ borderRadius: "5px", color: "#000" }} value={ex}>
+              <option
+                key={ex}
+                style={{ borderRadius: "5px", color: "#000" }}
+                value={ex}
+              >
                 {newEx}
               </option>
             );
