@@ -68,7 +68,7 @@ export default function Hero(){
             <div className={classes.heroText}>
                 <h1 className={classes.heroTitle}>Smarter trading</h1>
                 <h2>Discover arbitrage opportunities in the cryptocurrency markets before they happen and make profitable trades</h2>
-                <Link href="/signup" className={classes.heroLink}>Get Started</Link>
+                <Link href="/main/home" className={classes.heroLink}>Get Started</Link>
             </div>
             <div className={classes.heroSpace}>
             </div>
