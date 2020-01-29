@@ -8,31 +8,47 @@ import Link from '@material-ui/core/Link';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import { TextareaAutosize } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
 	form: {
-		width: "25%",
-		margin: "0 auto",
-		height: "40vh"
+		width: "30%",
+		height: "100%",
+		margin: "3% auto",
+		background: "rgba(35, 32, 44, 0.7)"
 	},
 	formContainer: {
-		height: "100%",
+		padding: "3% 0 3% 0",
+		margin: "10% 0 0 0",
 		display: "flex",
 		flexDirection: "column",
-		justifyContent: "space-evenly",
-		padding: 5
 	},
 	button: {
-		width: "30%",
-		margin: "0 auto",
+		width: "35%",
+		margin: "8% auto 5% auto",
 		transition: ".4s ease",
+		color: "white",
+		background: "rgba(35, 32, 44, 0.7)",
+		border: "2px solid #4EB9FF",
+		boxSizing: "border-box",
+		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+		borderRadius: "4px",
 		"&:hover": {
-			backgroundColor: "#161616",
-			color: "#dddddd"
+			background: 'white',
+			color: 'black',
+			textDecoration: 'none',
+			msTransform: "translateX(4px)",
+			webkitTransform: "translateX(4px)",
+			transform: "translateX(4px)",
+			boxShadow: "3px 3px",
+			transition: ".5s"
 		}
 	},
 	textField: {
-		width: "75%"
+		marginTop: "3%",
+		width: "85%",
+		background: "#28262C",
+		borderRadius: "4px"
 	},
 
 	cssOutlinedInput: {
@@ -42,12 +58,39 @@ const useStyles = makeStyles(theme => ({
 	},
 
 	cssFocused: {
-		color: "black !important"
+		color: "#A5A3AB !important"
 	},
-
+	cssRoot: {
+		color: "#A5A3AB !important",
+	},
 	notchedOutline: {
 		borderWidth: "1px",
 		borderColor: "black !important"
+	},
+	header: {
+		background:
+			"-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
+		WebkitBackgroundClip: "text",
+		WebkitTextFillColor: "transparent",
+		height: "53px",
+		fontWeight: "180px",
+		fontSize: "2.2em",
+		lineHeight: "3em",
+		display: "flex",
+		alignItems: "center",
+		letterSpacing: "0.03em",
+		margin: "10% auto 0 auto"
+	},
+	headerContainer: {
+		width: "100%",
+		display: "flex",
+		justifyContent: "center",
+		textAlign: "center",
+
+	},
+	p: {
+		color: "white",
+		fontWeight: "bold"
 	}
 }));
 
@@ -76,7 +119,9 @@ const Login = ({ history }) => {
 
 	return (
 		<div>
-			<h1>Log in</h1>
+			<div className={classes.headerContainer}>
+				<h1 className={classes.header}>Sign Into Cryptolytics</h1>
+			</div>
 			<Paper className={classes.form}>
 				<form onSubmit={handleLogin} className={classes.formContainer}>
 					<div className='emailField'>
@@ -96,6 +141,7 @@ const Login = ({ history }) => {
 							}}
 							InputLabelProps={{
 								classes: {
+									root: classes.cssRoot,
 									focused: classes.cssFocused
 								}
 							}}
@@ -118,17 +164,18 @@ const Login = ({ history }) => {
 							}}
 							InputLabelProps={{
 								classes: {
+									root: classes.cssRoot,
 									focused: classes.cssFocused
 								}
 							}}
 						/>
 					</div>
 					<Button variant='contained' type='submit' className={classes.button}>
-						Log In
+						Sign In
           </Button>
-					<p>Don't have an account yet?<Link href="/signup"> Sign Up!</Link> </p>
 				</form>
 			</Paper>
+			<p className={classes.p}>Don't have an account yet?<Link href="/signup"> Sign Up!</Link></p>
 		</div>
 	);
 };
