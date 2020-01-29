@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../Marketing Page/Header";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import taylor from "../../../src/images/profile-team17/taylor.png";
@@ -7,6 +8,7 @@ import alfredo from "../../../src/images/profile-team17/alfredo.png";
 import marvin from "../../../src/images/profile-team17/marvin.png";
 import nathan from "../../../src/images/profile-team17/nathan.png";
 import stan from "../../../src/images/profile-team17/stan.png";
+
 
 // Under construction
 
@@ -26,7 +28,9 @@ const useStyles = makeStyles(theme => ({
 	profilePicsMargin: {
 		marginBottom: "12%",
 	},
-
+	headerStyles: {
+		width: '100%', height: '100%', fontFamily: 'Titillium Web'
+	}
 
 
 }));
@@ -35,7 +39,10 @@ export default function TeamPage() {
 	const classes = useStyles();
 	return (
 
-		<div>
+		<>
+			<div>
+				<Header className={classes.headerStyles} />
+			</div>
 			<div className={classes.teamHeader}>
 				<h2>Come Meet the Teams!</h2>
 			</div>
@@ -64,7 +71,7 @@ export default function TeamPage() {
 				</Grid>
 			</div>
 
-		</div>
+		</>
 
 
 
