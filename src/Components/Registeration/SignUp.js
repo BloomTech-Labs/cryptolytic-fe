@@ -53,6 +53,7 @@ const SignUp = props => {
 
   const handleSignUp = event => {
     event.preventDefault();
+    console.log(event.target.elements);
     const { email, password } = event.target.elements;
     signUp({ email: email.value, password: password.value });
   };

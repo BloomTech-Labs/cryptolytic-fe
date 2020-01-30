@@ -102,28 +102,50 @@ export const USER_SIGNUP_SUCCESS = "USER_SIGNUP_SUCCESS";
 export const USER_SIGNUP_FAILURE = "USER_SIGNUP_FAILURE";
 
 export const signUp = credentials => {
-  return (dispatch, getState, { getFirebase }) => {
+  return async (dispatch, getState, { getFirebase }) => {
     dispatch({ type: USER_SIGNUP_START });
     const firebase = getFirebase();
 
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(() => {
-        dispatch({ type: USER_SIGNUP_SUCCESS });
-        const idToken = firebase.auth().currentUser.getIdToken(true);
-        console.log("ID token>>>", idToken);
-        axios
-          .post("http://localhost:8000/signup", {
-            headers: {
-              Authorization: idToken
-            }
-          })
-          .then(() => console.log("Added user to db"))
-          .catch(error => console.log({ msg: "db error", error }));
-      })
-      .catch(error => {
-        dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
+    try {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(
+          credentials.email,
+          credentials.password
+        );
+
+      dispatch({ type: USER_SIGNUP_SUCCESS });
+
+      const idToken = firebase.auth().currentUser.getIdToken(true);
+      console.log("ID token>>>", idToken);
+
+      axios.post("http://localhost:4000/api/auth/register", {
+        headers: {
+          Authorization: idToken
+        }
       });
+    } catch (error) {
+      console.log("sign up error", error);
+      dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
+    }
+    // firebase
+    //   .auth()
+    //   .createUserWithEmailAndPassword(credentials.email, credentials.password)
+    //   .then(() => {
+    //     dispatch({ type: USER_SIGNUP_SUCCESS });
+    //     const idToken = firebase.auth().currentUser.getIdToken(true);
+    //     console.log("ID token>>>", idToken);
+    //     axios
+    //       .post("http://localhost:4000/api/auth/register", {
+    //         headers: {
+    //           Authorization: idToken
+    //         }
+    //       })
+    //       .then(() => console.log("Added user to db"))
+    //       .catch(error => console.log({ msg: "db error", error }));
+    //   })
+    //   .catch(error => {
+    //     dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
+    //   });
   };
 };
