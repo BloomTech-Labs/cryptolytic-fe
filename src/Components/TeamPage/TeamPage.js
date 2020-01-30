@@ -40,6 +40,11 @@ const useStyles = makeStyles(theme => ({
 	},
 	image: {
 		borderRadius: "50%",
+		'&:hover': {
+			WebkitTransform: 'scale(1.1)',
+			WebkitBoxShadow: ' 0px 0px 15px #ccc',
+			transition: ".5s"
+		}
 	},
 	name: {
 		color: "white",
@@ -62,7 +67,7 @@ export default function TeamPage() {
 				<Header className={classes.headerStyles} />
 			</div>
 			<div className={classes.teamHeader}>
-				<h2>Come Meet the Teams!</h2>
+				<h3>Come Meet the Teams!</h3>
 				<h3>Lab 17</h3>
 			</div>
 			<div>
@@ -80,7 +85,10 @@ export default function TeamPage() {
 				</Grid>
 
 				<div>
-					<h3>Lab 19</h3>
+					<div className={classes.teamHeader}>
+						<h3>Lab 19</h3>
+					</div>
+
 					<Grid className={classes.profileContainer}>
 						{data19.map(e =>
 							<Grid className={classes.profilePicsMargin} item xs={12} sm={6} md={4}>

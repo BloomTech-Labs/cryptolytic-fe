@@ -5,14 +5,14 @@ import marvin from "../../../src/images/profile-team17/marvin.png";
 import nathan from "../../../src/images/profile-team17/nathan.png";
 import stan from "../../../src/images/profile-team17/stan.png";
 
-import emmett from "../../../src/images/profile-team19/emmett.jpeg";
-import jeff from "../../../src/images/profile-team19/jeff.jfif";
-import kyle from "../../../src/images/profile-team19/kyle.jfif";
+import emmett from "../../../src/images/profile-team19/emmett.png";
+import jeff from "../../../src/images/profile-team19/jeff.png";
+import kyle from "../../../src/images/profile-team19/kyle.png";
 import luis from "../../../src/images/profile-team19/luis.png";
-import mason from "../../../src/images/profile-team19/mason.jfif";
-import micah from "../../../src/images/profile-team19/micah.jfif";
-import richard from "../../../src/images/profile-team19/richard.jfif";
-import ross from "../../../src/images/profile-team19/ross.jfif";
+import mason from "../../../src/images/profile-team19/mason.png";
+import micah from "../../../src/images/profile-team19/micah.png";
+import richard from "../../../src/images/profile-team19/richard.png";
+import ross from "../../../src/images/profile-team19/ross.png";
 import mike from "../../../src/images/profile-team19/mike.png";
 
 
