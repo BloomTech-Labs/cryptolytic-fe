@@ -6,9 +6,7 @@ exports[`<NavigationHeader /> matches verified SnapShot should match snapshot 1`
 >
   <div
     className="makeStyles-title-21"
-  >
-    Dashboard
-  </div>
+  />
   <div
     className="makeStyles-cogWheel-22"
   >

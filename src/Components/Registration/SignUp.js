@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import firebase from "firebase/app";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import Link from '@material-ui/core/Link';
+import { signUp } from "../../store/actions";
 
 const useStyles = makeStyles(theme => ({
 	form: {
@@ -91,26 +92,17 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-
-
-const SignUp = ({ history }) => {
+const SignUp = (props) => {
+  const { history, signUp } = props;
 	const classes = useStyles();
 
-	const handleSignUp = useCallback(
-		async event => {
-			event.preventDefault();
-			const { email, password } = event.target.elements;
-			try {
-				await firebase
-					.auth()
-					.createUserWithEmailAndPassword(email.value, password.value);
-				history.push("/");
-			} catch (error) {
-				alert(error);
-			}
-		},
-		[history]
-	);
+
+  const handleSignUp = event => {
+    event.preventDefault();
+    console.log(event.target.elements);
+    const { email, password } = event.target.elements;
+    signUp({ email: email.value, password: password.value });
+  };
 
 	return (
 		<div>
@@ -175,4 +167,16 @@ const SignUp = ({ history }) => {
 	);
 };
 
-export default withRouter(SignUp);
+const mapStateToProps = state => {
+  return {
+    userSignUpError: state.auth.userSignUpError
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: creds => dispatch(signUp(creds))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));

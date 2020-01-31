@@ -2,12 +2,11 @@ import React, { useCallback, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { withRouter, Redirect } from "react-router";
 import firebase from "firebase/app";
-import Link from '@material-ui/core/Link';
-
-
+import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import { signIn } from "../../store/actions";
 import { TextareaAutosize } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -51,11 +50,11 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: "4px"
 	},
 
-	cssOutlinedInput: {
-		"&$cssFocused $notchedOutline": {
-			borderColor: `gray !important`
-		}
-	},
+  cssOutlinedInput: {
+    "&$cssFocused $notchedOutline": {
+      borderColor: `gray !important`
+    }
+  },
 
 	cssFocused: {
 		color: "#A5A3AB !important"
@@ -94,28 +93,20 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Login = ({ history }) => {
-	const classes = useStyles();
+const Login = props => {
+  const { history, signIn } = props;
+  const classes = useStyles();
 
-	const handleLogin = useCallback(
-		async event => {
-			event.preventDefault();
-			const { email, password } = event.target.elements;
-			try {
-				await firebase
-					.auth()
-					.signInWithEmailAndPassword(email.value, password.value);
-				history.push("/");
-			} catch (error) {
-				alert(error);
-			}
-		},
-		[history]
-	);
+  const handleLogin = event => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    signIn({ email: email.value, password: password.value });
+  };
 
-	// if (currentUser) {
-	//   return <Redirect to="/" />;
-	// }
+
+  // if (currentUser) {
+  //   return <Redirect to="/" />;
+  // }
 
 	return (
 		<div>
@@ -180,4 +171,15 @@ const Login = ({ history }) => {
 	);
 };
 
-export default withRouter(Login);
+const mapStateToProps = state => {
+  return {
+    userSignInError: state.auth.userSignInError
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signIn: creds => dispatch(signIn(creds))
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
