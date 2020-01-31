@@ -2,18 +2,25 @@
 
 exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] = `
 <div
-  className="makeStyles-NavBar-49"
+  className="makeStyles-NavBar-121"
 >
   <div>
     <div
-      className="makeStyles-NavBarLogo-50"
+      className="makeStyles-NavBarLogo-122"
     >
-      <img
-        src="logo.svg"
-      />
+      <a
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        href="/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        <img
+          src="logo.svg"
+        />
+      </a>
     </div>
     <div
-      className="makeStyles-NavBarMenu-51"
+      className="makeStyles-NavBarMenu-123"
     >
       <div
         style={
@@ -24,15 +31,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuText-52"
+          className="makeStyles-navBarMenuText-124"
           href="/home"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="home-logo.svg"
             />
             Home
@@ -48,15 +55,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuText-52"
+          className="makeStyles-navBarMenuText-124"
           href="/arbitrage-dashboard"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="arbitrage-logo.svg"
             />
             Arbitrage
@@ -72,15 +79,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuText-52"
+          className="makeStyles-navBarMenuText-124"
           href="/trading-dashboard"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="line-chart-logo.svg"
             />
             Trading
@@ -96,15 +103,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuText-52"
-          href="/charts"
+          className="makeStyles-navBarMenuText-124"
+          href="/exchange-charts"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="candlestick-icon2.png"
             />
             Charts
@@ -121,15 +128,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuTextDisabled-53"
+          className="makeStyles-navBarMenuTextDisabled-125"
           href="/api"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="cloud-upload-logo.svg"
               style={
                 Object {
@@ -152,15 +159,15 @@ exports[`<NavigationBar /> matches verified SnapShot should match snapshot 1`] =
       >
         <a
           aria-current={null}
-          className="makeStyles-navBarMenuTextDisabled-53"
+          className="makeStyles-navBarMenuTextDisabled-125"
           href="/data"
           onClick={[Function]}
         >
           <div
-            className="makeStyles-navBarMenuButton-56"
+            className="makeStyles-navBarMenuButton-128"
           >
             <img
-              className="makeStyles-navBarMenuIcon-57"
+              className="makeStyles-navBarMenuIcon-129"
               src="data-logo.svg"
               style={
                 Object {

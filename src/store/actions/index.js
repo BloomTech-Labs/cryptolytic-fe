@@ -114,20 +114,26 @@ export const signUp = credentials => {
           credentials.password
         );
 
-      dispatch({ type: USER_SIGNUP_SUCCESS });
+      const idToken = await firebase.auth().currentUser.getIdToken(true);
 
-      const idToken = firebase.auth().currentUser.getIdToken(true);
-      console.log("ID token>>>", idToken);
+      console.log("token>>>.", idToken);
 
-      axios.post("http://localhost:4000/api/auth/register", {
-        headers: {
-          Authorization: idToken
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/register",
+        {},
+        {
+          headers: {
+            Authorization: idToken
+          }
         }
-      });
+      );
+
+      console.log("response>>>>", response);
     } catch (error) {
       console.log("sign up error", error);
       dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
     }
+
     // firebase
     //   .auth()
     //   .createUserWithEmailAndPassword(credentials.email, credentials.password)
