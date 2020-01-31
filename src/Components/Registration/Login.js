@@ -180,6 +180,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signIn: creds => dispatch(signIn(creds))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
