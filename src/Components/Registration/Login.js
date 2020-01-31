@@ -100,22 +100,6 @@ const Login = props => {
     signIn({ email: email.value, password: password.value });
   };
 
-  // const handleLogin = useCallback(
-  //   async event => {
-  //     event.preventDefault();
-  //     const { email, password } = event.target.elements;
-  //     try {
-  //       await firebase
-  //         .auth()
-  //         .signInWithEmailAndPassword(email.value, password.value);
-  //       history.push("/");
-  //     } catch (error) {
-  //       alert(error);
-  //     }
-  //   },
-  //   [history]
-  // );
-
   // if (currentUser) {
   //   return <Redirect to="/" />;
   // }
