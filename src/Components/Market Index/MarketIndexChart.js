@@ -13,22 +13,26 @@ let arrayData = []
 let formatArray = []
 let nested = []
 let chartData = []
+let chartArray = []
+let chartColorIndex = 0
 
 const override = css`
   display: flex;
   justify-content: center;
   position: relative;
-  margin: 30vh 0 50vh 10vw;
+  margin: 0vh 0 5vh 10vw;
 `;
 export default function MarketIndexChart(props){
-	const[ state, setState ] = useState({
-		chartArray: [],
-		nestedArray: []
-	})
+
 	useEffect(() => {
 		if(props.controls.render){
-		props.controls.compare.map(async e => {
+		props.controls.compare.map(async (e, i) => {
 			let formatData = []
+			props.setControls({
+				...props.controls,
+				render: true,
+				chartLoaded: false
+			})
 				await axios
 				.get(
 					`https://min-api.cryptocompare.com/data/v2/histo${props.controls.interval}?fsym=${e}&tsym=USD&limit=1500&e=${props.controls.exchange}&api_key={e3d42438b4feed7530ea18fbebdefb6d9c9e475a39c8d6486f4f7fc63d0a5e97}`
@@ -41,44 +45,47 @@ export default function MarketIndexChart(props){
 					console.log(err);
 				});
 				// console.log(arrayData, "after axios")
-				arrayData.map((e, i) => {
+				arrayData.map(async (e, i) => {
 					formatData.push(e)
 				})
-				const data = formatData[0]
-				formatData[0].map(e => {
+				const data = await formatData[0]
+				await formatData[0].map(async e => {
 					let { open, high, low, close } = e;
 					let obj = {}
-					obj.x = new Date(e.time * 1000)
+					obj.x = await new Date(e.time * 1000)
 					open = Number(e.open).toFixed(2)
 					high = Number(e.high).toFixed(2)
 					low = Number(e.low).toFixed(2)
 					close = Number(e.close).toFixed(2)
 					obj.y = [open, high, low, close].map(ee => Number(ee));
-					formatArray.push(obj)
+					await formatArray.push(obj)
 				})
-				setState({
-					...state,
-					chartArray: formatArray
-				})
+
 				nested.push(formatArray)
-				let reverseChart = props.controls.compare;
-				await nested.map(async (ee, index) => {
-					if(props.controls.compare[index]){
-					await chartData.push({
+				let chartColorIndex = 0
+				console.log(nested)
+				nested.map(async (ee, ii) => {
+					let colorIndex = 0;
+					props.names.map((eee, iii) => {
+						if(eee.name === props.controls.compare[ii])
+						colorIndex = iii
+					})
+					if(props.controls.compare[i]){ 
+					chartData.push({
 						type: "candlestick",
 						showInLegend: true,
-						name: reverseChart[index],
+						name: props.controls.compare[ii],
 						yValueFormatString: "$###0.00",
 						xValueFormatString: "YYYY MMMM DD",
 						dataPoints: ee,
 						cursor: "crosshair",
-						color: props.names[index].color
+						color: props.names[colorIndex].chartColor
 						})
 					}
 				})
-				await props.setControls({
+				props.setControls({
 					...props.controls,
-					render: false
+					render: false,
 				})
 				// console.log(chartData, "chartdata")
 				// console.log(formatData, "formatData")
@@ -94,12 +101,8 @@ export default function MarketIndexChart(props){
 		props.setControls({
 			...props.controls,
 			render: false,
-			chartLoaded: true
 		})
-	}, [props.controls.compare, props.controls.exchange, props.controls.interval])
-
-	CanvasJS.addColorSet("chartColors", ["#62e3ab", "#53cfd7", 'purple']);
-
+	}, [props.controls.compare, props.controls.exchange, props.controls.interval, props.controls.render, props.names])
 	const options = {
 		theme: "dark1",
 		colorSet: "chartColors",
