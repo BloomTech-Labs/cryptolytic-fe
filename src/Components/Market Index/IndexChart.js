@@ -29,7 +29,7 @@ class IndexChart extends Component {
         if(this.props.options)
 		return (
 			<div style={{ width: "50%", marginLeft: "21vw", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', color: 'white' }}>
-				<Typography style={{ fontSize: '1.4rem' }}>Market Index</Typography>
+				<Typography style={{ fontSize: '1.4rem' }}>-username-'s Market Index</Typography>
 				<CanvasJSChart options={this.props.options} onRef={ref => (this.chart = ref)} />   
 			</div>
         )

@@ -7,7 +7,9 @@ import logo from "../../../src/images/logo.svg"
 
 const data = [
 	{ name: "Services", href: "/services" },
-	{ name: "Team", href: "/team" }
+	{ name: "Team", href: "/team" },
+	{ name: "Login", href: "/login" },
+	{ name: "Sign Up", href: "/signup" }
 ]
 
 const useStyles = makeStyles({
@@ -70,7 +72,7 @@ const useStyles = makeStyles({
 		}
 	},
 	headerMenuLogin: {
-		background: 'linear-gradient(120.25deg, rgba(78, 185, 255, 0.9) 19.83%, rgba(83, 207, 215, 0.9) 70.73%, rgba(93, 220, 183, 0.9) 115.6%, rgba(98, 227, 171, 0.9) 145.07%)',
+		background: 'black',
 		borderRadius: '4px',
 		fontFamily: 'Titillium Web',
 		padding: '2px 40px',
@@ -82,11 +84,6 @@ const useStyles = makeStyles({
 			background: 'white',
 			color: 'black',
 			textDecoration: 'none',
-			msTransform: "translateX(4px)",
-			webkitTransform: "translateX(4px)",
-			transform: "translateX(4px)",
-			boxShadow: "7px 7px",
-			transition: ".5s"
 		}
 	}
 });
@@ -108,7 +105,6 @@ export default function Header() {
 					{data.map(e =>
 						<Link href={e.href} className={classes.headerMenuLink}>{e.name}</Link>
 					)}
-					<Link href="/login" className={classes.headerMenuLogin}>Login</Link>
 				</div>
 			</div>
 		</div>

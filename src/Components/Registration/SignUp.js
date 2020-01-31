@@ -9,47 +9,93 @@ import { makeStyles } from "@material-ui/core/styles";
 import { signUp } from "../../store/actions";
 
 const useStyles = makeStyles(theme => ({
-  form: {
-    width: "25%",
-    margin: "100px auto",
-    height: "60vh"
-  },
-  formContainer: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-    padding: 5
-  },
-  button: {
-    width: "30%",
-    margin: "0 auto",
-    transition: ".4s ease",
-    "&:hover": {
-      backgroundColor: "#161616",
-      color: "#dddddd"
-    }
-  },
-  textField: {
-    width: "75%"
-  },
-  cssOutlinedInput: {
-    "&$cssFocused $notchedOutline": {
-      borderColor: `gray !important`
-    }
-  },
-  cssFocused: {
-    color: "black !important"
-  },
-  notchedOutline: {
-    borderWidth: "1px",
-    borderColor: "black !important"
-  }
+	form: {
+		width: "30%",
+		height: "100%",
+		margin: "3% auto",
+		background: "rgba(35, 32, 44, 0.7)"
+	},
+	formContainer: {
+		padding: "3% 0 3% 0",
+		margin: "10% 0 0 0",
+		display: "flex",
+		flexDirection: "column",
+	},
+	button: {
+		width: "35%",
+		margin: "8% auto 5% auto",
+		transition: ".4s ease",
+		color: "white",
+		background: "rgba(35, 32, 44, 0.7)",
+		border: "2px solid #4EB9FF",
+		boxSizing: "border-box",
+		boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+		borderRadius: "4px",
+		"&:hover": {
+			background: 'white',
+			color: 'black',
+			textDecoration: 'none',
+			msTransform: "translateX(4px)",
+			webkitTransform: "translateX(4px)",
+			transform: "translateX(4px)",
+			boxShadow: "3px 3px",
+			transition: ".5s"
+		}
+	},
+	textField: {
+		marginTop: "3%",
+		width: "85%",
+		background: "#28262C",
+		borderRadius: "4px"
+	},
+
+	cssOutlinedInput: {
+		"&$cssFocused $notchedOutline": {
+			borderColor: `gray !important`
+		}
+	},
+
+	cssFocused: {
+		color: "#A5A3AB !important"
+	},
+	cssRoot: {
+		color: "#A5A3AB !important",
+	},
+	notchedOutline: {
+		borderWidth: "1px",
+		borderColor: "black !important"
+	},
+	header: {
+		background:
+			"-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
+		WebkitBackgroundClip: "text",
+		WebkitTextFillColor: "transparent",
+		height: "53px",
+		fontWeight: "180px",
+		fontSize: "2.2em",
+		lineHeight: "3em",
+		display: "flex",
+		alignItems: "center",
+		letterSpacing: "0.03em",
+		margin: "10% auto 0 auto",
+	},
+	headerContainer: {
+		width: "100%",
+		display: "flex",
+		justifyContent: "center",
+		textAlign: "center",
+
+	},
+	p: {
+		color: "white",
+		fontWeight: "bold"
+	}
 }));
 
-const SignUp = props => {
+const SignUp = (props) => {
   const { history, signUp } = props;
-  const classes = useStyles();
+	const classes = useStyles();
+
 
   const handleSignUp = event => {
     event.preventDefault();
@@ -58,77 +104,67 @@ const SignUp = props => {
     signUp({ email: email.value, password: password.value });
   };
 
-  // const handleSignUp = useCallback(
-  //   async event => {
-  //     event.preventDefault();
-  //     const { email, password } = event.target.elements;
-  //     try {
-  //       await firebase
-  //         .auth()
-  //         .createUserWithEmailAndPassword(email.value, password.value);
-  //       history.push("/");
-  //     } catch (error) {
-  //       alert(error);
-  //     }
-  //   },
-  //   [history]
-  // );
-
-  return (
-    <div>
-      <h1>Sign up</h1>
-      <Paper className={classes.form}>
-        <form className={classes.formContainer} onSubmit={handleSignUp}>
-          <div className='emailField'>
-            <TextField
-              name='email'
-              label='Email'
-              type='email'
-              size='small'
-              variant='outlined'
-              className={classes.textField}
-              InputProps={{
-                classes: {
-                  root: classes.cssOutlinedInput,
-                  focused: classes.cssFocused,
-                  notchedOutline: classes.notchedOutline
-                }
-              }}
-              InputLabelProps={{
-                classes: {
-                  focused: classes.cssFocused
-                }
-              }}
-            />
-          </div>
-          <div className='passField'>
-            <TextField
-              name='password'
-              label='Password'
-              type='password'
-              variant='filled'
-              className={classes.textField}
-              InputProps={{
-                classes: {
-                  root: classes.cssOutlinedInput,
-                  focused: classes.cssFocused,
-                  notchedOutline: classes.notchedOutline
-                }
-              }}
-              InputLabelProps={{
-                classes: {
-                  focused: classes.cssFocused
-                }
-              }}
-            />
-          </div>
-          <Button variant='contained' type='submit' className={classes.button}>
-            Sign Up
+	return (
+		<div>
+			<div className={classes.headerContainer}>
+				<h1 className={classes.header}>Sign Up</h1>
+			</div>
+			<Paper className={classes.form}>
+				<form className={classes.formContainer} onSubmit={handleSignUp}>
+					<div className='emailField'>
+						<TextField
+							name='email'
+							label='Email'
+							type='email'
+							size='small'
+							variant='outlined'
+							className={classes.textField}
+							InputProps={{
+								classes: {
+									root: classes.cssOutlinedInput,
+									focused: classes.cssFocused,
+									notchedOutline: classes.notchedOutline
+								}
+							}}
+							InputLabelProps={{
+								classes: {
+									root: classes.cssRoot,
+									focused: classes.cssFocused
+								}
+							}}
+						/>
+					</div>
+					<div className='passField'>
+						<TextField
+							name='password'
+							label='Password'
+							type='password'
+							size='small'
+							variant='outlined'
+							className={classes.textField}
+							InputProps={{
+								classes: {
+									root: classes.cssOutlinedInput,
+									focused: classes.cssFocused,
+									notchedOutline: classes.notchedOutline
+								}
+							}}
+							InputLabelProps={{
+								classes: {
+									root: classes.cssRoot,
+									focused: classes.cssFocused
+								}
+							}}
+						/>
+					</div>
+					<Button variant='contained' type='submit' className={classes.button}>
+						Sign Up
           </Button>
-        </form>
-      </Paper>
-    </div>
-  );
+				</form>
+			</Paper>
+			<p className={classes.p}>Already have an account?<Link href="/login"> Login</Link> </p>
+		</div>
+	);
 };
 
 const mapStateToProps = state => {

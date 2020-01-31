@@ -10,29 +10,49 @@ const useStyles = makeStyles({
 			"-webkit-linear-gradient(92.5deg, #4EB9FF 19.25%, #53CFD7 45.13%, #5DDCB7 67.95%, #62E3AB 82.93%)",
 		WebkitBackgroundClip: "text",
 		WebkitTextFillColor: "transparent",
-		position: "relative",
-		width: "600px",
+		fontWeight: "180px",
 		height: "53px",
-		left: "24.3%",
-		fontWeight: "600",
 		fontSize: "2.2em",
-		lineHeight: "3em",
+		lineHeight: "1em",
+		display: "flex",
+		alignItems: "center",
+		letterSpacing: "0.03em",
+		margin: "0"
+	},
+	headerContainer: {
 		display: "flex",
 		justifyContent: "flex-start",
-		alignItems: "center",
-		letterSpacing: "0.03em"
-	}
+		margin: "2em 0 0 28.5em",
+		width: "35%",
+		borderRadius: "5px"
+	},
+	secondaryHeader: {
+		display: "flex",
+		justifyContent: "flex-start",
+		margin: "0 0 0 28.5em",
+		width: "100%",
+		color: "white",
+		height: "2.5rem"
+	},
+
 });
 
 const Charts = () => {
 	const classes = useStyles();
 
 	return (
-		<div>
-			<h1 className={classes.mainHeader}>Exchange Charts</h1>
-			<ChartOptionSelect />
-			<Chart />
-		</div>
+		<>
+			<div className={classes.headerContainer}>
+				<h1 className={classes.mainHeader}>Exchange Charts</h1>
+			</div>
+			<div className={classes.secondaryHeader}>
+				<h3>Visualizations to help you analyze historic and current trends in arbitrage!</h3>
+			</div>
+			<div>
+				<ChartOptionSelect />
+				<Chart />
+			</div>
+		</>
 	);
 };
 
