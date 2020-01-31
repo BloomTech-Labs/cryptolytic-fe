@@ -101,6 +101,7 @@ export default function MarketIndexChart(props){
 		props.setControls({
 			...props.controls,
 			render: false,
+			chartLoaded: true
 		})
 	}, [props.controls.compare, props.controls.exchange, props.controls.interval, props.controls.render, props.names])
 	const options = {
