@@ -50,13 +50,11 @@ const useStyles = makeStyles(theme => ({
 		background: "#28262C",
 		borderRadius: "4px"
 	},
-
-  cssOutlinedInput: {
-    "&$cssFocused $notchedOutline": {
-      borderColor: `gray !important`
-    }
-  },
-
+	cssOutlinedInput: {
+		"&$cssFocused $notchedOutline": {
+			borderColor: `gray !important`
+		}
+	},
 	cssFocused: {
 		color: "#A5A3AB !important"
 	},
@@ -86,13 +84,13 @@ const useStyles = makeStyles(theme => ({
 		display: "flex",
 		justifyContent: "center",
 		textAlign: "center",
-
 	},
 	p: {
 		color: "white",
 		fontWeight: "bold"
 	}
 }));
+
 
 const Login = props => {
   const { history, signIn } = props;
