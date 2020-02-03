@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
 import MarketIndexChart from "./MarketIndexChart"
 import DashboardTable from "../DashboardTable"
 import CompareControls from "./CompareControls"
@@ -73,7 +73,8 @@ export default function MarketIndex(props) {
 	let endpointUrl = ['https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Cripple%2Ctether%2Cbitcoin-cash%2Cmonero%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=false']
 	let largeNumberArray = [3, 4]
 	let tickerArray = [0]
-	let tradeProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray }
+	let predictionsArray = []
+	let tradeProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray, predictionsArray }
 	
 
 	
@@ -95,3 +96,4 @@ export default function MarketIndex(props) {
 		</div>
 	)
 }
+
