@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 	form: {
 		display: "flex",
 		justifyContent: "flex-start",
-		margin: "2em 0 2em 28.5em",
+		margin: "2em 0 2em 28.5rem",
 		padding: "0.5em",
 		width: "35%",
 		backgroundColor: "rgba(35, 32, 44, 0.8)",
