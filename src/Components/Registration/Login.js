@@ -98,6 +98,7 @@ const Login = props => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     signIn({ email: email.value, password: password.value });
+    history.push("/main/home");
   };
 
   // const handleLogin = useCallback(

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import cogWheel from "../images/cogwheel.svg";
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import firebase from "../firebase";
 
 const useStyles = makeStyles(theme => ({
   navHeader: {
@@ -36,23 +37,44 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function NavigationHeader() {
+function NavigationHeader({ history }) {
+  const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles();
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("firebase_jwt");
+    firebase.auth().signOut();
+    history.push("/");
+  };
+
   return (
     <div className={classes.navHeader}>
       <div className={classes.title}></div>
       <div className={classes.cogWheel}>
         <img src={cogWheel} />
         <div>
-          <Avatar />
+          <Avatar
+            aria-controls='profile-menu'
+            aria-haspopup='true'
+            onClick={handleClick}
+            style={{ cursor: "pointer" }}
+          />
           <Menu
-            id='simple-menu'
+            id='profile-menu'
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </div>
       </div>
