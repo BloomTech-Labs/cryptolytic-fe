@@ -101,6 +101,7 @@ const SignUp = props => {
     console.log(event.target.elements);
     const { email, password } = event.target.elements;
     signUp({ email: email.value, password: password.value });
+    history.push("/main/home");
   };
 
   return (
