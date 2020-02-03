@@ -93,7 +93,7 @@ export const signIn = credentials => {
       localStorage.setItem("firebase_jwt", idToken);
 
       const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
+        "https://cryptolytic-backend-production.herokuapp.com/api/auth/login",
         {},
         {
           headers: {
@@ -136,7 +136,7 @@ export const signUp = credentials => {
       localStorage.setItem("firebase_jwt", idToken);
 
       const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
+        "https://cryptolytic-backend-production.herokuapp.com/api/auth/register",
         {},
         {
           headers: {
