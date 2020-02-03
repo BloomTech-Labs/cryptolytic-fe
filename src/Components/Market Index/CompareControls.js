@@ -69,9 +69,9 @@ const useStyles = makeStyles(theme => ({
 export default function CompareControl(props) {
 	const classes = useStyles();
 	const [ chartPresetDraft, setChartPresetDraft ] = useState({})
-	const [anchorEl, setAnchorEl] = React.useState(null);
-	const [anchorElColor, setAnchorElColor] = React.useState(null);
-	const [selectedColor, setSelectedColor] = useState(0)
+	const [ anchorEl, setAnchorEl ] = React.useState(null);
+	const [ anchorElColor, setAnchorElColor ] = React.useState(null);
+	const [ selectedColor, setSelectedColor ] = useState(0)
 	const [ toggleEdit, setToggleEdit ] = useState(false)
 	const [ presetName, setPresetName ] = useState("Untitled")
 	const [ pendingPresetName, setPendingPresetName ] = useState("Untitled")
@@ -111,36 +111,18 @@ export default function CompareControl(props) {
 		})
 		console.log(chartPresetDraft)
 	  };
-
-	  const handleColorClick = event => {
-		setAnchorEl(event.currentTarget);
-	  };
-
 	  const handlePickerClick = index => event => {
 		setAnchorElColor(event.currentTarget);
 		console.log(index)
 		setSelectedColor(index)
 	  };
-	
-	  const handleColorClose = () => {
-		setAnchorEl(null);
-	  };
+	  const handleColorClick = event => {setAnchorEl(event.currentTarget);};
+	  const handleColorClose = () => {setAnchorEl(null);};
+	  const handlePickerClose = () => {setAnchorElColor(null);};
+	  const handleToggleOpen = () => {setToggleEdit(true)};
+	  const handleToggleClose = () => {setToggleEdit(false)};
+	  const handlePresetNameSave = () => {setPresetName(pendingPresetName);setToggleEdit(false);};
 
-	  const handlePickerClose = () => {
-		setAnchorElColor(null);
-	  };
-
-	  const handleToggleOpen = () => {
-		setToggleEdit(true)
-	  };
-
-	  const handleToggleClose = () => {
-		setToggleEdit(false)
-	  };
-	  const handlePresetNameSave = () => {
-		setPresetName(pendingPresetName);
-		setToggleEdit(false);
-	  };
 	  const handleColorComplete = name => color => {
 		let newName = props.names
 		newName.map((e, i) => {
@@ -148,18 +130,12 @@ export default function CompareControl(props) {
 			e.chartColor = color.hex
 			console.log(newName)
 		})
-
-		console.log(selectedColor)
-		console.log(newName)
-
 		props.setNames(newName)
 		props.setCompare({
 			...props.compare,
 			render: true
 		})
 		props.setCompare(props.compare)
-		console.log(props.names)
-		console.log(newName)
 		setAnchorElColor(null);
 	  }
 	return (
@@ -237,10 +213,8 @@ export default function CompareControl(props) {
 						})}
 						</div>
 					}
-					
 					MenuProps={MenuProps}
 					>
-					
 					{props.names ?
 					props.names.map((name, i) => 
 						!props.compare.chartLoaded ?
@@ -251,7 +225,6 @@ export default function CompareControl(props) {
 							<MenuItem key={name.name} value={name.name} style={{ color: name.chartColor }} disabled="true">
 								{name.name}
 							</MenuItem>
-						
 					)
 					:
 					<></>
