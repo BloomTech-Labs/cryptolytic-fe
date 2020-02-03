@@ -146,6 +146,7 @@ export const signUp = credentials => {
       );
 
       console.log("response>>>>", response);
+      dispatch({ type: USER_SIGNUP_SUCCESS });
     } catch (error) {
       console.log("sign up error", error);
       dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
