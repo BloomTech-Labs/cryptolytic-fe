@@ -1,5 +1,5 @@
 import React from "react";
-import ArbitrageDashboardTable from "../Components/ArbitrageDashboardTable/ArbitrageDashboardTable";
+import DashboardTable from "../Components/DashboardTable";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -32,6 +32,20 @@ const useStyles = makeStyles({
 	}
 });
 
+	let deletedColumns = ['_id', '__v', 'trade_time'];
+	let orderedColumns = ['date', 'time', 'buy_exchange', 'sell_exchange', 'trading_pair', 'price_difference', 'arbitrage_percentage'].reverse()
+	let tradingPairArray = [4]
+	let exchangeArray = [2,3]
+	let percentageArray = [6]
+	let fiatArray = []
+	let cryptoArray = [5]
+	let predictionsArray = []
+	let largeNumberArray = []
+	let tickerArray = []
+	let endpointUrl = "https://cryptolytic-starter.herokuapp.com/arbitrage"
+	let arbitrageProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray, predictionsArray }
+
+
 const ArbitrageDashboard = () => {
 	const classes = useStyles();
 
@@ -42,7 +56,7 @@ const ArbitrageDashboard = () => {
 				Buy at the first exchange and sell at the second 30 minutes later to
         make a profit!
       </h3>
-			<ArbitrageDashboardTable />
+			<DashboardTable {...arbitrageProps} />
 		</div>
 	);
 };
