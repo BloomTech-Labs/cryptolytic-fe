@@ -52,6 +52,15 @@ export default function MarketIndex(props) {
 		render: true,
 		chartLoaded: false
 	})
+	const [ names, setNames ] = useState([
+		{name: 'BTC', chartColor: 'orange'},
+		{name: 'LTC', chartColor: 'silver'},
+		{name: 'ETH', chartColor: 'purple'},
+		{name: 'XMR', chartColor: 'green'},
+		{name: 'XRP', chartColor: 'red'},
+		{name: 'DASH', chartColor: 'yellow'},
+		{name: 'XLM', chartColor: 'blue'}
+	  ])
 	const classes = useStyles();
 
 	let deletedColumns = ['image', 'market_cap_rank', 'price_change_24h', 'market_cap_change_percentage_24h', 'circulating_supply', 'total_supply', 'ath', 'ath_change_percentage', 'roi', 'id', 'ath_date', 'last_updated', 'market_cap_change_24h']
@@ -66,15 +75,7 @@ export default function MarketIndex(props) {
 	let tickerArray = [0]
 	let tradeProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray }
 	
-	const names = [
-		{name: 'BTC', color: 'orange'},
-		{name: 'LTC', color: 'silver'},
-		{name: 'ETH', color: 'purple'},
-		{name: 'XMR', color: 'green'},
-		{name: 'XRP', color: 'red'},
-		{name: 'DASH', color: 'yellow'},
-		{name: 'XLM', color: 'blue'}
-	  ];
+
 	
 	return (
 		<div>
@@ -85,7 +86,7 @@ export default function MarketIndex(props) {
 				<h1 className={classes.emptyInputMessage}>Select a coin, exchange, and interval...</h1>
 				}
 				<div className={classes.indexControlsContainer}>
-					<CompareControls compare={controls} setCompare={setControls} names={names} />
+					<CompareControls compare={controls} setCompare={setControls} names={names} setNames={setNames} />
 				</div>
 			</div>
 			<div className={classes.dashboardTableContainer}>
