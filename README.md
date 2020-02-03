@@ -66,7 +66,7 @@ You can find the deployed project at https://cryptolytic-production.netlify.com/
 
 #### React.js
 
---Familiarity with building out applications with the React front end framework and Javascript language was a primary motivation for utilizing React.
+-Familiarity with building out applications with the React front end framework and Javascript language was a primary motivation for utilizing React.
 
 #### Redux
 
