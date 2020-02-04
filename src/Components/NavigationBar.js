@@ -50,7 +50,8 @@ const useStyles = makeStyles(theme => ({
     "@media(max-width: 1300px)": {
       flexDirection: "row",
       padding: 0,
-      margin: 0
+      margin: 0,
+      height: "10vh"
     }
   },
   navBarMenuText: {
@@ -78,7 +79,7 @@ const useStyles = makeStyles(theme => ({
   NavBarMenuContainer: {
     "@media(max-width: 1300px)": {
       display: "flex",
-      width: "60%"
+      width: "85%"
     },
     "&:hover": {
       backgroundColor: "rgba(35, 32, 44, 0.9)",

@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     "@media(max-width: 1300px)": {
       display: "flex",
-      justifyContent: "center",
-      width: "100%"
+      justifyContent: "space-around",
+      width: "15%"
     }
   },
   title: {
@@ -38,7 +38,10 @@ const useStyles = makeStyles(theme => ({
     height: "10vh",
     display: "flex",
     justifyContent: "space-evenly",
-    alignItems: "center"
+    alignItems: "center",
+    "@media(max-width: 1300px)": {
+      width: "100%"
+    }
   }
 }));
 
@@ -48,7 +51,7 @@ function NavigationHeader() {
     <div className={classes.navHeader}>
       <div className={classes.title}></div>
       <div className={classes.cogWheel}>
-        <img src={cogWheel} />
+        <img src={cogWheel} className={classes.img} />
         <Avatar />
       </div>
     </div>
