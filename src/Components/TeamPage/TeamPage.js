@@ -61,8 +61,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function TeamPage() {
   const props = useSpring({
-    to: { opacity: 1, marginLeft: -0 },
-    from: { opacity: 0, marginLeft: -500 },
+    to: { opacity: 1, marginLeft: 0 },
+    from: { opacity: 0, marginLeft: -1200 },
     config: { duration: 800 }
   });
   const classes = useStyles();
