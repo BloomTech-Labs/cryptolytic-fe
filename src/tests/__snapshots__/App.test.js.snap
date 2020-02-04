@@ -14,22 +14,22 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
     }
   >
     <div
-      className="makeStyles-headerContainer-282"
+      className="makeStyles-headerContainer-345"
     >
       <div
-        className="makeStyles-headerLeft-283"
+        className="makeStyles-headerLeft-346"
       >
         <div
-          className="makeStyles-headerLogoContainer-284"
+          className="makeStyles-headerLogoContainer-347"
         >
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerLogoLink-285 MuiTypography-colorPrimary"
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerLogoLink-348 MuiTypography-colorPrimary"
             href="/"
             onBlur={[Function]}
             onFocus={[Function]}
           >
             <img
-              className="makeStyles-headerLogo-286"
+              className="makeStyles-headerLogo-349"
               src="logo.svg"
             />
             <p>
@@ -39,13 +39,13 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-headerRightContainer-287"
+        className="makeStyles-headerRightContainer-350"
       >
         <div
-          className="makeStyles-headerMenuContainer-288"
+          className="makeStyles-headerMenuContainer-351"
         >
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-289 MuiTypography-colorPrimary"
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-352 MuiTypography-colorPrimary"
             href="/services"
             onBlur={[Function]}
             onFocus={[Function]}
@@ -53,7 +53,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
             Services
           </a>
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-289 MuiTypography-colorPrimary"
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-352 MuiTypography-colorPrimary"
             href="/team"
             onBlur={[Function]}
             onFocus={[Function]}
@@ -61,24 +61,32 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
             Team
           </a>
           <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLogin-290 MuiTypography-colorPrimary"
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-352 MuiTypography-colorPrimary"
             href="/login"
             onBlur={[Function]}
             onFocus={[Function]}
           >
             Login
           </a>
+          <a
+            className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-headerMenuLink-352 MuiTypography-colorPrimary"
+            href="/signup"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Sign Up
+          </a>
         </div>
       </div>
     </div>
     <div
-      className="makeStyles-heroContainer-327"
+      className="makeStyles-heroContainer-390"
     >
       <div
-        className="makeStyles-heroText-328"
+        className="makeStyles-heroText-391"
       >
         <h1
-          className="makeStyles-heroTitle-329"
+          className="makeStyles-heroTitle-392"
         >
           Smarter trading
         </h1>
@@ -86,7 +94,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           Discover arbitrage opportunities in the cryptocurrency markets before they happen and make profitable trades
         </h2>
         <a
-          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-heroLink-330 MuiTypography-colorPrimary"
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-heroLink-393 MuiTypography-colorPrimary"
           href="/main/home"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -95,11 +103,11 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         </a>
       </div>
       <div
-        className="makeStyles-heroSpace-331"
+        className="makeStyles-heroSpace-394"
       />
     </div>
     <div
-      className="makeStyles-homeFeatureContainer-332"
+      className="makeStyles-homeFeatureContainer-395"
     >
       <div
         style={
@@ -109,7 +117,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         }
       >
         <div
-          className="makeStyles-homeFeatureRow-333"
+          className="makeStyles-homeFeatureRow-396"
           style={
             Object {
               "flexDirection": "row",
@@ -117,7 +125,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           }
         >
           <div
-            className="makeStyles-homeFeatureRowImage-334"
+            className="makeStyles-homeFeatureRowImage-397"
             style={
               Object {
                 "justifyContent": "flex-end",
@@ -129,7 +137,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
             />
           </div>
           <div
-            className="makeStyles-homeFeatureRowText-335"
+            className="makeStyles-homeFeatureRowText-398"
             style={
               Object {
                 "justifyContent": "flex-start",
@@ -139,7 +147,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           >
             <div>
               <h2
-                className="makeStyles-homeFeatureRowTitle-336"
+                className="makeStyles-homeFeatureRowTitle-399"
               >
                 Arbitrage Forecasts
               </h2>
@@ -150,7 +158,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           </div>
         </div>
         <div
-          className="makeStyles-homeFeatureRow-333"
+          className="makeStyles-homeFeatureRow-396"
           style={
             Object {
               "flexDirection": "row-reverse",
@@ -158,7 +166,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           }
         >
           <div
-            className="makeStyles-homeFeatureRowImage-334"
+            className="makeStyles-homeFeatureRowImage-397"
             style={
               Object {
                 "justifyContent": "flex-start",
@@ -170,7 +178,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
             />
           </div>
           <div
-            className="makeStyles-homeFeatureRowText-335"
+            className="makeStyles-homeFeatureRowText-398"
             style={
               Object {
                 "justifyContent": "flex-end",
@@ -180,7 +188,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           >
             <div>
               <h2
-                className="makeStyles-homeFeatureRowTitle-336"
+                className="makeStyles-homeFeatureRowTitle-399"
               >
                 What is arbitrage?
               </h2>
@@ -191,7 +199,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           </div>
         </div>
         <div
-          className="makeStyles-homeFeatureRow-333"
+          className="makeStyles-homeFeatureRow-396"
           style={
             Object {
               "flexDirection": "row",
@@ -199,7 +207,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           }
         >
           <div
-            className="makeStyles-homeFeatureRowImage-334"
+            className="makeStyles-homeFeatureRowImage-397"
             style={
               Object {
                 "justifyContent": "flex-end",
@@ -211,7 +219,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
             />
           </div>
           <div
-            className="makeStyles-homeFeatureRowText-335"
+            className="makeStyles-homeFeatureRowText-398"
             style={
               Object {
                 "justifyContent": "flex-start",
@@ -221,7 +229,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           >
             <div>
               <h2
-                className="makeStyles-homeFeatureRowTitle-336"
+                className="makeStyles-homeFeatureRowTitle-399"
               >
                 Trade Recommendations
               </h2>
@@ -233,26 +241,26 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-homeFeatureLastRow-337"
+        className="makeStyles-homeFeatureLastRow-400"
       >
         <div
-          className="makeStyles-homeFeatureLastRowText-338"
+          className="makeStyles-homeFeatureLastRowText-401"
         >
           <div>
             <h2
-              className="makeStyles-homeFeatureLastRowTitle-339"
+              className="makeStyles-homeFeatureLastRowTitle-402"
             >
               Automate your trading process
             </h2>
             <p
-              className="makeStyles-homeFeatureLastRowSubtitle-340"
+              className="makeStyles-homeFeatureLastRowSubtitle-403"
             >
               The cryptocurrency market doesn’t sleep and neither should your money! Connect the Cryptolytic API to a trading bot and act on trading and arbitrage opportunities automatically 24/7!
             </p>
           </div>
         </div>
         <div
-          className="makeStyles-homeFeatureLastRowImage-341"
+          className="makeStyles-homeFeatureLastRowImage-404"
         >
           <img
             src="cryptocurrency-hero 1.png"
@@ -261,19 +269,19 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="makeStyles-accountFeaturesContainer-342"
+      className="makeStyles-accountFeaturesContainer-405"
     >
       <h2>
         Account Features
       </h2>
       <div
-        className="makeStyles-accountFeaturesRow-343"
+        className="makeStyles-accountFeaturesRow-406"
       >
         <div
-          className="makeStyles-accountFeaturesCard-344"
+          className="makeStyles-accountFeaturesCard-407"
         >
           <div
-            className="makeStyles-accountFeaturesText-345"
+            className="makeStyles-accountFeaturesText-408"
           >
             <h3
               style={
@@ -290,10 +298,10 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           </div>
         </div>
         <div
-          className="makeStyles-accountFeaturesCard-344"
+          className="makeStyles-accountFeaturesCard-407"
         >
           <div
-            className="makeStyles-accountFeaturesText-345"
+            className="makeStyles-accountFeaturesText-408"
           >
             <h3
               style={
@@ -310,10 +318,10 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           </div>
         </div>
         <div
-          className="makeStyles-accountFeaturesCard-344"
+          className="makeStyles-accountFeaturesCard-407"
         >
           <div
-            className="makeStyles-accountFeaturesText-345"
+            className="makeStyles-accountFeaturesText-408"
           >
             <h3
               style={
@@ -330,10 +338,10 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
           </div>
         </div>
         <div
-          className="makeStyles-accountFeaturesCard-344"
+          className="makeStyles-accountFeaturesCard-407"
         >
           <div
-            className="makeStyles-accountFeaturesText-345"
+            className="makeStyles-accountFeaturesText-408"
           >
             <h3
               style={
@@ -352,59 +360,59 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="makeStyles-statsContainer-346"
+      className="makeStyles-statsContainer-409"
     >
       <div
-        className="makeStyles-statsTitle-347"
+        className="makeStyles-statsTitle-410"
       >
         <h2>
           Powered by Machine Learning
         </h2>
       </div>
       <div
-        className="makeStyles-statsTitleBackground-348"
+        className="makeStyles-statsTitleBackground-411"
       />
       <div
-        className="makeStyles-statsRowContainer-349"
+        className="makeStyles-statsRowContainer-412"
       >
         <div
-          className="makeStyles-statsLeftContainer-350"
+          className="makeStyles-statsLeftContainer-413"
         >
           <div
-            className="makeStyles-statsLeftText-351"
+            className="makeStyles-statsLeftText-414"
           >
             <h3>
               18M+
             </h3>
             <p
-              className="makeStyles-statsLeftSubtitle-352"
+              className="makeStyles-statsLeftSubtitle-415"
             >
               Data points analyzed
             </p>
           </div>
         </div>
         <div
-          className="makeStyles-statsMiddleContainer-353"
+          className="makeStyles-statsMiddleContainer-416"
         >
           <div>
             <h3>
               30
             </h3>
             <p
-              className="makeStyles-statsMiddleSubtitle-354"
+              className="makeStyles-statsMiddleSubtitle-417"
             >
               predictive models
             </p>
           </div>
         </div>
         <div
-          className="makeStyles-statsRightContainer-355"
+          className="makeStyles-statsRightContainer-418"
         >
           <div
-            className="makeStyles-statsRightText-356"
+            className="makeStyles-statsRightText-419"
           >
             <p
-              className="makeStyles-statsRightTitle-357"
+              className="makeStyles-statsRightTitle-420"
             >
               trained on
             </p>
@@ -412,7 +420,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
               20K+
             </h3>
             <p
-              className="makeStyles-statsRightSubtitle-358"
+              className="makeStyles-statsRightSubtitle-421"
             >
               historical arbitrages
             </p>
@@ -421,15 +429,15 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="makeStyles-partnersContainer-359"
+      className="makeStyles-partnersContainer-422"
     >
       <h2
-        className="makeStyles-partnersTitle-360"
+        className="makeStyles-partnersTitle-423"
       >
         Supported Exchanges
       </h2>
       <div
-        className="makeStyles-partnersTopRow-361"
+        className="makeStyles-partnersTopRow-424"
       >
         <img
           src="bitfinex_logo 1.svg"
@@ -448,7 +456,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         />
       </div>
       <div
-        className="makeStyles-partnersBottomRow-362"
+        className="makeStyles-partnersBottomRow-425"
       >
         <img
           src="btc logo.png"
@@ -468,15 +476,15 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="makeStyles-ctaContainer-363"
+      className="makeStyles-ctaContainer-426"
     >
       <h2
-        className="makeStyles-ctaTitle-364"
+        className="makeStyles-ctaTitle-427"
       >
         Supercharge your trading with Cryptolytic
       </h2>
       <a
-        className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-ctaButton-365 MuiTypography-colorPrimary"
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-ctaButton-428 MuiTypography-colorPrimary"
         href="/signup"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -484,7 +492,7 @@ exports[`<App /> matches verified SnapShot should match snapshot 1`] = `
         Sign Up for a free account
       </a>
       <p
-        className="makeStyles-ctaDisclaimer-366"
+        className="makeStyles-ctaDisclaimer-429"
       >
         Cryptolytic does not offer financial advice. Trade at your own risk.
       </p>

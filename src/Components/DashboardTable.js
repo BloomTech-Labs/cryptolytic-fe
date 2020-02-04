@@ -131,9 +131,9 @@ export default function DashboardTable(props) {
 				...loading,
 				formatData: true
 			})
-			// This console.log should assist with determining the position of columns 
-			// This should help when determining where to apply specific formatters
-			console.log(data, "Use this order/formation to determine/calculate prop values")
+			// This console.log should assist with configurating the exact position of columns 
+			// This should also help when determining where to apply specific formatters
+			// console.log(data, "Use this order/formation to determine/calculate prop values")
 		}
 		)
 	}, [data]);

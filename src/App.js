@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import ReactGa from "react-ga";
+import React from "react";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import TradingDashboard from "./Views/TradingDashboard";
 import ArbitrageDashboard from "./Views/ArbitrageDashboard";
 import "./App.css";
@@ -9,7 +8,6 @@ import NavigationBar from "./Components/NavigationBar";
 import Footer from "./Components/Footer";
 import Charts from "./Views/Charts";
 import MarketIndex from "./Components/Market Index/MarketIndex";
-import Home from "./Components/Registration/Home";
 import Login from "./Components/Registration/Login";
 import SignUp from "./Components/Registration/SignUp";
 import IntroIndex from "./Components/Marketing Page/IntroIndex";
