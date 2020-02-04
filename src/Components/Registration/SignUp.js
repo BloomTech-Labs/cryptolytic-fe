@@ -1,11 +1,12 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import firebase from "firebase/app";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import { signUp } from "../../store/actions";
 
@@ -89,20 +90,32 @@ const useStyles = makeStyles(theme => ({
   p: {
     color: "white",
     fontWeight: "bold"
+  },
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2)
+    },
+    background: "blue"
   }
 }));
 
 const SignUp = props => {
-  const { history, signUp } = props;
+  const { history, signUp, userSignUpError } = props;
   const classes = useStyles();
 
   const handleSignUp = event => {
     event.preventDefault();
-    console.log(event.target.elements);
     const { email, password } = event.target.elements;
     signUp({ email: email.value, password: password.value });
-    history.push("/main/home");
+    if (firebase.auth().currentUser) {
+      history.push("/main/home");
+    }
   };
+
+  if (firebase.auth().currentUser) {
+    return <Redirect to='/main/home' />;
+  }
 
   return (
     <div>

@@ -26,23 +26,14 @@ const ChartOptionSelect = props => {
   const { options, compareOptions, toggled } = props;
 
   // Exchanges that have candlestick data
-  const [exchanges, setExchanges] = useState([
-    "coinbase",
-    "binance",
-    "hitbtc",
-    "bitfinex"
-  ]);
+  const [exchanges] = useState(["coinbase", "binance", "hitbtc", "bitfinex"]);
 
   // Binance only has BTC_USDT trading pair
   // All other exchanges have all trading pairs but BTC_USDT
-  const [tradingPair, setTradingPair] = useState([
-    "btc_usd",
-    "eth_btc",
-    "btc_usdt"
-  ]);
+  const [tradingPair] = useState(["btc_usd", "eth_btc", "btc_usdt"]);
 
   // Time frames for amount of candlestick data to view
-  const [timeFrames, setTimeFrames] = useState(["Day", "Week", "Month"]);
+  const [timeFrames] = useState(["Day", "Week", "Month"]);
 
   // When component mounts it will pass in the options/compareOptions ie. Exchanges, trading pair, time frame,
   // that is set as default in redux and call the action creators to fetch the data from api. It also watches for

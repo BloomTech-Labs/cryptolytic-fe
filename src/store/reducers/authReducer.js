@@ -54,7 +54,7 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         userSignUpStart: false,
-        userSignUpError: "Sign Up Failed"
+        userSignUpError: action.payload.message
       };
     default:
       return state;
