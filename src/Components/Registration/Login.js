@@ -106,7 +106,6 @@ const Login = props => {
   if (firebase.auth().currentUser) {
     return <Redirect to='/main/home' />;
   }
-
   return (
     <div>
       <div className={classes.headerContainer}>

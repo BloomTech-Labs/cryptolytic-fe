@@ -1,5 +1,5 @@
 import React from "react";
-import TradingDashboardTable from "../Components/TradingDashboardTable/TradingDashboardTable";
+import DashboardTable from "../Components/DashboardTable";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -32,6 +32,20 @@ const useStyles = makeStyles({
 	}
 });
 
+	///// Working Trading configuration
+	let deletedColumns = ['model_type', 'period', 'timestamp'];
+	let orderedColumns = [].reverse()
+	let tradingPairArray = [3]
+	let exchangeArray = [2]
+	let percentageArray = []
+	let fiatArray = []
+	let cryptoArray = []
+	let largeNumberArray = []
+	let tickerArray = []
+	let predictionsArray = [4]
+	let endpointUrl = "https://cryptolytics-sample-ds.herokuapp.com/liveDataRoute/getTradePredictionsClean"
+	let tradeProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray, predictionsArray }
+
 const TradingDashboard = () => {
 	const classes = useStyles();
 
@@ -42,8 +56,8 @@ const TradingDashboard = () => {
 			<h3 className={classes.secondaryHeader}>
 				Price movement predictions for cryptocurrency trading pairs based on
         technical analysis.
-      </h3>
-			<TradingDashboardTable />
+      		</h3>
+			<DashboardTable  {...tradeProps} />
 		</>
 	);
 };

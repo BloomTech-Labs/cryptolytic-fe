@@ -205,15 +205,15 @@ class Chart extends Component {
 // Options and CompareOptions are being set from the select drop-downs and are stored in redux
 // Options are for the first exchange and compareOptions are for the second
 const mapStateToProps = ({ project }) => {
-  return {
-    options: project.options,
-    compareOptions: project.compareOptions,
-    chartData: project.chartData,
-    compareData: project.compareData,
-    toggled: project.switchToggled,
-    fetchingFirstExchangeData: project.gettingCryptoData,
-    fetchingSecondExchangeData: project.gettingCompareCryptoData
-  };
+	return {
+		options: project.options,
+		compareOptions: project.compareOptions,
+		chartData: project.chartData,
+		compareData: project.compareData,
+		toggled: project.switchToggled,
+		fetchingFirstExchangeData: project.gettingCryptoData,
+		fetchingSecondExchangeData: project.gettingCompareCryptoData
+	};
 };
 
 export default connect(mapStateToProps, {})(Chart);
