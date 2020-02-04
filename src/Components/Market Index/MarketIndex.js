@@ -45,6 +45,8 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function MarketIndex(props) {
+	// Initial options for compareControls settings are referenced here. 
+	// This could be set via (setControls) from an axios call's promise
 	const [ controls, setControls ] = useState({
 		compare: ['BTC'],
 		interval: "day",
@@ -52,6 +54,8 @@ export default function MarketIndex(props) {
 		render: true,
 		chartLoaded: false
 	})
+	// The following hook is what's used for the MarketIndexChart's coin's color preferences
+	// This could be set (via setNames) from an axios call's promise
 	const [ names, setNames ] = useState([
 		{name: 'BTC', chartColor: 'orange'},
 		{name: 'LTC', chartColor: 'silver'},
@@ -61,8 +65,9 @@ export default function MarketIndex(props) {
 		{name: 'DASH', chartColor: 'yellow'},
 		{name: 'XLM', chartColor: 'blue'}
 	  ])
-	const classes = useStyles();
 
+	const classes = useStyles();
+	// This is the configuration for the reusable table component 
 	let deletedColumns = ['image', 'market_cap_rank', 'price_change_24h', 'market_cap_change_percentage_24h', 'circulating_supply', 'total_supply', 'ath', 'ath_change_percentage', 'roi', 'id', 'ath_date', 'last_updated', 'market_cap_change_24h']
 	let orderedColumns = ['symbol', 'name', 'current_price'].reverse()
 	let tradingPairArray = []
@@ -76,14 +81,13 @@ export default function MarketIndex(props) {
 	let predictionsArray = []
 	let tradeProps = { deletedColumns, orderedColumns, tradingPairArray, exchangeArray, percentageArray, fiatArray, cryptoArray, endpointUrl, largeNumberArray, tickerArray, predictionsArray }
 	
-
-	
 	return (
 		<div>
 			<div className={classes.marketIndexContainer}>
 				{controls.compare.length > 0 ?
 				<MarketIndexChart controls={controls} setControls={setControls} names={names} />
 				:
+				// is displayed if there are no coins selected
 				<h1 className={classes.emptyInputMessage}>Select a coin, exchange, and interval...</h1>
 				}
 				<div className={classes.indexControlsContainer}>
