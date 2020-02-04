@@ -22,15 +22,15 @@ const useStyles = makeStyles({
 	headerContainer: {
 		display: "flex",
 		justifyContent: "flex-start",
-		margin: "2em 0 0 28.5em",
-		width: "35%",
+		margin: "2em 0 0 28.5rem",
+		width: "50%",
 		borderRadius: "5px"
 	},
 	secondaryHeader: {
 		display: "flex",
 		justifyContent: "flex-start",
-		margin: "0 0 0 28.5em",
-		width: "100%",
+		margin: "0 0 0 28.5rem",
+		width: "50%",
 		color: "white",
 		height: "2.5rem"
 	},
@@ -46,7 +46,7 @@ const Charts = () => {
 				<h1 className={classes.mainHeader}>Exchange Charts</h1>
 			</div>
 			<div className={classes.secondaryHeader}>
-				<h3>Visualizations to help you analyze historic and current trends in arbitrage!</h3>
+				<h3>Visualizations to analyze historic and current trends in arbitrage!</h3>
 			</div>
 			<div>
 				<ChartOptionSelect />

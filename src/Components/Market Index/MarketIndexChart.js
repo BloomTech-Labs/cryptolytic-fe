@@ -1,9 +1,9 @@
-import React,{ useState, useEffect } from "react"
-import axios from 'axios'
+import React, { useEffect } from "react";
+import axios from "axios";
 import { css } from "@emotion/core";
 
-import CanvasJSReact from "../../assets/canvasjs.react"
-import IndexChart from "./IndexChart"
+import CanvasJSReact from "../../assets/canvasjs.react";
+import IndexChart from "./IndexChart";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 const CanvasJS = CanvasJSReact.CanvasJS;
@@ -14,14 +14,14 @@ let chartQueue = []
 let chartData = []
 let chartArray = []
 
+
 const override = css`
   display: flex;
   justify-content: center;
   position: relative;
   margin: 0vh 0 5vh 10vw;
 `;
-export default function MarketIndexChart(props){
-
+export default function MarketIndexChart(props) {
 	useEffect(() => {
 		if(props.controls.render){
 			// Maps over each coin that's set to controls.compare

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
@@ -98,13 +98,14 @@ const Login = props => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     signIn({ email: email.value, password: password.value });
-    history.push("/main/home");
+    if (firebase.auth().currentUser) {
+      history.push("/main/home");
+    }
   };
 
-  // if (currentUser) {
-  //   return <Redirect to="/" />;
-  // }
-
+  if (firebase.auth().currentUser) {
+    return <Redirect to='/main/home' />;
+  }
   return (
     <div>
       <div className={classes.headerContainer}>

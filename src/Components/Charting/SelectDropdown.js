@@ -48,9 +48,9 @@ const SelectDropdown = props => {
     val
   } = props;
 
-  console.log("options", options);
-  console.log("val>>>>>>", val);
-  console.log(data);
+  // If switch is toggled then it will set the option for exchange 1 and exchange 2
+  // separately however trading pair and time frame will be the same for both exchanges
+  // if changed by user
   const handleChanges = name => event => {
     switch (event.target.id) {
       case "exchange":
