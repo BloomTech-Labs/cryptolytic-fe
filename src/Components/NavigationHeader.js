@@ -12,7 +12,12 @@ const useStyles = makeStyles(theme => ({
 		width: "100%",
 		height: "10vh",
 		display: "flex",
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		"@media(max-width: 1300px)": {
+			display: "flex",
+			justifyContent: "space-around",
+			width: "15%"
+		}
 	},
 	title: {
 		width: "20vw",
@@ -26,14 +31,20 @@ const useStyles = makeStyles(theme => ({
 		fontSize: "30px",
 		lineHeight: "46px",
 		letterSpacing: "0.03em",
-		marginBottom: "30vw"
+		marginBottom: "30vw",
+		"@media(max-width: 1300px)": {
+			display: "none"
+		}
 	},
 	cogWheel: {
 		width: "10%",
 		height: "10vh",
 		display: "flex",
 		justifyContent: "space-evenly",
-		alignItems: "center"
+		alignItems: "center",
+		"@media(max-width: 1300px)": {
+			width: "100%"
+		}
 	}
 }));
 
