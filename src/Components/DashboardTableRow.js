@@ -55,7 +55,7 @@ export default function DashboardTableRow(props) {
               let styling = null
               //// if statements should be nested in array of strings or integers that try to match on each iteration
               //// Converts trading pair from btc_usd to "BTC/USD"
-                props.tradingPairArray.map(ee => {
+                props.tradingPairArray.forEach(ee => {
                   if(i === ee){
                   b = b.toUpperCase().replace(/\_/, "/");
                   let icons = getIcons(b)
@@ -63,7 +63,7 @@ export default function DashboardTableRow(props) {
                   }
                 })
                 // Converts buy_exchange and sell_exchange rows from "coinbase_pro" to "Coinbase Pro"
-                props.exchangeArray.map(ee => {
+                props.exchangeArray.forEach(ee => {
                   if(i === ee)
                     b = b.toString().replace(/\_/, " ").split(" ").map(e => {
                       return e.charAt(0).toUpperCase() + e.substr(1);
@@ -85,12 +85,12 @@ export default function DashboardTableRow(props) {
                       b = <p style={{ color: 'yellow' }}>{b}</p>
                 })
                 // Converts integer to display only up to the hundredths (rounded) ex: 10.1070589238 = $10.11
-                props.fiatArray.map(ee => {
+                props.fiatArray.forEach(ee => {
                   if(i === ee)
                 b = <span className={classes.fiat}>$ {b.toFixed(2)}</span>
                 })
                 // Converts integer >= 1 million AND 1 billion to shorter readable format 
-                props.largeNumberArray.map(ee => {
+                props.largeNumberArray.forEach(ee => {
                   if(i === ee)
                     if(Math.abs(b) > 999,999 && Math.abs(b) < 1000000000) 
                       return b = Math.sign(b)*((Math.abs(b)/1000000).toFixed(1)) + " M"
@@ -98,12 +98,12 @@ export default function DashboardTableRow(props) {
                       return b = Math.sign(b)*((Math.abs(b)/1000000000).toFixed(1)) + " B"
                 })
                 // Converts string to all caps for ticker symbols (btc = BTC)
-                props.tickerArray.map(ee => {
+                props.tickerArray.forEach(ee => {
                   if(i === ee)
                     b = b.toUpperCase();
                 })
                 // Converts and styles datascience output into strings (Gain and Loss) instead of (-1.0 and 1.0)
-                props.predictionsArray.map(ee => {
+                props.predictionsArray.forEach(ee => {
                   if(i === ee)
                     if(b === "1.0")
                     b = <p style={{  color: 'green' }}>Gain</p>
@@ -111,7 +111,7 @@ export default function DashboardTableRow(props) {
                     b = <p style={{ color: 'red' }}>Loss</p>
                 })
                 // Converts and styles percentage gain/loss into styled ones
-                props.percentageArray.map(ee => {
+                props.percentageArray.forEach(ee => {
                   if(i === ee)
                     if(b > 0)
                       b = <p style={{ color: 'green' }}>{b.toFixed(2)} %</p>
