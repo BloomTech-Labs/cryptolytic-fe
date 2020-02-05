@@ -7,11 +7,7 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class IndexChart extends Component {
-	state = {
-		chartArray: [],
-		nestedArray: [],
-		loading: false
-    };
+	state = {};
     getDerivedStateFromProps(props) {
         this.setState({
             ...this.state
@@ -21,7 +17,6 @@ class IndexChart extends Component {
         this.setState({
             ...this.state
         })
-        console.log(this.props.options)
     }
     componentDidUpdate(props) {
     }
@@ -35,7 +30,7 @@ class IndexChart extends Component {
         )
         else
         return (
-            <p>loading</p>
+            <></>
         )}
 }
 

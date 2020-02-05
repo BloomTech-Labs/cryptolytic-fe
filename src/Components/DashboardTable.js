@@ -34,13 +34,15 @@ const useStyles = makeStyles({
 		background: '#23282D',
 	},
 	tableHeadCell: {
-		padding: '0.5em 0px',
+		padding: '1em 0px',
 		position: 'sticky',
 		top: '0px',
 		background: 'rgb(25, 30, 35)',
 		fontWeight: 'bold',
 		color: 'rgb(112, 112, 112)',
-		borderBottom: '1px solid rgba(35, 32, 44, 0.9)'
+		borderBottom: '1px solid rgba(35, 32, 44, 0.9)',
+		fontFamily: 'Titillium Web',
+		fontSize: '1em',
 	}
 });
 const override = css`
@@ -57,27 +59,7 @@ export default function DashboardTable(props) {
 		setData: false,
 		formatData: false,
 	})
-
-	///// Working Trading configuration
-	// let deletedColumns = ['_id', 'trade_time', '__v'];
-	// let orderedColumns = ['date', 'time', 'period', 'exchange', 'trading_pair', 'trade_price', 'percentage'].reverse()
-	// let tradingPairArray = [4]
-	// let exchangeArray = [3]
-	// let percentageArray = [6]
-	// let fiatArray = [5]
-	// let cryptoArray = []
-	// let endpointUrl = "https://cryptolytic-starter.herokuapp.com/trading"
-
-	///// Working Arbitrage configuration
-	// let deletedColumns = ['_id', 'trade_time', '__v'];
-	// let orderedColumns = ['date', 'time', 'buy_exchange', 'sell_exchange', 'trading_pair', 'price_difference', 'arbitrage_percentage'].reverse()
-	// let tradingPairArray = [4]
-	// let exchangeArray = [2,3]
-	// let percentageArray = [6]
-	// let fiatArray = []
-	// let cryptoArray = [5]
-	// let endpointUrl = "https://cryptolytic-starter.herokuapp.com/arbitrage"
-
+	// When creating formatters for column types, they must be added below and passed into the DashboardTableRow component
 	let deletedColumns = props.deletedColumns;
 	let orderedColumns = props.orderedColumns;
 	let tradingPairArray = props.tradingPairArray;
@@ -88,11 +70,15 @@ export default function DashboardTable(props) {
 	let endpointUrl = props.endpointUrl;
 	let largeNumberArray = props.largeNumberArray;
 	let tickerArray = props.tickerArray;
+	let predictionsArray = props.predictionsArray;
 
 	useEffect(() => {
 		axios
 			.get(endpointUrl)
 			.then(res => {
+				res.data.data ?
+				setData(res.data.data)
+				:
 				setData(res.data);
 				setLoading({
 					...loading,
@@ -102,25 +88,36 @@ export default function DashboardTable(props) {
 			.catch(err => console.log(err.response));
 	}, []);
 	useEffect(() => {
-		// Capture and converts endpoint's time into seperate date AND time
+		// Capture and converts endpoint's unix timestamp into seperate date AND time
 		data.map((e, i) => {
-			let convertTime = new Date(e.trade_time * 1000)
-			let date = convertTime.toLocaleDateString();
-			let time = convertTime.toLocaleTimeString();
-			// should later be passed in as props
-			// uses array of strings to delete corresponding key
+			let tradeTime;
+			let convertTime;
+			let date;
+			let time;
+			if(e.trade_time)
+			tradeTime = e.trade_time
+			convertTime = new Date(tradeTime * 1000)
+			date = convertTime.toLocaleDateString();
+			time = convertTime.toLocaleTimeString();
+			if(e.timestamp)
+			tradeTime = e.timestamp
+			convertTime = new Date(tradeTime)
+			date = convertTime.toLocaleDateString();
+			time = convertTime.toLocaleTimeString();
+			// uses array of strings passed in the (deletedColumns) array to delete corresponding key
 			deletedColumns.map((ee, i) => {
 				delete e[ee]
 			})
-			// prepend date and time into data's object this iteration.
-			if (e.trade_time)
+			// If trade_time column exists, prepends readable date and time columns (created above) into first two positions of all columns
+			if (tradeTime)
 				data[i] = {
 					date,
 					time,
 					...data[i]
 				}
-			// orders columns based on order of strings in array
-			// currently appends results after date, time. will change this soon
+			// Orders columns based on order of strings in (orderedColumns) array
+			// If using date and time (created above), input these into the array to change position
+			// date and time count as ONE position!
 			orderedColumns.map(ee => {
 				Object.keys(data[i]).map((eee, ii) => {
 					if (ee === eee)
@@ -134,7 +131,9 @@ export default function DashboardTable(props) {
 				...loading,
 				formatData: true
 			})
-			console.log(data, "Use this order/formation to determine/calculate prop values")
+			// This console.log should assist with configurating the exact position of columns 
+			// This should also help when determining where to apply specific formatters
+			// console.log(data, "Use this order/formation to determine/calculate prop values")
 		}
 		)
 	}, [data]);
@@ -154,7 +153,7 @@ export default function DashboardTable(props) {
 					<TableHead className={classes.tableHeader}>
 						<TableRow className={classes.tableHeadRow}>
 							{data[0] ?
-								// formats column headers (or keys) to readable format
+								// Formats column headers (or keys) to remove underscores and use proper capitalization
 								Object.keys(data[0]).map((e, i) => {
 									e = e.replace(/\_/g, " ").split(" ").map(e => {
 										return e.charAt(0).toUpperCase() + e.substr(1)
@@ -164,7 +163,8 @@ export default function DashboardTable(props) {
 								: <></>}
 						</TableRow>
 					</TableHead>
-					<DashboardTableRow loading={loading} data={data} tradingPairArray={tradingPairArray} exchangeArray={exchangeArray} fiatArray={fiatArray} percentageArray={percentageArray} largeNumberArray={largeNumberArray} tickerArray={tickerArray} />
+					{/* Should create a single reference to pass into props */}
+					<DashboardTableRow loading={loading} data={data} tradingPairArray={tradingPairArray} exchangeArray={exchangeArray} fiatArray={fiatArray} percentageArray={percentageArray} largeNumberArray={largeNumberArray} tickerArray={tickerArray} predictionsArray={predictionsArray}/>
 				</Table>
 			</TableContainer>
 	);

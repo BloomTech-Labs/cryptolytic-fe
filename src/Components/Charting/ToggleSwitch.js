@@ -40,9 +40,12 @@ const ToggleChartSwitch = withStyles(theme => ({
 }))(Switch);
 
 const ToggleSwitch = props => {
+  // Boolen value in redux for whether a user as toggled the switch for second exchange or not
   const { toggled, setToggled } = props;
 
+  // Will change the boolen value to whatever the opposite of the current value is in redux
   const handleToggleChanges = () => {
+    // Set Toggled action creator in redux
     setToggled(!toggled);
   };
   return (

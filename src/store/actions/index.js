@@ -71,3 +71,85 @@ export const setToggled = toggle => dispatch => {
   console.log(toggle);
   dispatch({ type: TOGGLE_SWITCH_START, payload: toggle });
 };
+
+// Sign In
+
+export const USER_SIGNIN_START = "USER_SIGNIN_START";
+export const USER_SIGNIN_SUCCESS = "USER_SIGNIN_SUCCESS";
+export const USER_SIGNIN_FAILURE = "USER_SIGNIN_FAILURE";
+
+export const signIn = credentials => {
+  return async (dispatch, getState, { getFirebase }) => {
+    dispatch({ type: USER_SIGNIN_START });
+    const firebase = getFirebase();
+
+    try {
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(credentials.email, credentials.password);
+
+      const idToken = await firebase.auth().currentUser.getIdToken(true);
+
+      localStorage.setItem("firebase_jwt", idToken);
+
+      const response = await axios.post(
+        "https://cryptolytic-backend-production.herokuapp.com/api/auth/login",
+        {},
+        {
+          headers: {
+            Authorization: idToken
+          }
+        }
+      );
+
+      dispatch({ type: USER_SIGNIN_SUCCESS });
+
+      console.log("sign in response", response);
+    } catch (error) {
+      dispatch({ type: USER_SIGNIN_FAILURE, payload: error });
+      console.log("sign in response", error);
+    }
+  };
+};
+
+// Sign Up
+
+export const USER_SIGNUP_START = "USER_SIGNUP_START";
+export const USER_SIGNUP_SUCCESS = "USER_SIGNUP_SUCCESS";
+export const USER_SIGNUP_FAILURE = "USER_SIGNUP_FAILURE";
+
+export const signUp = credentials => {
+  return async (dispatch, getState, { getFirebase }) => {
+    dispatch({ type: USER_SIGNUP_START });
+    const firebase = getFirebase();
+
+    try {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(
+          credentials.email,
+          credentials.password
+        );
+
+      const idToken = await firebase.auth().currentUser.getIdToken(true);
+
+      localStorage.setItem("firebase_jwt", idToken);
+
+      const response = await axios.post(
+        "https://cryptolytic-backend-production.herokuapp.com/api/auth/register",
+        {},
+        {
+          headers: {
+            Authorization: idToken
+          }
+        }
+      );
+
+      console.log("response>>>>", response);
+      dispatch({ type: USER_SIGNUP_SUCCESS });
+    } catch (error) {
+      console.log("sign up error", error);
+      dispatch({ type: USER_SIGNUP_FAILURE, payload: error });
+    }
+  };
+};
