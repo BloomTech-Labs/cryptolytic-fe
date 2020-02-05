@@ -52,7 +52,6 @@ export default function DashboardTableRow(props) {
           props.data.map(e => 
           <TableRow className={classes.tableRow}>
             {Object.values(e).map((b, i) => {
-              let styling = null
               //// if statements should be nested in array of strings or integers that try to match on each iteration
               //// Converts trading pair from btc_usd to "BTC/USD"
                 props.tradingPairArray.forEach(ee => {
@@ -105,9 +104,9 @@ export default function DashboardTableRow(props) {
                 // Converts and styles datascience output into strings (Gain and Loss) instead of (-1.0 and 1.0)
                 props.predictionsArray.forEach(ee => {
                   if(i === ee)
-                    if(b === "1.0")
+                    if(b === "1")
                     b = <p style={{  color: 'green' }}>Gain</p>
-                    if(b === "-1.0")
+                    if(b === "-1")
                     b = <p style={{ color: 'red' }}>Loss</p>
                 })
                 // Converts and styles percentage gain/loss into styled ones
