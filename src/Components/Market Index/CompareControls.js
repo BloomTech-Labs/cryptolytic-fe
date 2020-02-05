@@ -142,38 +142,11 @@ export default function CompareControl(props) {
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Container className={classes.controlsContainer}>
 				<div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginTop: '1em', flexDirection: 'column' }}>
-					{!toggleEdit ? 
-						<div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-							<span style={{ width: '60%' }}>{presetName}</span>
-							<Fab color="secondary" aria-label="edit" size="small" style={{ width: '20%', marginRight: 5 }} onClick={handleToggleOpen}>
-								<EditIcon fontSize="small" onClick={handleToggleOpen} />
-							</Fab>
+						<div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
 							<Fab color="primary" aria-label="color" size="small" style={{ width: '20%'}} onClick={handleColorClick}>
 								<ColorLensIcon  fontSize="small" onClick={handleColorClick} />
 							</Fab>
 						</div>
-					:
-						<div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-							<TextField
-								defaultValue={presetName}
-								onChange={event => setPendingPresetName(event.target.value)}
-								style={{ width: '60%', backgroundColor: 'white' }}
-								/>
-							<Fab color="secondary" aria-label="edit" size="small" style={{ width: '20%', marginRight: 5 }} onClick={handleToggleClose}>
-								<CloseIcon fontSize="small" onClick={handleToggleClose} />
-							</Fab>
-							<Fab color="secondary" aria-label="edit" size="small" style={{ width: '20%', marginRight: 5 }} onClick={handlePresetNameSave}>
-								<SaveIcon fontSize="small" onClick={handlePresetNameSave} />
-							</Fab>
-						</div>
-					}
-					<div style={{ width: '100%', margin: '1em 0' }}>
-						<Select value={10} style={{ width: '100%', color: 'white' }}>
-							<MenuItem value={10}>Select/Load Preset</MenuItem>
-							<MenuItem value={20}>Stonks</MenuItem>
-							<MenuItem value={30}>More Stonks</MenuItem>
-						</Select>
-					</div>
 					<Menu
 						id="customized-menu"
 						anchorEl={anchorEl}
