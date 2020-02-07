@@ -97,4 +97,6 @@ Run yarn install or NPM install to download all of the needed dependencies.
 
 ## Documentation
 
+See [Front End Documentation](https://docs.google.com/document/d/1tDX_qEnSpE9_kzNrkNrNhdQvrF57MTUQ95c0eFOMiaE/edit) for details on how the reusable components were designed for the table and other features within the Front End.
+
 See [Backend Documentation](*) for details on the backend of our project.
